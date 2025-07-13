@@ -48,6 +48,12 @@
       text-transform: uppercase;
     }
 
+    nav .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     nav a {
       margin: 0 24px;
       text-decoration: none;
@@ -82,6 +88,38 @@
     nav a:focus {
       outline: 2px solid #00e5ff;
       outline-offset: 2px;
+    }
+
+    #nav-toggle {
+      display: none;
+      background: linear-gradient(45deg, #00bcd4, #00e5ff);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #00bcd4aa;
+    }
+
+    #nav-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #00e5ffcc;
+    }
+
+    #nav-toggle::before {
+      content: '☰';
+    }
+
+    #nav-toggle[aria-expanded="true"]::before {
+      content: '×';
     }
 
     /* HEADER */
@@ -505,6 +543,193 @@
       box-shadow: 0 0 50px #00e5ffcc;
     }
 
+    /* EXPERIENCE SECTION */
+    #experience {
+      padding-bottom: 140px;
+      position: relative;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #00bcd4, #00e5ff);
+      transform: translateX(-50%);
+      animation: drawLine 1.5s ease-out forwards;
+      box-shadow: 0 0 10px #00bcd4aa;
+    }
+
+    @keyframes drawLine {
+      0% { transform: translateX(-50%) scaleY(0); transform-origin: top; }
+      100% { transform: translateX(-50%) scaleY(1); transform-origin: top; }
+    }
+
+    .experience-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      position: relative;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .experience-item.left {
+      justify-content: flex-end;
+      transform: translateX(-50px);
+    }
+
+    .experience-item.right {
+      justify-content: flex-start;
+      transform: translateX(50px);
+    }
+
+    .experience-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      background: #00e5ff;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px #00e5ffaa, 0 0 20px #00e5ff66;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .timeline-dot:hover, .timeline-dot:focus {
+      transform: translateX(-50%) scale(1.2);
+      box-shadow: 0 0 15px #00e5ffcc, 0 0 25px #00e5ff88;
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid #00bcd488;
+      border-radius: 18px;
+      padding: 20px;
+      width: 45%;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      position: relative;
+    }
+
+    .experience-item.left .experience-card {
+      margin-right: 60px;
+    }
+
+    .experience-item.right .experience-card {
+      margin-left: 60px;
+    }
+
+    .experience-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #00e5ffcc;
+    }
+
+    .experience-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+      loading: lazy;
+    }
+
+    .experience-card img:hover {
+      transform: scale(1.1);
+    }
+
+    .experience-card h3 {
+      font-size: 1.6rem;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00bcd4cc;
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .experience-card .company {
+      font-size: 1.2rem;
+      color: #81d4fa;
+      margin-bottom: 8px;
+    }
+
+    .experience-card .details {
+      font-size: 0.95rem;
+      color: #b0e3f5;
+      margin-bottom: 12px;
+    }
+
+    .experience-card .description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0f7fa;
+      margin-bottom: 15px;
+    }
+
+    .experience-card .extra-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0f7fa;
+    }
+
+    .experience-card .extra-details.expanded {
+      max-height: 200px; /* Adjust based on content */
+    }
+
+    .experience-card .show-more {
+      background: linear-gradient(45deg, #00bcd4, #00e5ff);
+      border: none;
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .experience-card .show-more:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00e5ffcc;
+    }
+
+    .experience-card .show-more:focus {
+      outline: 2px solid #00e5ff;
+      outline-offset: 2px;
+    }
+
+    .experience-card a {
+      color: #00bcd4;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    .experience-card a:hover {
+      border-color: #00e5ff;
+    }
+
     /* CONTACT SECTION */
     #contact {
       background: #111;
@@ -643,49 +868,112 @@
       transform: translateY(0);
     }
 
-    /* Media query for smaller screens */
+    /* Media query for mobile responsiveness */
     @media (max-width: 768px) {
+      nav a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+      }
+
       #three-bg {
         transform: scale(0.7);
       }
+
       h1 {
         font-size: 2.8rem;
       }
+
       .typed-role {
         font-size: 1.4rem;
       }
+
       .about-photo img {
         width: 180px;
         height: 180px;
       }
+
       .about-text p {
         font-size: 1.1rem;
         line-height: 1.7;
       }
+
       .project-card img {
         height: 150px;
       }
+
       .project-card h3 {
         font-size: 1.3rem;
       }
+
       .project-card p {
         font-size: 0.95rem;
       }
+
       .project-filters {
         flex-wrap: wrap;
         gap: 10px;
       }
+
       .filter-btn {
         padding: 8px 16px;
         font-size: 0.9rem;
       }
+
       .modal-content {
         max-width: 90vw;
         max-height: 85vh;
       }
+
+      .timeline-line {
+        width: 2px;
+        left: 30px;
+      }
+
+      .timeline-dot {
+        left: 30px;
+        width: 16px;
+        height: 16px;
+        top: 15px;
+      }
+
+      .experience-item.left, .experience-item.right {
+        justify-content: flex-start;
+        transform: translateX(0);
+      }
+
+      .experience-card {
+        width: 100%;
+        margin-left: 50px;
+        margin-right: 20px;
+      }
+
+      .experience-item.left .experience-card,
+      .experience-item.right .experience-card {
+        margin-right: 20px;
+      }
+
+      .experience-card img {
+        width: 60px;
+        height: 60px;
+      }
+
+      .experience-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .experience-card .company {
+        font-size: 1.1rem;
+      }
+
+      .experience-card .description,
+      .experience-card .extra-details {
+        font-size: 0.95rem;
+      }
+
       #audioVisualizer {
         height: 100px;
       }
+
       #audioToggle {
         bottom: 120px;
         width: 40px;
@@ -693,15 +981,52 @@
         font-size: 1rem;
       }
     }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 10px 0;
+      }
+
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        border-top: 1px solid #00bcd4aa;
+        box-shadow: 0 4px 8px #00bcd411;
+      }
+
+      nav .nav-links.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      #nav-toggle {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
   <nav aria-label="Main navigation">
-    <a href="#home" class="active" aria-current="page">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#home" class="active" aria-current="page">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"></button>
   </nav>
 
   <header id="home">
@@ -748,15 +1073,15 @@
         <div class="project-card-content">
           <span class="category">Coding</span>
           <h3>Xdezo Bot</h3>
-          <p>Django-based web app with real-time ordering, group cart, Khalti payments, and lost & found system. <a href="https://web.telegram.org/k/#@XdezoBot" target="_blank" rel="noopener noreferrer" aria-label="View Informatics Cafeteria live demo">View Live</a></p>
+          <p>Telegram bot with real-time ordering, group cart, and lost & found system. Tech Stack: Python, Django, JavaScript, HTML, CSS, Khalti API. <a href="https://web.telegram.org/k/#@XdezoBot" target="_blank" rel="noopener noreferrer" aria-label="View Xdezo Bot live demo">View Live</a></p>
         </div>
       </div>
       <div class="project-card" data-category="coding">
-        <img src="https://via.placeholder.com/320x200?text=Ghost+Class+AI" alt="Ghost Class AI screenshot" />
+        <img src="https://via.placeholder.com/320x200?text=Himalayan+Peaks+Recommendation+System" alt="Himalayan Peaks Recommendation System screenshot" />
         <div class="project-card-content">
           <span class="category">Coding</span>
-          <h3>Ghost Class AI</h3>
-          <p>AI-driven plagiarism and cheating detection platform with advanced code & content analysis. <a href="https://github.com/biwashgurung/ghost-class-ai" target="_blank" rel="noopener noreferrer" aria-label="View Ghost Class AI on GitHub">View on GitHub</a></p>
+          <h3>Himalayan Peaks Recommendation System</h3>
+          <p>AI-driven system for personalized Himalayan peak recommendations. Tech Stack: Python, AI/ML, HTML, CSS, JavaScript. <a href="https://github.com/biwashgurung/himalayan-peaks" target="_blank" rel="noopener noreferrer" aria-label="View Himalayan Peaks Recommendation System on GitHub">View on GitHub</a></p>
         </div>
       </div>
       <div class="project-card" data-category="coding">
@@ -764,7 +1089,7 @@
         <div class="project-card-content">
           <span class="category">Coding</span>
           <h3>Little Heart Pet Shop</h3>
-          <p>Pet shop website with booking, Google Calendar integration, and admin dashboard. <a href="https://little-heart-pet-shop.demo" target="_blank" rel="noopener noreferrer" aria-label="View Little Heart Pet Shop live demo">View Live</a></p>
+          <p>Pet shop website with booking and admin dashboard. Tech Stack: Python, Django, HTML, CSS, JavaScript, Google Calendar API. <a href="https://little-heart-pet-shop.demo" target="_blank" rel="noopener noreferrer" aria-label="View Little Heart Pet Shop live demo">View Live</a></p>
         </div>
       </div>
       <div class="project-card" data-category="uiux">
@@ -772,7 +1097,7 @@
         <div class="project-card-content">
           <span class="category">UI/UX</span>
           <h3>Bytesoft Nepal UI Prototype</h3>
-          <p>Figma-designed prototype for a book catalog website with intuitive navigation and responsive layouts. <a href="https://www.figma.com/proto/ygG4GKiixFvZEuWoTe9wT7/ByteSoft-Nepal?node-id=0-1&t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View WebArch UI Prototype on Figma">View on Figma</a></p>
+          <p>Book catalog UI with intuitive navigation and responsive design. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/ygG4GKiixFvZEuWoTe9wT7/ByteSoft-Nepal?node-id=0-1&t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Bytesoft Nepal UI Prototype on Figma">View on Figma</a></p>
         </div>
       </div>
       <div class="project-card" data-category="uiux">
@@ -780,27 +1105,19 @@
         <div class="project-card-content">
           <span class="category">UI/UX</span>
           <h3>Dexy Architecture Co. UI</h3>
-          <p>Modern UI design for Bytesoft Nepal's digital marketing page, featuring a hero section and service grid. <a href="https://www.figma.com/proto/Ko3e5sFx7FmYoKccqoRuF8/Dexy-Architecture-Co.?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Bytesoft Nepal UI on Figma">View on Figma</a></p>
+          <p>Modern digital marketing UI with hero section and service grid. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/Ko3e5sFx7FmYoKccqoRuF8/Dexy-Architecture-Co.?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Dexy Architecture Co. UI on Figma">View on Figma</a></p>
         </div>
       </div>
-       <div class="project-card" data-category="uiux">
+      <div class="project-card" data-category="uiux">
         <img src="Images/restro.png" alt="Restro Landing Page UI Design" />
         <div class="project-card-content">
           <span class="category">UI/UX</span>
           <h3>Restro Landing Page UI</h3>
-          <p>Modern UI design for Bytesoft Nepal's digital marketing page, featuring a hero section and service grid. <a href="https://www.figma.com/proto/ROEqiWS9BK2hmTURUuqRDa/Restro-Landing-Page?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Bytesoft Nepal UI on Figma">View on Figma</a></p>
+          <p>Restaurant landing page UI with vibrant design and smooth navigation. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/ROEqiWS9BK2hmTURUuqRDa/Restro-Landing-Page?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Restro Landing Page UI on Figma">View on Figma</a></p>
         </div>
       </div>
       <div class="project-card" data-category="graphic">
-        <img src="Images/DESIGN_1.png" alt=" Card Design" class="graphic-img" data-fullsrc="Images/DESIGN_1.png" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <img src="Images/Blue_Sky_Industries_Package_Mockup_1.png" alt=" Card Design" class="graphic-img" data-fullsrc="Images/Blue_Sky_Industries_Package_Mockup_1.png" />
+        <img src="Images/DESIGN_1.png" alt="Bytesoft Nepal Business Card Design" class="graphic-img" data-fullsrc="Images/DESIGN_1.png" />
         <div class="project-card-content">
           <span class="category">Graphic Design</span>
           <h3>Bytesoft Nepal Business Card</h3>
@@ -808,41 +1125,45 @@
         </div>
       </div>
       <div class="project-card" data-category="graphic">
-        <img src="Images/Bytesoft_logo_10.png" alt=" Card Design" class="graphic-img" data-fullsrc="Images/Bytesoft_logo_10.png" />
+        <img src="Images/Blue_Sky_Industries_Package_Mockup_1.png" alt="Blue Sky Industries Package Mockup" class="graphic-img" data-fullsrc="Images/Blue_Sky_Industries_Package_Mockup_1.png" />
         <div class="project-card-content">
           <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
+          <h3>Blue Sky Industries Package Mockup</h3>
+          <p>Professional package design with a clean layout and modern typography for Blue Sky Industries.</p>
         </div>
       </div>
-
-       <div class="project-card" data-category="graphic">
-        <img src="Images/Littlle_Heart_Cloth_tag_3.png" alt=" Card Design" class="graphic-img" data-fullsrc="Images/Littlle_Heart_Cloth_tag_3.png" />
+      <div class="project-card" data-category="graphic">
+        <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal Logo Design" class="graphic-img" data-fullsrc="Images/Bytesoft_logo_10.png" />
         <div class="project-card-content">
           <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
+          <h3>Bytesoft Nepal Logo</h3>
+          <p>Modern logo design with a teal gradient and sleek typography for Bytesoft Nepal.</p>
         </div>
       </div>
-
-       <div class="project-card" data-category="graphic">
-        <img src="Images/मातातिर्थ औंसी_01.jpg" alt=" Card Design" class="graphic-img" data-fullsrc="Images/मातातिर्थ औंसी_01.jpg" />
+      <div class="project-card" data-category="graphic">
+        <img src="Images/Littlle_Heart_Cloth_tag_3.png" alt="Little Heart Cloth Tag Design" class="graphic-img" data-fullsrc="Images/Littlle_Heart_Cloth_tag_3.png" />
         <div class="project-card-content">
           <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
+          <h3>Little Heart Cloth Tag</h3>
+          <p>Creative cloth tag design with vibrant colors and modern typography for Little Heart.</p>
         </div>
       </div>
-
-        <div class="project-card" data-category="graphic">
-        <img src="Images/gaantrantra.gif" alt=" Card Design" class="graphic-img" data-fullsrc="Images/gaantrantra.gif" />
+      <div class="project-card" data-category="graphic">
+        <img src="Images/मातातिर्थ औंसी_01.jpg" alt="Matatirtha Aunsi Poster Design" class="graphic-img" data-fullsrc="Images/मातातिर्थ औंसी_01.jpg" />
         <div class="project-card-content">
           <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
+          <h3>Matatirtha Aunsi Poster</h3>
+          <p>Cultural poster design with traditional elements and modern typography for Matatirtha Aunsi.</p>
         </div>
       </div>
-      
+      <div class="project-card" data-category="graphic">
+        <img src="Images/gaantrantra.gif" alt="Gantantra Diwas Animation" class="graphic-img" data-fullsrc="Images/gaantrantra.gif" />
+        <div class="project-card-content">
+          <span class="category">Graphic Design</span>
+          <h3>Gantantra Diwas Animation</h3>
+          <p>Dynamic animated graphic with patriotic themes for Gantantra Diwas celebration.</p>
+        </div>
+      </div>
     </div>
     <div class="modal" id="imageModal" role="dialog" aria-label="Graphic design image popup">
       <div class="modal-content">
@@ -862,6 +1183,49 @@
       <div class="skill-card">AI & Machine Learning</div>
       <div class="skill-card">HTML, CSS & Bootstrap</div>
       <div class="skill-card">MySQL, Sqlite, PostgreSQL & APIs</div>
+    </div>
+  </section>
+
+  <section id="experience" class="fade-up" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Experience</h2>
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      <div class="experience-item left" data-index="0">
+        <div class="timeline-dot" tabindex="0" aria-label="XDezo Technologies timeline point"></div>
+        <div class="experience-card">
+          <img src="https://via.placeholder.com/80x80?text=XDezo+Logo" alt="XDezo Technologies logo" />
+          <h3>Django Developer</h3>
+          <div class="company">XDezo Technologies · Internship</div>
+          <div class="details">Dec 2024 - Apr 2025 · 5 mos · Pokhara, Gandaki, Nepal · Hybrid</div>
+          <div class="description">Developed Xdezo Bot, a Telegram chatbot with real-time ordering and Khalti API integration, using Python, Django, and MySQL. Fixed intent recognition bugs and optimized backend performance. <a href="#projects" aria-label="View Xdezo Bot in projects section">See Project</a></div>
+          <div class="extra-details" id="extra-details-0">Improved response time by 30% through query optimization and caching. Collaborated with a team of 4 developers to integrate user feedback, enhancing bot functionality.</div>
+          <button class="show-more" data-target="extra-details-0" aria-expanded="false" aria-controls="extra-details-0" aria-label="Show more details about XDezo Technologies role">Show More</button>
+        </div>
+      </div>
+      <div class="experience-item right" data-index="1">
+        <div class="timeline-dot" tabindex="0" aria-label="Coze Zenith Nepal timeline point"></div>
+        <div class="experience-card">
+          <img src="https://via.placeholder.com/80x80?text=Coze+Zenith+Logo" alt="Coze Zenith Nepal logo" />
+          <h3>Web Developer</h3>
+          <div class="company">Coze Zenith Nepal · Full-time</div>
+          <div class="details">Nov 2024 - Apr 2025 · 6 mos · Pokhara, Gandaki, Nepal · On-site</div>
+          <div class="description">Contributed to a startup founded with classmates, developing responsive web applications using HTML, CSS, JavaScript, and Django. Collaborated on building scalable solutions to support early-stage growth. <a href="#projects" aria-label="View Coze Zenith Nepal projects in projects section">See Projects</a></div>
+          <div class="extra-details" id="extra-details-1">Designed and implemented front-end interfaces and backend APIs, improving user experience and system efficiency. Worked closely with a small team to deliver features under tight deadlines.</div>
+          <button class="show-more" data-target="extra-details-1" aria-expanded="false" aria-controls="extra-details-1" aria-label="Show more details about Coze Zenith Nepal role">Show More</button>
+        </div>
+      </div>
+      <div class="experience-item right" data-index="2">
+        <div class="timeline-dot" tabindex="0" aria-label="Bytesoft Nepal timeline point"></div>
+        <div class="experience-card">
+          <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal logo" />
+          <h3>Visual Designer / Django Developer</h3>
+          <div class="company">Bytesoft Nepal · Full-time</div>
+          <div class="details">Apr 2025 - Present · 4 mos · Pokhara, Gandaki, Nepal · On-site</div>
+          <div class="description">Designed UI/UX prototypes in Figma for web applications and developed scalable Django-based systems, including a book catalog UI and pet shop platform. Enhanced user engagement through responsive designs. <a href="#projects" aria-label="View Bytesoft Nepal UI Prototype in projects section">See Projects</a></div>
+          <div class="extra-details" id="extra-details-2">Led a redesign of the pet shop platform’s UI, increasing user retention by 25%. Integrated PostgreSQL for efficient data handling and collaborated on API integrations with payment gateways.</div>
+          <button class="show-more" data-target="extra-details-2" aria-expanded="false" aria-controls="extra-details-2" aria-label="Show more details about Bytesoft Nepal role">Show More</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -885,19 +1249,44 @@
     const sections = document.querySelectorAll('section, header');
 
     function activateNavLink() {
-      let scrollPos = window.scrollY + window.innerHeight / 3;
-      sections.forEach(section => {
-        if (scrollPos > section.offsetTop) {
-          navLinks.forEach(link => link.classList.remove('active'));
-          const id = section.getAttribute('id');
-          const activeLink = [...navLinks].find(link => link.getAttribute('href') === '#' + id);
-          if (activeLink) activeLink.classList.add('active');
-        }
-      });
+      const scrollPos = window.scrollY + window.innerHeight * 0.9;
+      let activeSection = null;
+
+      // Check if near the bottom of the page
+      if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 50) {
+        activeSection = document.getElementById('contact');
+      } else {
+        // Find the section currently in view
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            activeSection = section;
+          }
+        });
+      }
+
+      // Update active link
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (activeSection) {
+        const id = activeSection.getAttribute('id');
+        const activeLink = [...navLinks].find(link => link.getAttribute('href') === '#' + id);
+        if (activeLink) activeLink.classList.add('active');
+      }
     }
 
     window.addEventListener('scroll', activateNavLink);
     activateNavLink();
+
+    // HAMBURGER MENU TOGGLE
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinksContainer = document.getElementById('nav-links');
+
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinksContainer.classList.toggle('active');
+    });
 
     // SCROLL FADE-UP ANIMATIONS
     const fadeElems = document.querySelectorAll('.fade-up');
@@ -909,6 +1298,12 @@
             const tags = entry.target.querySelectorAll('.about-text li');
             tags.forEach((tag, index) => {
               setTimeout(() => tag.classList.add('visible'), index * 100);
+            });
+          }
+          if (entry.target.id === 'experience') {
+            const items = entry.target.querySelectorAll('.experience-item');
+            items.forEach((item, index) => {
+              setTimeout(() => item.classList.add('visible'), index * 200);
             });
           }
           observer.unobserve(entry.target);
@@ -926,7 +1321,7 @@
       'Core Frontend Developer',
       'Creative Problem Solver',
       'AI & ML Enthusiast',
-      'Visual Designer',
+      'Visual Designer'
     ];
     let roleIndex = 0;
     let charIndex = 0;
@@ -1007,6 +1402,27 @@
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         modal.classList.remove('active');
       }
+    });
+
+    // EXPERIENCE SHOW MORE TOGGLE
+    const showMoreButtons = document.querySelectorAll('.show-more');
+
+    showMoreButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        const extraDetails = document.getElementById(targetId);
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !isExpanded);
+        extraDetails.classList.toggle('expanded');
+        button.textContent = isExpanded ? 'Show More' : 'Show Less';
+      });
+
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
+        }
+      });
     });
 
     // THREE.JS PARTICLE SYSTEM SETUP
