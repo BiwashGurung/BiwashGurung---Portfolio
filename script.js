@@ -110,59 +110,7 @@ function type() {
 }
 type();
 
-/* PROJECT FILTER */
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
 
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const filter = button.getAttribute('data-filter');
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    projectCards.forEach((card, index) => {
-      const category = card.getAttribute('data-category');
-      if (filter === 'all' || filter === category) {
-        card.classList.remove('hidden');
-        setTimeout(() => card.classList.add('visible'), index * 150);
-      } else {
-        card.classList.remove('visible');
-        card.classList.add('hidden');
-      }
-    });
-  });
-});
-
-/* MODAL FOR GRAPHIC DESIGN IMAGES */
-const modal = document.getElementById('imageModal');
-const modalImg = document.getElementById('modalImage');
-const modalClose = document.querySelector('.modal-close');
-const graphicImgs = document.querySelectorAll('.graphic-img');
-
-graphicImgs.forEach(img => {
-  img.addEventListener('click', () => {
-    modal.classList.add('active');
-    modalImg.src = img.getAttribute('data-fullsrc');
-    modalImg.alt = img.alt;
-    modal.focus();
-  });
-});
-
-modalClose.addEventListener('click', () => {
-  modal.classList.remove('active');
-});
-
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('active');
-  }
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('active')) {
-    modal.classList.remove('active');
-  }
-});
 
 /* EXPERIENCE SHOW MORE TOGGLE */
 const showMoreButtons = document.querySelectorAll('.show-more');
