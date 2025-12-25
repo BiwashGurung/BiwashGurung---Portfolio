@@ -912,78 +912,7 @@ footer {
   letter-spacing: 0.1em;
 }
 
-/* AUDIO VISUALIZER CANVAS */
-#audioVisualizer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 120px;
-  z-index: 9;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  border-top: 2px solid #00bcd4;
-  box-shadow: 0 0 20px #00bcd4aa, inset 0 0 30px #00e5ff44;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  animation: pulseGlow 2s ease-in-out infinite;
-}
 
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 20px #00bcd4aa, inset 0 0 30px #00e5ff44; }
-  50% { box-shadow: 0 0 30px #00e5ffcc, inset 0 0 40px #00e5ff66; }
-  100% { box-shadow: 0 0 20px #00bcd4aa, inset 0 0 30px #00e5ff44; }
-}
-
-#audioToggle {
-  position: fixed;
-  bottom: 140px;
-  right: 20px;
-  background: linear-gradient(45deg, #00bcd4, #00e5ff);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  color: #000;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 0 15px #00bcd4, 0 0 25px #00e5ff88;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: buttonPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes buttonPulse {
-  0% { transform: scale(1); box-shadow: 0 0 15px #00bcd4, 0 0 25px #00e5ff88; }
-  50% { transform: scale(1.05); box-shadow: 0 0 20px #00e5ff, 0 0 35px #00e5ffaa; }
-  100% { transform: scale(1); box-shadow: 0 0 15px #00bcd4, 0 0 25px #00e5ff88; }
-}
-
-#audioToggle:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 25px #00e5ff, 0 0 40px #00e5ffcc;
-  background: linear-gradient(45deg, #00e5ff, #0097a7);
-}
-
-#audioToggle.active::before {
-  content: '♪';
-  animation: iconFadeIn 0.3s ease forwards;
-}
-
-#audioToggle.inactive::before {
-  content: '⭘';
-  animation: iconFadeIn 0.3s ease forwards;
-}
-
-@keyframes iconFadeIn {
-  0% { opacity: 0; transform: scale(0.8); }
-  100% { opacity: 1; transform: scale(1); }
-}
 
 /* Smooth fade-in animations for sections on scroll */
 .fade-up {
