@@ -1,295 +1,694 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Biwash Gurung | Full-Stack Django Developer, UI/UX & AI/ML Enthusiast</title>
-  <meta name="description" content="Biwash Gurung is a Full-Stack Django Developer, UI/UX Designer, and AI/ML Enthusiast based in Nepal, delivering scalable web solutions and creative designs." />
-  <meta name="keywords" content="Biwash Gurung, Full-Stack Developer, Django Developer, UI/UX Designer, AI/ML Enthusiast, Graphic Designer, Nepal, Portfolio" />
-  <meta name="author" content="Biwash Gurung" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#000000ff" />
-  <link rel="canonical" href="https://www.biwashgurung.com.np/" />
-  <meta property="og:title" content="Biwash Gurung | Full-Stack Developer & UI/UX Designer" />
-  <meta property="og:description" content="Explore the portfolio of Biwash Gurung, a skilled Full-Stack Django Developer, UI/UX Designer, and AI Enthusiast from Nepal." />
-  <meta property="og:image" content="https://www.biwashgurung.com.np/Images/profile.jpg" />
-  <meta property="og:url" content="https://www.biwashgurung.com.np/" />
-  <meta property="og:type" content="website" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Biwash Gurung | Full-Stack Django Developer, UI/UX & AI/ML Enthusiast
+    </title>
+    <meta
+      name="description"
+      content="Biwash Gurung is a Full-Stack Django Developer, UI/UX Designer, and AI/ML Enthusiast based in Nepal, delivering scalable web solutions and creative designs."
+    />
+    <meta
+      name="keywords"
+      content="Biwash Gurung, Full-Stack Developer, Django Developer, UI/UX Designer, AI/ML Enthusiast, Graphic Designer, Nepal, Portfolio"
+    />
+    <meta name="author" content="Biwash Gurung" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000ff" />
+    <link rel="canonical" href="https://www.biwashgurung.com.np/" />
+    <meta
+      property="og:title"
+      content="Biwash Gurung | Full-Stack Developer & UI/UX Designer"
+    />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Biwash Gurung, a skilled Full-Stack Django Developer, UI/UX Designer, and AI Enthusiast from Nepal."
+    />
+    <meta
+      property="og:image"
+      content="https://www.biwashgurung.com.np/Images/profile.jpg"
+    />
+    <meta property="og:url" content="https://www.biwashgurung.com.np/" />
+    <meta property="og:type" content="website" />
 
-  <link rel="shortcut icon" href="Images/profile.jpg" type="image/x-icon">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap" as="style" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <nav aria-label="Main navigation">
-    <div class="nav-links" id="nav-links">
-      <a href="#home" class="active" aria-current="page">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <button id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"></button>
-  </nav>
+    <link rel="shortcut icon" href="Images/profile.jpg" type="image/x-icon" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav aria-label="Main navigation">
+      <div class="nav-links" id="nav-links">
+        <a href="#home" class="active" aria-current="page">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button
+        id="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      ></button>
+    </nav>
 
-  <header id="home">
-    <canvas id="three-bg" aria-label="Interactive 3D background"></canvas>
-    <div class="intro">
-      <h1>Biwash Gurung</h1>
-      <div class="typed-role" id="typed-role">Full-Stack Developer | Designer | AI Enthusiast</div>
-      <button id="hireBtn" onclick="window.location.href='#contact'" aria-label="Navigate to contact section">Hire Me</button>
-    </div>
-  </header>
+    <header id="home">
+      <canvas id="three-bg" aria-label="Interactive 3D background"></canvas>
+      <div class="intro">
+        <h1>Biwash Gurung</h1>
+        <div class="typed-role" id="typed-role">
+          Full-Stack Developer | Designer | AI Enthusiast
+        </div>
+        <button
+          id="hireBtn"
+          onclick="window.location.href='#contact'"
+          aria-label="Navigate to contact section"
+        >
+          Hire Me
+        </button>
+      </div>
+    </header>
 
-  <section id="about" class="fade-up" aria-labelledby="about-heading">
-    <h2 id="about-heading">About Me</h2>
-    <div class="about-content">
-      <div class="about-photo">
-        <img src="Images/profile.jpg" alt="Biwash Gurung, Full-Stack Developer and UI/UX Designer" />
+    <section id="about" class="fade-up" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <div class="about-content">
+        <div class="about-photo">
+          <img
+            src="Images/profile.jpg"
+            alt="Biwash Gurung, Full-Stack Developer and UI/UX Designer"
+          />
+        </div>
+        <div class="about-text">
+          <p>
+            I'm Biwash Gurung, a Full-Stack Django Developer and Visual Designer
+            passionate about merging functionality with creativity to craft
+            exceptional digital experiences. I specialize in Django, JavaScript,
+            HTML5, CSS3, MySQL, and modern frameworks like Tailwind CSS and
+            Bootstrap, building scalable and responsive web applications.
+          </p>
+          <p>
+            With a strong foundation in UI/UX design, I use Figma to create
+            user-centered, high-fidelity interfaces. I manage projects from
+            concept to deployment, ensuring each solution is technically robust
+            and aligned with business goals. Driven by continuous learning, I
+            strive to deliver impactful, polished digital products that make a
+            difference.
+            <a
+              href="path/to/resume.pdf"
+              class="resume-link"
+              download
+              aria-label="Download Biwash Gurung's resume"
+              >Download my resume</a
+            >
+            to learn more!
+          </p>
+          <ul aria-label="Key strengths">
+            <li>Full-Stack Development with Python Django</li>
+            <li>UI/UX Design</li>
+            <li>Graphics Design</li>
+            <li>API Integration</li>
+            <li>Database Management</li>
+            <li>Creative Problem Solving</li>
+          </ul>
+        </div>
       </div>
-      <div class="about-text">
-        <p>I'm Biwash Gurung, a Full-Stack Django Developer and Visual Designer passionate about merging functionality with creativity to craft exceptional digital experiences. I specialize in Django, JavaScript, HTML5, CSS3, MySQL, and modern frameworks like Tailwind CSS and Bootstrap, building scalable and responsive web applications.</p>
-        <p>With a strong foundation in UI/UX design, I use Figma to create user-centered, high-fidelity interfaces. I manage projects from concept to deployment, ensuring each solution is technically robust and aligned with business goals. Driven by continuous learning, I strive to deliver impactful, polished digital products that make a difference. <a href="path/to/resume.pdf" class="resume-link" download aria-label="Download Biwash Gurung's resume">Download my resume</a> to learn more!</p>
-        <ul aria-label="Key strengths">
-          <li>Full-Stack Development with Python Django</li>
-          <li>UI/UX Design</li>
-          <li>Graphics Design</li>
-          <li>API Integration</li>
-          <li>Database Management</li>
-          <li>Creative Problem Solving</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="fade-up" aria-labelledby="projects-heading">
-    <h2 id="projects-heading">Featured Projects</h2>
-    <div class="project-filters" role="tablist">
-      <button class="filter-btn active" data-filter="all" aria-label="Show all projects" role="tab">All</button>
-      <button class="filter-btn" data-filter="coding" aria-label="Show coding projects" role="tab">Coding</button>
-      <button class="filter-btn" data-filter="uiux" aria-label="Show UI/UX design projects" role="tab">UI/UX</button>
-      <button class="filter-btn" data-filter="graphic" aria-label="Show graphic design projects" role="tab">Graphic Design</button>
-    </div>
-    <div class="projects">
-      <div class="project-card" data-category="coding">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/XdezoBot.png" alt="Xdezo Bot screenshot" />
-        <div class="project-card-content">
-          <span class="category">Coding</span>
-          <h3>Xdezo Bot</h3>
-          <p>Telegram bot for real-time enrollment management with intent recognition. Tech Stack: Python, MySQL, Telegram Bot API. <a href="https://web.telegram.org/k/#@XdezoBot" target="_blank" rel="noopener noreferrer" aria-label="View Xdezo Bot live demo">View Live</a></p>
+    <section id="projects" class="fade-up" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Featured Projects</h2>
+      <div class="project-filters" role="tablist">
+        <button
+          class="filter-btn active"
+          data-filter="all"
+          aria-label="Show all projects"
+          role="tab"
+        >
+          All
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="coding"
+          aria-label="Show coding projects"
+          role="tab"
+        >
+          Coding
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="uiux"
+          aria-label="Show UI/UX design projects"
+          role="tab"
+        >
+          UI/UX
+        </button>
+        <button
+          class="filter-btn"
+          data-filter="graphic"
+          aria-label="Show graphic design projects"
+          role="tab"
+        >
+          Graphic Design
+        </button>
+      </div>
+      <div class="projects">
+        <div class="project-card" data-category="coding">
+          <canvas class="project-canvas"></canvas>
+          <img src="Images/XdezoBot.png" alt="Xdezo Bot screenshot" />
+          <div class="project-card-content">
+            <span class="category">Coding</span>
+            <h3>Xdezo Bot</h3>
+            <p>
+              Telegram bot for real-time enrollment management with intent
+              recognition. Tech Stack: Python, MySQL, Telegram Bot API.
+              <a
+                href="https://web.telegram.org/k/#@XdezoBot"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Xdezo Bot live demo"
+                >View Live</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="coding">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/HimalayanPeaksRecommendationSystem.png"
+            alt="Screenshot of Himalayan Peaks Recommendation System project"
+          />
+          <div class="project-card-content">
+            <span class="category">Coding</span>
+            <h3>Himalayan Peaks Recommendation System</h3>
+            <p>
+              AI/ML-powered intelligent recommendation system that suggests
+              Himalayan peaks based on difficulty, height, and popularity using
+              K-Means clustering and cosine similarity. Built with Python,
+              Pandas, scikit-learn, Matplotlib, and Jupyter Notebook.
+              <a
+                href="https://github.com/BiwashGurung/HimalayanPeaks-Recommendation-System"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Himalayan Peaks Recommendation System on GitHub"
+                >View on GitHub</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="coding">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/littleheartpetshop.png"
+            alt="Little Heart Pet Shop screenshot"
+          />
+          <div class="project-card-content">
+            <span class="category">Coding</span>
+            <h3>Little Heart Pet Shop</h3>
+            <p>
+              Pet shop website with booking and admin dashboard. Tech Stack:
+              Python, Django, HTML, CSS, JavaScript, Bootstrap, MYSQL, Google
+              Calendar API.
+              <a
+                href="https://www.littleheartpetshop.com.np/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Little Heart Pet Shop live demo"
+                >View Live</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="uiux">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/Bytesoft.png"
+            alt="Bytesoft Nepal UI Prototype in Figma"
+          />
+          <div class="project-card-content">
+            <span class="category">UI/UX</span>
+            <h3>Bytesoft Nepal UI Prototype</h3>
+            <p>
+              Book catalog UI with intuitive navigation and responsive design.
+              Tech Stack: Figma, HTML, CSS.
+              <a
+                href="https://www.figma.com/proto/ygG4GKiixFvZEuWoTe9wT7/ByteSoft-Nepal?node-id=0-1&t=y5fOdw0ayMo0cbac-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Bytesoft Nepal UI Prototype on Figma"
+                >View on Figma</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="uiux">
+          <canvas class="project-canvas"></canvas>
+          <img src="Images/DexyCo.png" alt="Dexy Architecture Co. UI Design" />
+          <div class="project-card-content">
+            <span class="category">UI/UX</span>
+            <h3>Dexy Architecture Co. UI</h3>
+            <p>
+              Modern digital marketing UI with hero section and service grid.
+              Tech Stack: Figma, HTML, CSS.
+              <a
+                href="https://www.figma.com/proto/Ko3e5sFx7FmYoKccqoRuF8/Dexy-Architecture-Co.?t=y5fOdw0ayMo0cbac-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Dexy Architecture Co. UI on Figma"
+                >View on Figma</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="uiux">
+          <canvas class="project-canvas"></canvas>
+          <img src="Images/restro.png" alt="Restro Landing Page UI Design" />
+          <div class="project-card-content">
+            <span class="category">UI/UX</span>
+            <h3>Restro Landing Page UI</h3>
+            <p>
+              Restaurant landing page UI with vibrant design and smooth
+              navigation. Tech Stack: Figma, HTML, CSS.
+              <a
+                href="https://www.figma.com/proto/ROEqiWS9BK2hmTURUuqRDa/Restro-Landing-Page?t=y5fOdw0ayMo0cbac-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Restro Landing Page UI on Figma"
+                >View on Figma</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/DESIGN_1.png"
+            alt="Bytesoft Nepal Business Card Design"
+            class="graphic-img"
+            data-fullsrc="Images/DESIGN_1.png"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Bytesoft Nepal Business Card</h3>
+            <p>
+              Sleek business card design with a teal gradient and modern
+              typography for Bytesoft Nepal.
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/Blue_Sky_Industries_Package_Mockup_1.png"
+            alt="Blue Sky Industries Package Mockup"
+            class="graphic-img"
+            data-fullsrc="Images/Blue_Sky_Industries_Package_Mockup_1.png"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Blue Sky Industries Package Mockup</h3>
+            <p>
+              Professional package design with a clean layout and modern
+              typography for Blue Sky Industries.
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/Bytesoft_logo_10.png"
+            alt="Bytesoft Nepal Logo Design"
+            class="graphic-img"
+            data-fullsrc="Images/Bytesoft_logo_10.png"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Bytesoft Nepal Logo</h3>
+            <p>
+              Modern logo design with a teal gradient and sleek typography for
+              Bytesoft Nepal.
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/Littlle_Heart_Cloth_tag_3.png"
+            alt="Little Heart Cloth Tag Design"
+            class="graphic-img"
+            data-fullsrc="Images/Littlle_Heart_Cloth_tag_3.png"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Little Heart Cloth Tag</h3>
+            <p>
+              Creative cloth tag design with vibrant colors and modern
+              typography for Little Heart.
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/मातातिर्थ औंसी_01.jpg"
+            alt="Matatirtha Aunsi Poster Design"
+            class="graphic-img"
+            data-fullsrc="Images/मातातिर्थ औंसी_01.jpg"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Matatirtha Aunsi Poster</h3>
+            <p>
+              Cultural poster design with traditional elements and modern
+              typography for Matatirtha Aunsi.
+            </p>
+          </div>
+        </div>
+        <div class="project-card" data-category="graphic">
+          <canvas class="project-canvas"></canvas>
+          <img
+            src="Images/gaantrantra.gif"
+            alt="Gantantra Diwas Animation"
+            class="graphic-img"
+            data-fullsrc="Images/gaantrantra.gif"
+          />
+          <div class="project-card-content">
+            <span class="category">Graphic Design</span>
+            <h3>Gantantra Diwas Animation</h3>
+            <p>
+              Dynamic animated graphic with patriotic themes for Gantantra Diwas
+              celebration.
+            </p>
+          </div>
         </div>
       </div>
-      <div class="project-card" data-category="coding">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/HimalayanPeaksRecommendationSystem.png" alt="Screenshot of Himalayan Peaks Recommendation System project" />
-        <div class="project-card-content">
-          <span class="category">Coding</span>
-          <h3>Himalayan Peaks Recommendation System</h3>
-          <p>AI/ML-powered intelligent recommendation system that suggests Himalayan peaks based on difficulty, height, and popularity using K-Means clustering and cosine similarity. Built with Python, Pandas, scikit-learn, Matplotlib, and Jupyter Notebook. <a href="https://github.com/BiwashGurung/HimalayanPeaks-Recommendation-System" target="_blank" rel="noopener noreferrer" aria-label="View Himalayan Peaks Recommendation System on GitHub">View on GitHub</a></p>
+      <div
+        class="modal"
+        id="imageModal"
+        role="dialog"
+        aria-label="Graphic design image popup"
+      >
+        <div class="modal-content">
+          <button class="modal-close" aria-label="Close image popup">×</button>
+          <img src="" alt="Graphic design project" id="modalImage" />
         </div>
       </div>
-      <div class="project-card" data-category="coding">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/littleheartpetshop.png" alt="Little Heart Pet Shop screenshot" />
-        <div class="project-card-content">
-          <span class="category">Coding</span>
-          <h3>Little Heart Pet Shop</h3>
-          <p>Pet shop website with booking and admin dashboard. Tech Stack: Python, Django, HTML, CSS, JavaScript, Bootstrap, MYSQL, Google Calendar API. <a href="https://www.littleheartpetshop.com.np/" target="_blank" rel="noopener noreferrer" aria-label="View Little Heart Pet Shop live demo">View Live</a></p>
-        </div>
-      </div>
-      <div class="project-card" data-category="uiux">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/Bytesoft.png" alt="Bytesoft Nepal UI Prototype in Figma" />
-        <div class="project-card-content">
-          <span class="category">UI/UX</span>
-          <h3>Bytesoft Nepal UI Prototype</h3>
-          <p>Book catalog UI with intuitive navigation and responsive design. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/ygG4GKiixFvZEuWoTe9wT7/ByteSoft-Nepal?node-id=0-1&t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Bytesoft Nepal UI Prototype on Figma">View on Figma</a></p>
-        </div>
-      </div>
-      <div class="project-card" data-category="uiux">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/DexyCo.png" alt="Dexy Architecture Co. UI Design" />
-        <div class="project-card-content">
-          <span class="category">UI/UX</span>
-          <h3>Dexy Architecture Co. UI</h3>
-          <p>Modern digital marketing UI with hero section and service grid. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/Ko3e5sFx7FmYoKccqoRuF8/Dexy-Architecture-Co.?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Dexy Architecture Co. UI on Figma">View on Figma</a></p>
-        </div>
-      </div>
-      <div class="project-card" data-category="uiux">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/restro.png" alt="Restro Landing Page UI Design" />
-        <div class="project-card-content">
-          <span class="category">UI/UX</span>
-          <h3>Restro Landing Page UI</h3>
-          <p>Restaurant landing page UI with vibrant design and smooth navigation. Tech Stack: Figma, HTML, CSS. <a href="https://www.figma.com/proto/ROEqiWS9BK2hmTURUuqRDa/Restro-Landing-Page?t=y5fOdw0ayMo0cbac-1" target="_blank" rel="noopener noreferrer" aria-label="View Restro Landing Page UI on Figma">View on Figma</a></p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/DESIGN_1.png" alt="Bytesoft Nepal Business Card Design" class="graphic-img" data-fullsrc="Images/DESIGN_1.png" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Business Card</h3>
-          <p>Sleek business card design with a teal gradient and modern typography for Bytesoft Nepal.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/Blue_Sky_Industries_Package_Mockup_1.png" alt="Blue Sky Industries Package Mockup" class="graphic-img" data-fullsrc="Images/Blue_Sky_Industries_Package_Mockup_1.png" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Blue Sky Industries Package Mockup</h3>
-          <p>Professional package design with a clean layout and modern typography for Blue Sky Industries.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal Logo Design" class="graphic-img" data-fullsrc="Images/Bytesoft_logo_10.png" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Bytesoft Nepal Logo</h3>
-          <p>Modern logo design with a teal gradient and sleek typography for Bytesoft Nepal.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/Littlle_Heart_Cloth_tag_3.png" alt="Little Heart Cloth Tag Design" class="graphic-img" data-fullsrc="Images/Littlle_Heart_Cloth_tag_3.png" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Little Heart Cloth Tag</h3>
-          <p>Creative cloth tag design with vibrant colors and modern typography for Little Heart.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/मातातिर्थ औंसी_01.jpg" alt="Matatirtha Aunsi Poster Design" class="graphic-img" data-fullsrc="Images/मातातिर्थ औंसी_01.jpg" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Matatirtha Aunsi Poster</h3>
-          <p>Cultural poster design with traditional elements and modern typography for Matatirtha Aunsi.</p>
-        </div>
-      </div>
-      <div class="project-card" data-category="graphic">
-        <canvas class="project-canvas"></canvas>
-        <img src="Images/gaantrantra.gif" alt="Gantantra Diwas Animation" class="graphic-img" data-fullsrc="Images/gaantrantra.gif" />
-        <div class="project-card-content">
-          <span class="category">Graphic Design</span>
-          <h3>Gantantra Diwas Animation</h3>
-          <p>Dynamic animated graphic with patriotic themes for Gantantra Diwas celebration.</p>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="imageModal" role="dialog" aria-label="Graphic design image popup">
-      <div class="modal-content">
-        <button class="modal-close" aria-label="Close image popup">×</button>
-        <img src="" alt="Graphic design project" id="modalImage" />
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills" class="fade-up" aria-labelledby="skills-heading">
-    <h2 id="skills-heading">My Skills</h2>
-    <div class="skills">
-      <div class="skill-card" data-tooltip="Building scalable web applications with Python and Django">Python & Django</div>
-      <div class="skill-card" data-tooltip="Crafting intuitive user interfaces with Figma and Balsamiq">UI/UX Design (Figma & Balsamiq)</div>
-      <div class="skill-card" data-tooltip="Creating stunning visuals with Photoshop, Illustrator, and Canva">Graphic Design (Photoshop, Illustrator, Canva)</div>
-      <div class="skill-card" data-tooltip="Developing interactive web experiences with JavaScript and Three.js">JavaScript & Three.js</div>
-      <div class="skill-card" data-tooltip="Exploring AI/ML for intelligent solutions">AI & Machine Learning</div>
-      <div class="skill-card" data-tooltip="Building responsive websites with HTML, CSS, and Bootstrap">HTML, CSS & Bootstrap</div>
-      <div class="skill-card" data-tooltip="Managing data with MySQL, SQLite, PostgreSQL, and API integrations">MySQL, SQLite, PostgreSQL & APIs</div>
-      <div class="skill-card" data-tooltip="Version control and collaboration using Git and GitHub">Git & GitHub</div>
-      <div class="skill-card" data-tooltip="Organizing tasks and projects efficiently with Trello boards">Trello</div>
-    </div>
-  </section>
-
-  <section id="experience" class="fade-up" aria-labelledby="experience-heading">
-    <h2 id="experience-heading">Experience</h2>
-    <div class="timeline-container">
-      <div class="timeline-line"></div>
-      <div class="experience-item right" data-index="0">
-        <div class="timeline-dot" tabindex="0" aria-label="Code Zenith Nepal timeline point"></div>
-        <div class="experience-card">
-          <img src="Images/codezenith.png" alt="Code Zenith Nepal logo" />
-          <h3>Web Developer</h3>
-          <div class="company">Code Zenith Nepal · Full-time</div>
-          <div class="details">Nov 2024 - Apr 2025 · 6 mos · Pokhara, Gandaki, Nepal · On-site</div>
-          <div class="description">Contributed to a startup founded with classmates, developing responsive web applications using HTML, CSS, JavaScript, and Django. Collaborated on building scalable solutions to support early-stage growth.</div>
-          <div class="extra-details" id="extra-details-1">Designed and implemented front-end interfaces and backend APIs, improving user experience and system efficiency. Worked closely with a small team to deliver features under tight deadlines.</div>
-          <button class="show-more" data-target="extra-details-1" aria-expanded="false" aria-controls="extra-details-1" aria-label="Show more details about Code Zenith Nepal role">Show More</button>
+    <section id="skills" class="fade-up" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">My Skills</h2>
+      <div class="skills">
+        <div
+          class="skill-card"
+          data-tooltip="Building scalable web applications with Python and Django"
+        >
+          Python & Django
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Crafting intuitive user interfaces with Figma and Balsamiq"
+        >
+          UI/UX Design (Figma & Balsamiq)
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Creating stunning visuals with Photoshop, Illustrator, and Canva"
+        >
+          Graphic Design (Photoshop, Illustrator, Canva)
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Developing interactive web experiences with JavaScript and Three.js"
+        >
+          JavaScript & Three.js
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Exploring AI/ML for intelligent solutions"
+        >
+          AI & Machine Learning
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Building responsive websites with HTML, CSS, and Bootstrap"
+        >
+          HTML, CSS & Bootstrap
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Managing data with MySQL, SQLite, PostgreSQL, and API integrations"
+        >
+          MySQL, SQLite, PostgreSQL & APIs
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Version control and collaboration using Git and GitHub"
+        >
+          Git & GitHub
+        </div>
+        <div
+          class="skill-card"
+          data-tooltip="Organizing tasks and projects efficiently with Trello boards"
+        >
+          Trello
         </div>
       </div>
-      <div class="experience-item left" data-index="1">
-        <div class="timeline-dot" tabindex="0" aria-label="XDezo Technologies timeline point"></div>
+    </section>
 
-         <div class="experience-card">
-          <img src="Images/xdezo.jpg" alt="XDezo Technologies logo" />
-          <h3>Django Developer</h3>
-          <div class="company">XDezo Technologies · Internship</div>
-          <div class="details">Dec 2024 - Apr 2025 · 5 mos · Pokhara, Gandaki, Nepal · Hybrid</div>
-          <div class="description">Developed Xdezo Bot, a Telegram chatbot for real-time enrollment management, using Python, MySQL, and Telegram Bot API. Resolved intent recognition issues and enhanced backend efficiency. <a href="#projects" aria-label="View Xdezo Bot in projects section">See Project</a></div>
-          <div class="extra-details" id="extra-details-0">Improved response time by 30% through query optimization and caching. Collaborated with a team of 2 developers to integrate user feedback, enhancing bot functionality.</div>
-          <button class="show-more" data-target="extra-details-0" aria-expanded="false" aria-controls="extra-details-0" aria-label="Show more details about XDezo Technologies role">Show More</button>
+    <section
+      id="experience"
+      class="fade-up"
+      aria-labelledby="experience-heading"
+    >
+      <h2 id="experience-heading">Experience</h2>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="experience-item right" data-index="0">
+          <div
+            class="timeline-dot"
+            tabindex="0"
+            aria-label="Code Zenith Nepal timeline point"
+          ></div>
+          <div class="experience-card">
+            <img src="Images/codezenith.png" alt="Code Zenith Nepal logo" />
+            <h3>Web Developer</h3>
+            <div class="company">Code Zenith Nepal · Full-time</div>
+            <div class="details">
+              Nov 2024 - Apr 2025 · 6 mos · Pokhara, Gandaki, Nepal · On-site
+            </div>
+            <div class="description">
+              Contributed to a startup founded with classmates, developing
+              responsive web applications using HTML, CSS, JavaScript, and
+              Django. Collaborated on building scalable solutions to support
+              early-stage growth.
+            </div>
+            <div class="extra-details" id="extra-details-1">
+              Designed and implemented front-end interfaces and backend APIs,
+              improving user experience and system efficiency. Worked closely
+              with a small team to deliver features under tight deadlines.
+            </div>
+            <button
+              class="show-more"
+              data-target="extra-details-1"
+              aria-expanded="false"
+              aria-controls="extra-details-1"
+              aria-label="Show more details about Code Zenith Nepal role"
+            >
+              Show More
+            </button>
+          </div>
+        </div>
+        <div class="experience-item left" data-index="1">
+          <div
+            class="timeline-dot"
+            tabindex="0"
+            aria-label="XDezo Technologies timeline point"
+          ></div>
+
+          <div class="experience-card">
+            <img src="Images/xdezo.jpg" alt="XDezo Technologies logo" />
+            <h3>Django Developer</h3>
+            <div class="company">XDezo Technologies · Internship</div>
+            <div class="details">
+              Dec 2024 - Apr 2025 · 5 mos · Pokhara, Gandaki, Nepal · Hybrid
+            </div>
+            <div class="description">
+              Developed Xdezo Bot, a Telegram chatbot for real-time enrollment
+              management, using Python, MySQL, and Telegram Bot API. Resolved
+              intent recognition issues and enhanced backend efficiency.
+              <a
+                href="#projects"
+                aria-label="View Xdezo Bot in projects section"
+                >See Project</a
+              >
+            </div>
+            <div class="extra-details" id="extra-details-0">
+              Improved response time by 30% through query optimization and
+              caching. Collaborated with a team of 2 developers to integrate
+              user feedback, enhancing bot functionality.
+            </div>
+            <button
+              class="show-more"
+              data-target="extra-details-0"
+              aria-expanded="false"
+              aria-controls="extra-details-0"
+              aria-label="Show more details about XDezo Technologies role"
+            >
+              Show More
+            </button>
+          </div>
+        </div>
+        <div class="experience-item right" data-index="2">
+          <div
+            class="timeline-dot"
+            tabindex="0"
+            aria-label="Bytesoft Nepal timeline point"
+          ></div>
+          <div class="experience-card">
+            <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal logo" />
+            <h3>Visual Designer / Django Developer</h3>
+            <div class="company">Bytesoft Nepal · Full-time</div>
+            <div class="details">
+              Apr 2025 - Present · 9 mos · Pokhara, Gandaki, Nepal · On-site
+            </div>
+            <div class="description">
+              Worked in a cross-functional role, developing Django web apps and
+              designing UI/UX with Figma. Built scalable MYSQL databases,
+              RESTful APIs, and responsive interfaces, while creating branded
+              visuals with Adobe tools.<a
+                href="#projects"
+                aria-label="View Bytesoft Nepal UI Prototype in projects section"
+                >See Projects</a
+              >
+            </div>
+            <div class="extra-details" id="extra-details-2">
+              Collaborated on clean code practices and user-centered designs,
+              enhancing project efficiency.
+            </div>
+            <button
+              class="show-more"
+              data-target="extra-details-2"
+              aria-expanded="false"
+              aria-controls="extra-details-2"
+              aria-label="Show more details about Bytesoft Nepal role"
+            >
+              Show More
+            </button>
+          </div>
+        </div>
+        <div class="experience-item left" data-index="1">
+          <div
+            class="timeline-dot"
+            tabindex="0"
+            aria-label="Little Heart Pet Shop timeline point"
+          ></div>
+
+          <div class="experience-card">
+            <img
+              src="Images/Little Heart Pet Shop Logo.png"
+              alt="Little Heart Pet Shop logo"
+            />
+            <h3>Graphic Designer / Grooming Videographer & Video Editor</h3>
+            <div class="company">Little Heart Pet Shop · Full-time</div>
+            <div class="details">
+              Aug 2024 - Present · 5 mos · Pokhara, Gandaki, Nepal · On-site
+            </div>
+            <div class="description">
+              Responsible for filming the full pet grooming process and editing
+              high-quality videos using VN to showcase the shop’s services
+              across social platforms. Also handle graphic design tasks
+              including posters, banners, social media creatives, and
+              promotional materials to strengthen brand visibility and customer
+              engagement.
+              <a
+                href="#projects"
+                aria-label="View Little Heart Pet Shop in projects section"
+                >See Project</a
+              >
+            </div>
+            <div class="extra-details" id="extra-details-0">
+              Improved response time by 30% through query optimization and
+              caching. Collaborated with a team of 2 developers to integrate
+              user feedback, enhancing bot functionality.
+            </div>
+          </div>
         </div>
       </div>
-      <div class="experience-item right" data-index="2">
-        <div class="timeline-dot" tabindex="0" aria-label="Bytesoft Nepal timeline point"></div>
-        <div class="experience-card">
-          <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal logo" />
-          <h3>Visual Designer / Django Developer</h3>
-          <div class="company">Bytesoft Nepal · Full-time</div>
-          <div class="details">Apr 2025 - Present · 8 mos · Pokhara, Gandaki, Nepal · On-site</div>
-          <div class="description">Worked in a cross-functional role, developing Django web apps and designing UI/UX with Figma. Built scalable MYSQL databases, RESTful APIs, and responsive interfaces, while creating branded visuals with Adobe tools.<a href="#projects" aria-label="View Bytesoft Nepal UI Prototype in projects section">See Projects</a></div>
-          <div class="extra-details" id="extra-details-2">Collaborated on clean code practices and user-centered designs, enhancing project efficiency.</div>
-          <button class="show-more" data-target="extra-details-2" aria-expanded="false" aria-controls="extra-details-2" aria-label="Show more details about Bytesoft Nepal role">Show More</button>
-        </div>
+    </section>
+
+    <section id="contact" class="fade-up" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <div class="contact-text">
+        <p>
+          I'm excited to connect and discuss your next project! Whether you need
+          a scalable web application, a stunning UI/UX design, innovative AI
+          solutions, or eye-catching graphic design posts for social media, I'm
+          here to help. Reach out via email or connect with me on social media.
+        </p>
       </div>
-       <div class="experience-item left" data-index="1">
-        <div class="timeline-dot" tabindex="0" aria-label="Little Heart Pet Shop timeline point"></div>
-
-         <div class="experience-card">
-          <img src="Images/Little Heart Pet Shop Logo.png" alt="Little Heart Pet Shop logo" />
-          <h3>Graphic Designer / Grooming Videographer & Video Editor</h3>
-          <div class="company">Little Heart Pet Shop · Full-time</div>
-          <div class="details">Aug 2024 - Present · 5 mos · Pokhara, Gandaki, Nepal · On-site</div>
-          <div class="description"> Responsible for filming the full pet grooming process and editing high-quality videos using VN to showcase the shop’s services across social platforms. 
-           Also handle graphic design tasks including posters, banners, social media creatives, and promotional materials to strengthen brand visibility and customer engagement. <a href="#projects" aria-label="View Little Heart Pet Shop in projects section">See Project</a></div>
-          <div class="extra-details" id="extra-details-0">Improved response time by 30% through query optimization and caching. Collaborated with a team of 2 developers to integrate user feedback, enhancing bot functionality.</div>
-    
-        </div>
+      <p>
+        Email:
+        <a href="mailto:biwashgrg21@gmail.com" aria-label="Email Biwash Gurung"
+          >biwashgrg21@gmail.com</a
+        >
+      </p>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/biwashgurung/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View Biwash Gurung's LinkedIn profile"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/linkedin.svg"
+            alt="LinkedIn logo"
+            style="
+              width: 24px;
+              height: 24px;
+              margin-right: 8px;
+              vertical-align: middle;
+              filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(160deg);
+            "
+          />
+          LinkedIn
+        </a>
+        <a
+          href="https://github.com/biwashgurung"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View Biwash Gurung's GitHub profile"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/github.svg"
+            alt="GitHub logo"
+            style="
+              width: 24px;
+              height: 24px;
+              margin-right: 8px;
+              vertical-align: middle;
+              filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(180deg);
+            "
+          />
+          GitHub
+        </a>
       </div>
-    
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="fade-up" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contact Me</h2>
-    <div class="contact-text">
-      <p>I'm excited to connect and discuss your next project! Whether you need a scalable web application, a stunning UI/UX design, innovative AI solutions, or eye-catching graphic design posts for social media, I'm here to help. Reach out via email or connect with me on social media.</p>
-    </div>
-    <p>Email: <a href="mailto:biwashgrg21@gmail.com" aria-label="Email Biwash Gurung">biwashgrg21@gmail.com</a></p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/biwashgurung/" target="_blank" rel="noopener noreferrer" aria-label="View Biwash Gurung's LinkedIn profile">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/linkedin.svg" alt="LinkedIn logo" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle; filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(160deg);" />
-        LinkedIn
-      </a>
-      <a href="https://github.com/biwashgurung" target="_blank" rel="noopener noreferrer" aria-label="View Biwash Gurung's GitHub profile">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/github.svg" alt="GitHub logo" style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle; filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(180deg);" />
-        GitHub
-      </a>
-    </div>
-  </section>
+    <footer>© 2025 Biwash Gurung. All rights reserved.</footer>
 
-  <footer>
-    © 2025 Biwash Gurung. All rights reserved.
-  </footer>
+    <button id="audioToggle" aria-label="Toggle audio visualizer"></button>
+    <canvas id="audioVisualizer" aria-label="Audio visualizer"></canvas>
 
-  <button id="audioToggle" aria-label="Toggle audio visualizer"></button>
-  <canvas id="audioVisualizer" aria-label="Audio visualizer"></canvas>
-
-  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
-  <script src="script.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
