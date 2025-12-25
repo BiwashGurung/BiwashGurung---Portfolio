@@ -275,6 +275,7 @@ section h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  cursor: default;
 }
 
 .about-text li {
