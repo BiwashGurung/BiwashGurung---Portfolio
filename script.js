@@ -74,6 +74,7 @@ fadeElems.forEach(el => observer.observe(el));
 const typedText = document.getElementById('typed-role');
 const roles = [
   'Python & Django Web Developer',
+  'Graphics Designer',
   'UI/UX Designer',
   'Core Frontend Developer',
   'Creative Problem Solver',
