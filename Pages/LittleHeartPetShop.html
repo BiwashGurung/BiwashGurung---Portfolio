@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Heart | Premium Brand Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080808;
+            --card-bg: #111111;
+            --brand-orange: #E89B66; 
+            --brand-red: #E63946;
+            --brand-brown: #5D3A1A;
+            --silver: #e0e0e0;
+            --silver-dim: #888888;
+            --border: #222222;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+
+        /* --- UI ELEMENTS --- */
+        .badge {
+            border: 1px solid var(--border);
+            color: var(--brand-orange);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- HERO --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #151515 0%, #080808 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            line-height: 0.85;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #fff 40%, var(--brand-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--silver-dim);
+        }
+
+        /* --- SECTION 01: THE OVERVIEW --- */
+        .section-padding { padding: 140px 0; border-bottom: 1px solid var(--border); }
+
+        .grid-intro {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 100px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item h6 { color: var(--brand-orange); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-item p { color: var(--silver); font-weight: 300; }
+
+        h2.section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        /* --- SECTION 02: VISUAL DNA --- */
+        .dna-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .dna-card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .color-strip {
+            display: flex;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .type-sample h3 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* --- SECTION 03: THE ANATOMY (Logo Construction) --- */
+        .anatomy-box {
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .anatomy-img {
+            max-width: 400px;
+            width: 100%;
+            filter: drop-shadow(0 0 30px rgba(232, 155, 102, 0.2));
+        }
+
+        .blueprint-display {
+        background: #fdfdfd; /* Light background to make the stamp look like paper */
+        border: 1px solid var(--border);
+        border-radius: 40px;
+        padding: 80px 40px;
+        position: relative;
+        overflow: visible; /* Allows callouts to float outside */
+        display: flex;
+        justify-content: center;
+        box-shadow: inset 0 0 50px rgba(0,0,0,0.05);
+    }
+
+    .blueprint-frame {
+        position: relative;
+        z-index: 2;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .blueprint-img {
+        width: 100%;
+        filter: contrast(1.1); /* Makes the black and white pop */
+        transition: var(--transition);
+    }
+
+    .callout {
+        position: absolute;
+        font-family: monospace;
+        font-size: 10px;
+        color: #000;
+        letter-spacing: 1px;
+        font-weight: bold;
+        background: rgba(255,255,255,0.9);
+        padding: 5px 12px;
+        border: 1px solid #ccc;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    .achievement-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+        gap: 20px;
+    }
+
+    .achievement-label {
+        font-family: 'Fredoka', sans-serif;
+        color: var(--brand-orange);
+        font-size: 1.2rem;
+        font-weight: 600;
+        flex: 1;
+    }
+
+    .achievement-desc {
+        color: var(--silver-dim);
+        font-size: 0.95rem;
+        flex: 2;
+        font-weight: 300;
+    }
+
+    /* Mobile handling for the list */
+    @media (max-width: 768px) {
+        .achievement-row {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px 0;
+        }
+        .achievement-desc {
+            margin-top: 5px;
+        }
+    }
+
+        /* --- SECTION 04: ASYMMETRICAL GRID (Execution) --- */
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr; 
+            grid-template-rows: repeat(2, 300px);
+            gap: 24px;
+        }
+
+        .mockup-item {
+            position: relative;
+            background: #111;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .mockup-item.featured { grid-row: span 2; }
+
+        .mockup-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            opacity: 0.5; transition: var(--transition);
+        }
+
+        .mockup-item:hover img { opacity: 1; transform: scale(1.05); }
+
+        .overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 30px; opacity: 0; transition: 0.5s;
+        }
+
+        .mockup-item:hover .overlay { opacity: 1; backdrop-filter: blur(10px); }
+
+        @media (max-width: 992px) {
+            .grid-intro, .dna-grid, .excellence-grid { grid-template-columns: 1fr; }
+            .excellence-grid { grid-template-rows: auto; }
+            .mockup-item { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="badge reveal">Identity Design 2025</div>
+        <h1 class="reveal">LITTLE HEART <br> PET SHOP</h1>
+        <p class="reveal">Elevating the Pet Care Experience</p>
+    </section>
+
+    <div class="container">
+        
+        <section class="section-padding reveal">
+            <div class="grid-intro">
+                <div>
+                    <div class="badge">01. The Challenge</div>
+                    <h2 class="section-heading">Humanizing the <br>Pet Industry.</h2>
+                    <p style="color: var(--silver-dim); font-size: 1.2rem;">
+                        The pet industry is often split between cold clinical aesthetics and cluttered discount branding. 
+                        <strong>Little Heart Pet Shop</strong> needed a visual language that felt both high-end (premium grooming) 
+                        and deeply emotional (rescue and care).
+                    </p>
+                </div>
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <h6>Client</h6>
+                        <p>Little Heart Pet Shop</p>
+                    </div>
+                    <div class="stat-item">
+                        <h6>Service</h6>
+                        <p>Brand Strategy, Logo, Packaging</p>
+                    </div>
+                    <div class="stat-item">
+                        <h6>Year</h6>
+                        <p>2025</p>
+                    </div>
+                    <div class="stat-item">
+                        <h6>Location</h6>
+                        <p>Pokhara, Nepal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding reveal">
+            <div class="badge">02. Visual DNA</div>
+            <h2 class="section-heading">Color & Typography</h2>
+            
+            <div class="dna-grid">
+                <div class="dna-card">
+                    <div class="type-sample">
+                        <h3 style="font-family: 'Fredoka'; color: var(--brand-orange);">Fredoka</h3>
+                        <p style="color: var(--silver-dim); margin-bottom: 30px;">
+                            <strong>Why Fredoka?</strong> The rounded geometry removes all sharp edges, mimicking the softness of a pet. It denotes safety and approachability.
+                        </p>
+                        <h3 style="font-family: 'Playfair Display'; font-style: italic;">Playfair</h3>
+                        <p style="color: var(--silver-dim);">
+                            <strong>Why Playfair?</strong> To maintain a "Premium" status. It adds an editorial elegance that suggests high-quality service and expertise.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dna-card">
+                    <div class="color-strip">
+                        <div style="flex:1; background: var(--brand-orange);"></div>
+                        <div style="flex:1; background: var(--brand-brown);"></div>
+                        <div style="flex:1; background: var(--brand-red);"></div>
+                    </div>
+                    <div class="stat-item" style="margin-bottom: 15px;">
+                        <h6>Terracotta (#E89B66)</h6>
+                        <p>Warmth, energy, and the joy of companionship.</p>
+                    </div>
+                    <div class="stat-item" style="margin-bottom: 15px;">
+                        <h6>Chocolate (#5D3A1A)</h6>
+                        <p>Grounded trust, organic quality, and reliability.</p>
+                    </div>
+                    <div class="stat-item">
+                        <h6>Poppy Red (#E63946)</h6>
+                        <p>The literal 'heart'—the pulse of the brand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section class="section-padding reveal">
+    <div class="container">
+        <div class="badge">03. The Anatomy</div>
+        
+        <div class="grid-intro" style="margin-bottom: 60px;">
+            <div>
+                <h2 class="section-heading" style="font-family: 'Playfair Display', serif;">The Structural <br>Foundation.</h2>
+                <p style="color: var(--silver-dim); max-width: 550px;">
+                    To ensure the Little Heart logo remains legible and balanced across all mediums—from tiny clothing tags to large shop signage—we developed it using a <strong>Mathematical Grid System</strong>. 
+                </p>
+            </div>
+            <div class="stat-grid" style="border-left: 1px solid var(--border); padding-left: 40px;">
+                <div class="stat-item">
+                    <h6>Grid Alignment</h6>
+                    <p>Sub-pixel Precision</p>
+                </div>
+                <div class="stat-item">
+                    <h6>Visual Balance</h6>
+                    <p>Optical Centering</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="blueprint-display">
+            <div class="blueprint-frame">
+                <img src="../Images/LittleHEartStamppp.png" class="blueprint-img" alt="Little Heart Technical Grid">
+                
+                <div class="callout" style="top: 10%; left: -10%;">[ HEARTSPACE BOUNDARY ]</div>
+                <div class="callout" style="bottom: 15%; right: -5%;">[ ICONIC SYMMETRY ]</div>
+                <div class="callout" style="top: 45%; right: -15%; transform: rotate(90deg);">VERTICAL AXIS</div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="color: var(--brand-orange); font-family: monospace; font-size: 12px; letter-spacing: 3px;">
+                STAMP VERSION V1.0 // BLACK & WHITE REPRODUCTION TEST
+            </p>
+        </div>
+    </div>
+</section>
+
+       <section class="section-padding reveal">
+    <div class="container">
+        <div class="badge">04. Execution</div>
+        <h2 class="section-heading">Tangible Touchpoints</h2>
+        
+        <div class="excellence-grid">
+            <div class="mockup-item featured">
+                <img src="../Images/Littlle_Heart_Bag_2.png" alt="Paper Bag">
+                <div class="overlay">
+                    <h4 style="font-family: 'Fredoka';">Retail Packaging</h4>
+                    <p style="font-size: 13px; color: var(--brand-orange); margin-bottom: 8px;">Premium Paper Hand Bag</p>
+                    <p style="font-size: 12px; color: var(--silver-dim); line-height: 1.4;">
+                        Designed to carry the brand beyond the shop floor. We chose eco-friendly, reinforced paper to reflect a commitment to nature and quality.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mockup-item">
+                <img src="../Images/LittleHeartPetShop_BusinessCard_MockupFrontback.png" alt="Business Card">
+                <div class="overlay">
+                    <h4 style="font-family: 'Fredoka';">Business Cards</h4>
+                    <p style="font-size: 13px; color: var(--brand-orange); margin-bottom: 8px;">Professional Identity</p>
+                    <p style="font-size: 12px; color: var(--silver-dim); line-height: 1.4;">
+                        A tactile introduction to the brand. High-weight stock with a matte finish ensures the "Little Heart" seal feels like a mark of trust.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mockup-item">
+                <img src="../Images/Littlle_Heart_Cloth_tag_6.png" alt="Cloth Tag">
+                <div class="overlay">
+                    <h4 style="font-family: 'Fredoka';">Point of Sale</h4>
+                    <p style="font-size: 13px; color: var(--brand-orange); margin-bottom: 8px;">Premium Price Tagging</p>
+                    <p style="font-size: 12px; color: var(--silver-dim); line-height: 1.4;">
+                        Refined retail labels that balance the "Little Heart" emotional mark with necessary commercial information for a seamless shopping experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="section-padding reveal" style="background: linear-gradient(to bottom, #080808, #0b0b0b); border-bottom: none;">
+    <div class="container" style="text-align: center;">
+        <div class="badge">The Achievement</div>
+        
+        <h2 class="section-heading" style="font-family: 'Playfair Display', serif; margin-bottom: 24px;">
+            More than a Mark. <br>A Brand Legacy.
+        </h2>
+        
+        <p style="color: var(--silver-dim); max-width: 700px; margin: 0 auto 80px; font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; line-height: 1.8;">
+            By synthesizing mathematical grid logic with the emotional warmth of the "Trinity of Care," the Little Heart redesign achieved a <strong>unified brand ecosystem</strong>. The shop successfully transitioned from a local provider to a <em>premium boutique destination</em>.
+        </p>
+
+    <div style="max-width: 900px; margin: 0 auto; border-top: 1px solid var(--border);">
+        <div class="achievement-row">
+            <span class="achievement-label">Visual Unity</span>
+            <span class="achievement-desc">100% consistency across digital and print tactile media.</span>
+        </div>
+        <div class="achievement-row">
+            <span class="achievement-label">Market Shift</span>
+            <span class="achievement-desc">Repositioned as a high-end boutique pet sanctuary.</span>
+        </div>
+        <div class="achievement-row">
+            <span class="achievement-label">Scalability</span>
+            <span class="achievement-desc">Future-proofed for expansion into grooming and apparel.</span>
+        </div>
+    </div>
+</section>
+
+
+
+    </div>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>

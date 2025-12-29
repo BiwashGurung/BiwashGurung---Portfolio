@@ -3,410 +3,1029 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="title"
+      content="Biwash Gurung | Creative Graphic Designer & Social Media Content Creator"
+    />
+
     <title>
-      Biwash Gurung | Full-Stack Django Developer, UI/UX & AI/ML Enthusiast
+      Biwash Gurung | Logo Designer, Web Designer & Social Media Specialist
     </title>
     <meta
       name="description"
-      content="Biwash Gurung is a Full-Stack Django Developer, UI/UX Designer, and AI/ML Enthusiast based in Nepal, delivering scalable web solutions and creative designs."
+      content="Biwash Gurung is a Graphic Designer in Nepal specializing in Logo Design, Web UI, and Social Media Branding. Delivering clean, scalable, and pixel-perfect digital solutions."
     />
     <meta
       name="keywords"
-      content="Biwash Gurung, Full-Stack Developer, Django Developer, UI/UX Designer, AI/ML Enthusiast, Graphic Designer, Nepal, Portfolio"
+      content="Biwash Gurung, Logo Designer Nepal, Web Designer Nepal, UI/UX Design, Social Media Graphics, Brand Mockups, Freelance Designer Nepal, Visual Identity"
     />
-    <meta name="author" content="Biwash Gurung" />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#000000ff" />
-    <link rel="canonical" href="https://www.biwashgurung.com.np/" />
+
     <meta
       property="og:title"
-      content="Biwash Gurung | Full-Stack Developer & UI/UX Designer"
+      content="Biwash Gurung | Visual Identity & Digital Design Portfolio"
     />
     <meta
       property="og:description"
-      content="Explore the portfolio of Biwash Gurung, a skilled Full-Stack Django Developer, UI/UX Designer, and AI Enthusiast from Nepal."
+      content="Professional Logo Design, Web Design, and Social Media Branding services based in Nepal. Let's bring your brand to life."
     />
+
+    <meta name="author" content="Biwash Gurung" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://www.biwashgurung.com.np/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.biwashgurung.com.np/" />
+
     <meta
       property="og:image"
       content="https://www.biwashgurung.com.np/Images/profile.jpg"
     />
-    <meta property="og:url" content="https://www.biwashgurung.com.np/" />
-    <meta property="og:type" content="website" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:title"
+      content="Biwash Gurung | Graphic Design Portfolio"
+    />
+    <meta
+      property="twitter:description"
+      content="Specializing in social media designs and creative visual storytelling."
+    />
+    <meta
+      property="twitter:image"
+      content="https://www.biwashgurung.com.np/Images/profile.jpg"
+    />
 
     <link rel="shortcut icon" href="Images/profile.jpg" type="image/x-icon" />
+
     <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap"
-      as="style"
-    />
-    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;800&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;700&display=swap"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --bg: #080808;
+        --white: #ffffff;
+        --silver: #888888;
+        --border: rgba(255, 255, 255, 0.05);
+        --accent: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: none !important;
+      }
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        overflow-x: hidden;
+        letter-spacing: -0.02em;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://grainy-gradients.vercel.app/noise.svg");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* --- Custom Cursor --- */
+      #cursor {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10001;
+        mix-blend-mode: difference;
+      }
+      #cursor-follower {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+          background 0.3s;
+      }
+
+      /* --- Navigation --- */
+      nav {
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: auto;
+      }
+      .nav-inner {
+        background: rgba(15, 15, 15, 0.8);
+        backdrop-filter: blur(20px);
+        padding: 10px 30px;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .nav-inner a {
+        color: var(--silver);
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: 0.4s;
+      }
+      .nav-inner a.active {
+        color: var(--white);
+      }
+
+      /* --- NEW HAMBURGER MENU STYLES --- */
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1100;
+      }
+
+      .menu-toggle span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: var(--white);
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+      }
+
+      .menu-toggle span:nth-child(1) {
+        top: 0px;
+      }
+      .menu-toggle span:nth-child(2) {
+        top: 8px;
+      }
+      .menu-toggle span:nth-child(3) {
+        top: 16px;
+      }
+
+      /* Transform to X */
+      .menu-toggle.open span:nth-child(1) {
+        top: 8px;
+        transform: rotate(135deg);
+      }
+      .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+      }
+      .menu-toggle.open span:nth-child(3) {
+        top: 8px;
+        transform: rotate(-135deg);
+      }
+
+      /* --- Hero --- */
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+      }
+      .hero-title {
+        font-size: clamp(4rem, 15vw, 12rem);
+        font-weight: 800;
+        line-height: 0.8;
+        letter-spacing: -0.08em;
+      }
+      .hero-meta {
+        position: absolute;
+        bottom: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .hero-sub {
+        max-width: 400px;
+        font-size: 1.1rem;
+        color: var(--silver);
+        line-height: 1.5;
+        font-weight: 200;
+      }
+
+      /* --- Live Nepal Clock Style --- */
+      .nepal-tag {
+        text-align: right;
+        font-size: 10px;
+        letter-spacing: 5px;
+        color: var(--titanium-dark);
+        font-weight: 800;
+      }
+      .nepal-tag span {
+        color: var(--white);
+        display: block;
+        margin-top: 5px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* --- About --- */
+      .about {
+        padding: 140px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+      .about-img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 32px;
+        overflow: hidden;
+        background: #111;
+        border: 1px solid var(--border);
+      }
+      .about-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(1);
+        transition: 1s;
+      }
+      .about-img:hover img {
+        filter: grayscale(0);
+        transform: scale(1.03);
+      }
+      .about-text h2 {
+        font-size: 3.5rem;
+        letter-spacing: -2px;
+        margin-bottom: 24px;
+        line-height: 1.1;
+        font-weight: 700;
+      }
+      .about-text p {
+        color: var(--silver);
+        font-size: 1.15rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+
+      /* --- Toolkit --- */
+      .toolkit {
+        padding: 150px 0;
+        border-top: 1px solid var(--border);
+      }
+      .toolkit-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 50px;
+        margin-top: 80px;
+      }
+      .toolkit-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--border);
+      }
+
+
+
+     .tool-item {
+    background: var(--bg);
+    padding: 40px; /* Reduced padding slightly to accommodate larger images */
+    border: 1px solid transparent;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tool-item:hover {
+    background: #0c0c0c;
+    border-color: var(--border);
+    transform: translateY(-10px);
+}
+
+
+
+      .tool-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      .tool-item p {
+        color: var(--silver);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .tool-icon {
+    width: 120px; /* Increased size */
+    height: 120px; /* Maintain square aspect ratio */
+    margin-bottom: 25px;
+    object-fit: contain; /* Ensures the logo isn't distorted */
+    filter: grayscale(1) brightness(1.5); /* Keeps the Titanium aesthetic */
+    opacity: 0.8;
+    transition: 0.5s;
+    border-radius: 16px;
+}
+
+.tool-item:hover .tool-icon {
+    filter: grayscale(0); /* Adds a pop of color on hover */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+      /* --- Projects --- */
+      .projects {
+        padding: 140px 0;
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 24px;
+      }
+      .project-card {
+        position: relative;
+        border-radius: 32px;
+        overflow: hidden;
+        background: #0a0a0a;
+        grid-column: span 6;
+        height: 550px;
+      }
+      .project-card.wide {
+        grid-column: span 12;
+        height: 650px;
+      }
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+        transition: 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+      }
+      .project-overlay {
+        position: absolute;
+        inset: 0;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+      .project-card:hover img {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      .btn-case {
+        display: inline-block;
+        padding: 14px 30px;
+        background: var(--white);
+        color: #000;
+        text-decoration: none;
+        border-radius: 40px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: 0.3s;
+        width: fit-content;
+      }
+
+      /* --- Experience --- */
+      .experience {
+        padding: 140px 0;
+        background: #050505;
+      }
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 60px auto 0;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background: var(--border);
+      }
+      .exp-item {
+        position: relative;
+        width: 50%;
+        padding: 40px 60px;
+        margin-bottom: 30px;
+      }
+      .exp-item.left {
+        left: 0;
+        text-align: right;
+      }
+      .exp-item.right {
+        left: 50%;
+        text-align: left;
+      }
+      .exp-dot {
+        position: absolute;
+        top: 45px;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .left .exp-dot {
+        right: -5px;
+      }
+      .right .exp-dot {
+        left: -5px;
+      }
+      .exp-logo {
+        width: 100px;
+        height: 100px;
+        background: #111;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.5s;
+      }
+      .exp-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: grayscale(1);
+        opacity: 0.7;
+        transition: 0.5s;
+      }
+      .exp-item:hover .exp-logo {
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-5px);
+      }
+      .exp-item:hover .exp-logo img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+      .exp-year {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--silver);
+        margin-bottom: 12px;
+        display: block;
+        letter-spacing: 2px;
+      }
+      .exp-company {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: -1px;
+      }
+      .exp-desc {
+        color: var(--silver);
+        line-height: 1.6;
+        font-size: 1rem;
+        text-align: justify;
+      }
+
+      /* --- Footer --- */
+      .contact-footer {
+        padding: 150px 0 50px 0;
+        border-top: 1px solid var(--border);
+      }
+      .contact-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 50px;
+      }
+      .contact-main h2 {
+        font-size: clamp(3rem, 10vw, 8rem);
+        font-weight: 800;
+        line-height: 0.85;
+        letter-spacing: -8px;
+      }
+      .contact-main a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .contact-main a:hover {
+        opacity: 0.3;
+      }
+      .contact-side {
+        text-align: right;
+      }
+      .contact-side p {
+        font-size: 1.2rem;
+        max-width: 350px;
+        margin-bottom: 40px;
+        color: var(--silver);
+        font-weight: 200;
+      }
+      .social-list {
+        list-style: none;
+      }
+      .social-list li {
+        margin-bottom: 15px;
+      }
+      .social-list a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 12px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 5px;
+      }
+
+      /* --- RESPONSIVE FIXES --- */
+      @media (max-width: 900px) {
+        nav {
+          width: 90%;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .nav-inner {
+          flex-direction: column;
+          gap: 0;
+          padding: 15px 25px;
+          border-radius: 24px;
+          overflow: hidden;
+          max-height: 50px; /* Collapsed height */
+          align-items: flex-start;
+        }
+        .nav-inner.active {
+          max-height: 500px;
+          padding-bottom: 30px;
+          border-radius: 32px;
+        }
+        .nav-item {
+          opacity: 0;
+          visibility: hidden;
+          width: 100%;
+          text-align: left;
+          padding: 15px 0;
+          border-bottom: 1px solid var(--border);
+          transform: translateY(10px);
+          transition: 0.3s ease;
+        }
+        .nav-inner.active .nav-item {
+          opacity: 1;
+          visibility: visible;
+          display: block;
+          transform: translateY(0);
+        }
+
+        .toolkit-row,
+        .toolkit-list {
+          grid-template-columns: 1fr;
+        }
+        .hero-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+          bottom: 40px;
+        }
+        .exp-item {
+          width: 100%;
+          left: 0 !important;
+          text-align: left !important;
+          padding-left: 50px;
+        }
+        .exp-dot {
+          left: 15px !important;
+        }
+        .contact-side {
+          text-align: left;
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .project-card {
+          grid-column: span 12;
+          height: 450px;
+        }
+        .timeline::before {
+          left: 20px;
+        }
+        #cursor,
+        #cursor-follower {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <nav aria-label="Main navigation">
-      <div class="nav-links" id="nav-links">
-        <a href="#home" class="active" aria-current="page">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
+
+    <nav id="mainNav">
+      <div class="nav-inner">
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#toolkit" class="nav-item">Suite</a>
+        <a href="#projects" class="nav-item">Work</a>
+        <a href="#experience" class="nav-item">History</a>
+        <a href="#contact" class="nav-item">Contact</a>
       </div>
-      <button
-        id="nav-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="nav-links"
-      ></button>
     </nav>
 
-    <header id="home">
-      <canvas id="three-bg" aria-label="Interactive 3D background"></canvas>
-      <div class="intro">
-        <h1>Biwash Gurung</h1>
-        <div class="typed-role" id="typed-role">
-          Full-Stack Developer | Graphics Designer | AI Enthusiast
+    <div class="container">
+      <section id="home" class="hero">
+        <h1 class="hero-title reveal">DIGITAL<br />DESIGNS</h1>
+        <div class="hero-meta reveal">
+          <p class="hero-sub">
+            Biwash Gurung / A Nepal-based designer specializing in
+            <strong style="color: #ffffffbe">brand identity</strong>,
+            <strong style="color: #ffffffbe">modern web layouts</strong>, and
+            <strong style="color: #ffffffbe"
+              >high-impact social media visuals</strong
+            >.
+          </p>
+          <div class="nepal-tag">
+            
+            <span>LOCATED IN POKHARA,</span> <span id="nepal-clock">NEPAL (00:00:00)</span>
+           <span> DESIGNING FOR GLOBAL SYSTEMS</span>
+          </div>
         </div>
-        <button
-          id="hireBtn"
-          onclick="window.location.href='#contact'"
-          aria-label="Navigate to contact section"
-        >
-          Hire Me
-        </button>
-      </div>
-    </header>
+      </section>
 
-    <section id="about" class="fade-up" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <div class="about-content">
-        <div class="about-photo">
-          <img
-            src="Images/profile.jpg"
-            alt="Biwash Gurung, Full-Stack Developer and UI/UX Designer"
-          />
+      <section id="about" class="about">
+        <div class="about-img reveal">
+          <img src="Images/profile.jpg" alt="Biwash Gurung" />
         </div>
-        <div class="about-text">
+        <div class="about-text reveal">
+          <span
+            class="section-tag"
+            style="
+              font-size: 10px;
+              font-weight: 800;
+              text-transform: uppercase;
+              letter-spacing: 4px;
+              display: block;
+              margin-bottom: 20px;
+            "
+            >Identity</span
+          >
+          <h2>Surgical precision in every pixel.</h2>
           <p>
-            I'm Biwash Gurung, a Full-Stack Django Developer and Visual Designer
-            passionate about merging functionality with creativity to craft
-            exceptional digital experiences. I specialize in Django, JavaScript,
-            HTML5, CSS3, MySQL, and modern frameworks like Tailwind CSS and
-            Bootstrap, building scalable and responsive web applications.
+            I am Biwash Gurung, a Graphic Designer based in Nepal, dedicated to
+            the art of visual storytelling. I specialize in taking complex brand
+            visions and distilling them into clean, functional, and
+            <strong style="color: #ffffffbe">scalable digital systems</strong>.
+            My expertise spans across creating
+            <strong style="color: #ffffffbe">minimalist logo designs </strong>
+            that define a brand's core, and
+            <strong style="color: #ffffffbe"> user-centric web designs </strong>
+            that prioritize both aesthetics and functionality.
           </p>
           <p>
-            With a strong foundation in UI/UX design, I use Figma to create
-            user-centered, high-fidelity interfaces. I manage projects from
-            concept to deployment, ensuring each solution is technically robust
-            and aligned with business goals. Driven by continuous learning, I
-            strive to deliver impactful, polished digital products that make a
-            difference.
-            <a
-              href="path/to/resume.pdf"
-              class="resume-link"
-              download
-              aria-label="Download Biwash Gurung's resume"
-              >Download my resume</a
-            >
-            to learn more!
+            By leveraging
+            <strong style="color: #ffffffbe">photorealistic mockups</strong>, I
+            help clients visualize their brand in real-world scenarios before
+            they even go to market. Whether it’s high-engagement
+            <strong style="color: #ffffffbe"> social media graphics </strong>,
+            professional<strong style="color: #ffffffbe"> UI layouts</strong>,
+            or a complete
+            <strong style="color: #ffffffbe">visual identity overhaul</strong>,
+            I ensure every pixel is placed with intent. My goal is to deliver
+            creative assets that aren't just beautiful, but are strategically
+            built to help your business grow.
           </p>
-          <ul aria-label="Key strengths">
-            <li>Full-Stack Development with Python Django</li>
-            <li>UI/UX Design</li>
-            <li>Graphics Design</li>
-            <li>API Integration</li>
-            <li>Database Management</li>
-            <li>Creative Problem Solving</li>
-          </ul>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="skills" class="fade-up" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">My Skills</h2>
-      <div class="skills">
-        <div
-          class="skill-card"
-          data-tooltip="Building scalable web applications with Python and Django"
-        >
-          Python & Django
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Crafting intuitive user interfaces with Figma and Balsamiq"
-        >
-          UI/UX Design (Figma & Balsamiq)
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Creating stunning visuals with Photoshop, Illustrator, and Canva"
-        >
-          Graphic Design (Photoshop, Illustrator, Canva)
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Developing interactive web experiences with JavaScript and Three.js"
-        >
-          JavaScript & Three.js
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Exploring AI/ML for intelligent solutions"
-        >
-          AI & Machine Learning
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Building responsive websites with HTML, CSS, and Bootstrap"
-        >
-          HTML, CSS & Bootstrap
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Managing data with MySQL, SQLite, PostgreSQL, and API integrations"
-        >
-          MySQL, SQLite, PostgreSQL & APIs
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Version control and collaboration using Git and GitHub"
-        >
-          Git & GitHub
-        </div>
-        <div
-          class="skill-card"
-          data-tooltip="Organizing tasks and projects efficiently with Trello boards"
-        >
-          Trello
-        </div>
-      </div>
-    </section>
+      <section id="toolkit" class="toolkit">
+        <div class="toolkit-row">
+          <h2
+            style="
+              font-size: 4rem;
+              font-weight: 800;
+              line-height: 1;
+              letter-spacing: -3px;
+            "
+          >
+            THE WORK<br />BENCH.
+          </h2>
+          <div class="toolkit-list reveal">
+    <div class="tool-item">
+        <img src="Images/photoshop.png" class="tool-icon" alt="Photoshop" />
+        <h3>PHOTOSHOP</h3>
+        <p>Advanced raster manipulation and visual asset production.</p>
+    </div>
+    
+    <div class="tool-item">
+        <img src="Images/illustrator.png" class="tool-icon" alt="Illustrator" />
+        <h3>ILLUSTRATOR</h3>
+        <p>Precision vector architecture and brand mark development.</p>
+    </div>
 
-    <section
-      id="experience"
-      class="fade-up"
-      aria-labelledby="experience-heading"
-    >
-      <h2 id="experience-heading">Experience</h2>
-      <div class="timeline-container">
-        <div class="timeline-line"></div>
-        <div class="experience-item right" data-index="0">
-          <div
-            class="timeline-dot"
-            tabindex="0"
-            aria-label="Code Zenith Nepal timeline point"
-          ></div>
-          <div class="experience-card">
-            <img src="Images/codezenith.png" alt="Code Zenith Nepal logo" />
-            <h3>Web Developer</h3>
-            <div class="company">Code Zenith Nepal · Full-time</div>
-            <div class="details">
-              Nov 2024 - Apr 2025 · 6 mos · Pokhara, Gandaki, Nepal · On-site
-            </div>
-            <div class="description">
-              Contributed to a startup founded with classmates, developing
-              responsive web applications using HTML, CSS, JavaScript, and
-              Django. Collaborated on building scalable solutions to support
-              early-stage growth.
-            </div>
-            <div class="extra-details" id="extra-details-1">
-              Designed and implemented front-end interfaces and backend APIs,
-              improving user experience and system efficiency. Worked closely
-              with a small team to deliver features under tight deadlines.
-            </div>
-            <button
-              class="show-more"
-              data-target="extra-details-1"
-              aria-expanded="false"
-              aria-controls="extra-details-1"
-              aria-label="Show more details about Code Zenith Nepal role"
-            >
-              Show More
-            </button>
-          </div>
-        </div>
-        <div class="experience-item left" data-index="1">
-          <div
-            class="timeline-dot"
-            tabindex="0"
-            aria-label="XDezo Technologies timeline point"
-          ></div>
+    <div class="tool-item">
+        <img src="Images/indesign.png" class="tool-icon" alt="InDesign" />
+        <h3>INDESIGN</h3>
+        <p>Typography-focused editorial design and layout structure.</p>
+    </div>
 
-          <div class="experience-card">
-            <img src="Images/xdezo.jpg" alt="XDezo Technologies logo" />
-            <h3>Django Developer</h3>
-            <div class="company">XDezo Technologies · Internship</div>
-            <div class="details">
-              Dec 2024 - Apr 2025 · 5 mos · Pokhara, Gandaki, Nepal · Hybrid
-            </div>
-            <div class="description">
-              Developed Xdezo Bot, a Telegram chatbot for real-time enrollment
-              management, using Python, MySQL, and Telegram Bot API. Resolved
-              intent recognition issues and enhanced backend efficiency.
-              <a
-                href="#projects"
-                aria-label="View Xdezo Bot in projects section"
-                >See Project</a
+    <div class="tool-item">
+        <img src="Images/canva.png" class="tool-icon" alt="Canva" />
+        <h3>CANVA</h3>
+        <p>Rapid content creation and social media asset streamlining.</p>
+    </div>
+
+    <div class="tool-item">
+        <img src="Images/figma.png" class="tool-icon" alt="Figma" />
+        <h3>FIGMA</h3>
+        <p>Design systems and high-fidelity interaction design.</p>
+    </div>
+
+    <div class="tool-item">
+        <img src="Images/balsamiq.png" class="tool-icon" alt="Balsamiq" />
+        <h3>BALSAMIQ</h3>
+        <p>Low-fidelity wireframing and rapid UX structure mapping.</p>
+    </div>
+</div>
+
+
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <div class="project-grid" id="projectGrid">
+          <div class="project-card wide reveal">
+            <img src="Images/Desktop_BytesoftLogo.png" alt="Bytesoft Nepal Logo" />
+            <div class="project-overlay">
+              <h3>BYTESOFT SYSTEM IDENTITY</h3>
+              <a href="Pages/BytesoftLogoCaseStudy.html" class="btn-case" target="_blank"
+                >View Case Study</a
               >
             </div>
-            <div class="extra-details" id="extra-details-0">
-              Improved response time by 30% through query optimization and
-              caching. Collaborated with a team of 2 developers to integrate
-              user feedback, enhancing bot functionality.
-            </div>
-            <button
-              class="show-more"
-              data-target="extra-details-0"
-              aria-expanded="false"
-              aria-controls="extra-details-0"
-              aria-label="Show more details about XDezo Technologies role"
-            >
-              Show More
-            </button>
           </div>
-        </div>
-        <div class="experience-item right" data-index="2">
-          <div
-            class="timeline-dot"
-            tabindex="0"
-            aria-label="Bytesoft Nepal timeline point"
-          ></div>
-          <div class="experience-card">
-            <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft Nepal logo" />
-            <h3>Visual Designer / Django Developer</h3>
-            <div class="company">Bytesoft Nepal · Full-time</div>
-            <div class="details">
-              Apr 2025 - Present · 9 mos · Pokhara, Gandaki, Nepal · On-site
-            </div>
-            <div class="description">
-              Worked in a cross-functional role, developing Django web apps and
-              designing UI/UX with Figma. Built scalable MYSQL databases,
-              RESTful APIs, and responsive interfaces, while creating branded
-              visuals with Adobe tools.<a
-                href="#projects"
-                aria-label="View Bytesoft Nepal UI Prototype in projects section"
-                >See Projects</a
-              >
-            </div>
-            <div class="extra-details" id="extra-details-2">
-              Collaborated on clean code practices and user-centered designs,
-              enhancing project efficiency.
-            </div>
-            <button
-              class="show-more"
-              data-target="extra-details-2"
-              aria-expanded="false"
-              aria-controls="extra-details-2"
-              aria-label="Show more details about Bytesoft Nepal role"
-            >
-              Show More
-            </button>
-          </div>
-        </div>
-        <div class="experience-item left" data-index="1">
-          <div
-            class="timeline-dot"
-            tabindex="0"
-            aria-label="Little Heart Pet Shop timeline point"
-          ></div>
-
-          <div class="experience-card">
+          <div class="project-card reveal">
             <img
-              src="Images/Little Heart Pet Shop Logo.png"
-              alt="Little Heart Pet Shop logo"
+              src="Images/LittleHEart_OutdoorMockup.png"
+              alt="Little Heart Pet Shop Logo"
             />
-            <h3>Graphic Designer / Grooming Videographer & Video Editor</h3>
-            <div class="company">Little Heart Pet Shop · Full-time</div>
-            <div class="details">
-              Aug 2024 - Present · 5 mos · Pokhara, Gandaki, Nepal · On-site
+            <div class="project-overlay">
+              <h3>Little Heart Pet Shop Identity Design</h3>
+              <a href="Pages/LittleHeartPetShop.html" class="btn-case">View Case Study</a>
             </div>
-            <div class="description">
+          </div>
+          <div class="project-card reveal">
+            <img
+              src="Images/BlueSkyIndustries_Logo.png"
+              alt="Blue Sky Industries Logo"
+            />
+            <div class="project-overlay">
+              <h3>Blue Sky Industries Import & Export Identity Design</h3>
+              <a href="Pages/BlueSkyIndustriesCaseStudy.html" class="btn-case">View Case Study</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="experience">
+        <div class="timeline">
+          <div class="exp-item left reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img
+                src="Images/Little Heart Pet Shop Logo.png"
+                alt="Little Heart"
+              />
+            </div>
+            <div class="exp-company">Little Heart Pet Shop</div>
+            <span class="exp-year">Aug 2024 - Present · Nepal · On-site</span>
+            <p class="exp-desc">
               Responsible for filming the full pet grooming process and editing
               high-quality videos using VN to showcase the shop’s services
               across social platforms. Also handle graphic design tasks
               including posters, banners, social media creatives, and
               promotional materials to strengthen brand visibility and customer
-              engagement.
-              <a
-                href="#projects"
-                aria-label="View Little Heart Pet Shop in projects section"
-                >See Project</a
-              >
+              engagement
+            </p>
+          </div>
+
+          <div class="exp-item right reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img src="Images/Bytesoft_logo_10.png" alt="Bytesoft" />
             </div>
-            <div class="extra-details" id="extra-details-0">
-              Improved response time by 30% through query optimization and
-              caching. Collaborated with a team of 2 developers to integrate
-              user feedback, enhancing bot functionality.
+            <div class="exp-company">Bytesoft Nepal</div>
+            <span class="exp-year">Apr 2025 - Present · Nepal · On-site</span>
+            <p class="exp-desc">
+              Worked in a design-led role, architecting comprehensive UI/UX
+              systems and high-fidelity prototypes within Figma. Developed
+              scalable visual languages and brand identity assets using Adobe
+              Creative Suite, ensuring surgical precision across all digital
+              interfaces. Collaborated on user-centered design strategies to
+              enhance project aesthetics and maintain rigorous brand consistency
+            </p>
+          </div>
+
+          <div class="exp-item left reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img src="Images/Xdezo.jpg" alt="Little Heart" />
             </div>
+            <div class="exp-company">XDezo Technologies</div>
+            <span class="exp-year">Dec 2024 - Apr 2025 · Nepal · Hybrid</span>
+            <p class="exp-desc">
+              Designed the Conversational User Interface (CUX) and visual
+              identity for 'Xdezo Bot,' a real-time enrollment management
+              system. Focused on mapping intuitive user flows and information
+              architecture to simplify complex data interactions. Optimized the
+              visual hierarchy and interface logic, resulting in a 30%
+              improvement in user task completion speed. Collaborated with the
+              team to bridge the gap between high-fidelity design concepts and
+              final technical implementation.
+            </p>
+          </div>
+
+          <div class="exp-item right reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img src="Images/codezenith.png" alt="Code Zenith Nepal" />
+            </div>
+            <div class="exp-company">Code Zenith Nepal</div>
+            <span class="exp-year">Nov 2024 - Apr 2025 · Nepal · On-site</span>
+            <p class="exp-desc">
+              Architected the foundational visual DNA and digital identity for a
+              high-growth technology startup. Designed a comprehensive UI
+              component library and responsive design system to ensure seamless
+              cross-platform scalability. Strategized the Product Interface from
+              wireframe to high-fidelity implementation, prioritizing aesthetic
+              clarity and system efficiency. Collaborated within an agile
+              founding team to establish a cohesive brand presence that
+              supported early-stage market entry.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="fade-up" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact Me</h2>
-      <div class="contact-text">
-        <p>
-          I'm excited to connect and discuss your next project! Whether you need
-          a scalable web application, a stunning UI/UX design, innovative AI
-          solutions, or eye-catching graphic design posts for social media, I'm
-          here to help. Reach out via email or connect with me on social media.
-        </p>
-      </div>
-      <p>
-        Email:
-        <a href="mailto:biwashgrg21@gmail.com" aria-label="Email Biwash Gurung"
-          >biwashgrg21@gmail.com</a
+      <footer id="contact" class="contact-footer">
+        <div class="contact-flex">
+          <div class="contact-main reveal">
+            <h2>
+              <a href="mailto:biwashgrg21@gmail.com"
+                >LET'S BUILD<br />TOGETHER.</a
+              >
+            </h2>
+          </div>
+          <div class="contact-side reveal">
+            <ul class="social-list">
+              <li><a href="https://www.linkedin.com/in/biwashgurung" target="_blank">LINKEDIN</a></li>
+              <li><a href="https://www.behance.net/biwashgurung" target="_blank">BEHANCE</a></li>
+              <li><a href="https://github.com/biwashgurung" target="_blank">GITHUB</a></li>
+            </ul>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 100px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--silver);
+            letter-spacing: 2px;
+          "
         >
-      </p>
-      <div class="social-links">
-        <a
-          href="https://www.linkedin.com/in/biwashgurung/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View Biwash Gurung's LinkedIn profile"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/linkedin.svg"
-            alt="LinkedIn logo"
-            style="
-              width: 24px;
-              height: 24px;
-              margin-right: 8px;
-              vertical-align: middle;
-              filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(160deg);
-            "
-          />
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/biwashgurung"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View Biwash Gurung's GitHub profile"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v13.1.0/icons/github.svg"
-            alt="GitHub logo"
-            style="
-              width: 24px;
-              height: 24px;
-              margin-right: 8px;
-              vertical-align: middle;
-              filter: invert(90%) sepia(10%) saturate(100%) hue-rotate(180deg);
-            "
-          />
-          GitHub
-        </a>
-      </div>
-    </section>
+          <p>© 2025 BIWASH GURUNG</p>
+          <p>NEPAL — GLOBAL</p>
+        </div>
+      </footer>
+    </div>
 
-    <footer>© 2025 Biwash Gurung. All rights reserved.</footer>
+    <script>
+      // --- Live Nepal Clock (GMT+5:45) ---
+      function updateClock() {
+        const now = new Date();
+        const nepalTime = new Date(
+          now.getTime() + now.getTimezoneOffset() * 60000 + 345 * 60000
+        );
+        const timeString = nepalTime.toLocaleTimeString("en-US", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        document.getElementById(
+          "nepal-clock"
+        ).innerText = `NEPAL (${timeString})`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+      // 1. Mobile Menu Logic with Icon Animation
+      const menuToggle = document.getElementById("menuToggle");
+      const navInner = document.querySelector(".nav-inner");
+      const navItems = document.querySelectorAll(".nav-item");
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js"></script>
-    <script src="script.js"></script>
+      menuToggle.addEventListener("click", () => {
+        navInner.classList.toggle("active");
+        menuToggle.classList.toggle("open");
+      });
+
+      // Close menu when a link is clicked
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navInner.classList.remove("active");
+          menuToggle.classList.remove("open");
+        });
+      });
+
+      // 2. Cursor
+      const cursor = document.querySelector("#cursor");
+      const follower = document.querySelector("#cursor-follower");
+      document.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+        gsap.to(follower, {
+          x: e.clientX - 20,
+          y: e.clientY - 20,
+          duration: 0.15,
+        });
+      });
+
+      document.querySelectorAll("a, button, .project-card").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          follower.style.transform = "scale(2)";
+          follower.style.background = "rgba(255,255,255,0.1)";
+        });
+        el.addEventListener("mouseleave", () => {
+          follower.style.transform = "scale(1)";
+          follower.style.background = "transparent";
+        });
+      });
+
+      // 3. GSAP Reveals
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray(".reveal").forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: { trigger: el, start: "top 90%" },
+          y: 50,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      });
+
+      // 4. Nav Active Highlight
+      const sections = document.querySelectorAll("section, footer");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 300)
+            current = s.getAttribute("id");
+        });
+        navItems.forEach((l) => {
+          l.classList.remove("active");
+          if (l.getAttribute("href").includes(current))
+            l.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

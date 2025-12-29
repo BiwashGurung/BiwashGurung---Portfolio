@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytesoft Nepal | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #080808;
+            --card-bg: #121212;
+            --primary-purple: #5B3F91;
+            /* Silver Gradient Palette */
+            --silver-main: #e0e0e0;
+            --silver-dim: #888888;
+            --silver-border: #333333;
+            --text-main: #ffffff;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* --- THE ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .silver-badge {
+            border: 1px solid var(--silver-border);
+            color: var(--silver-main);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 24px;
+            background: linear-gradient(145deg, #1a1a1a, #080808);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            /* Silver Text Gradient */
+            background: linear-gradient(to bottom, #ffffff 30%, #777777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 550px;
+            background: #111;
+            border-radius: 40px;
+            margin-top: 60px;
+            border: 1px solid var(--silver-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.6s ease;
+            overflow: hidden;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+            border-color: var(--silver-dim);
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 120px 0;
+            border-bottom: 1px solid #151515;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--silver-main);
+            margin-bottom: 30px;
+            letter-spacing: -1.5px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .img-box {
+            background: #0c0c0c;
+            border: 1px solid var(--silver-border);
+            border-radius: 2px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+        }
+
+        .img-box:hover {
+            border-color: var(--primary-purple);
+            background: #111;
+        }
+
+        /* Specs Cards */
+        .spec-card {
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 30px;
+            border: 1px solid var(--silver-border);
+        }
+
+        .color-circle {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-purple);
+            border-radius: 18px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 30px rgba(91, 63, 145, 0.4);
+        }
+
+        /* --- ASYMMETRICAL EXCELLENCE GRID --- */
+.excellence-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr; /* High-end asymmetrical split */
+    grid-template-rows: repeat(2, 215px);
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.mockup-item {
+    position: relative;
+    background: #0d0d0d;
+    border: 1px solid var(--silver-border);
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+/* Makes the first image span both rows */
+.mockup-item.featured {
+    grid-row: span 2;
+}
+
+.mockup-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.7;
+}
+
+/* Glassmorphism Overlay */
+.mockup-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    transition: all 0.6s ease;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+.mockup-item:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.mockup-item:hover .mockup-overlay {
+    background: rgba(91, 63, 145, 0.15); /* Subtle brand tint */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.mockup-info {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease 0.1s;
+}
+
+.mockup-item:hover .mockup-info {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.mockup-info h4 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.mockup-info p {
+    margin: 0 0 8px;
+    color: var(--primary-purple);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+
+
+/* Responsive Handling */
+@media (max-width: 992px) {
+    .excellence-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .mockup-item.featured { height: 450px; grid-row: span 1; }
+    .mockup-item { height: 350px; }
+}
+
+        /* Result Section */
+        .impact-section {
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .impact-text {
+            font-size: 1.4rem;
+            color: var(--silver-dim);
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            color: #444;
+            border-top: 1px solid #111;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .hero-image { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <div class="silver-badge reveal">System Redesign</div>
+            <h1 class="reveal">Bytesoft Nepal</h1>
+            <p class="reveal" style="color: var(--silver-dim); margin-top: 20px; font-size: 1.2rem;">Modernizing digital architecture through strategic design.</p>
+            <div class="hero-image reveal">
+                <span style="color:#333;">
+                    <img style="width: 100%; height: auto;" src="../Images/Desktop_BytesoftLogo.png" alt="Bytesoft Logo Mockup">
+                </span>
+            </div>
+        </header>
+
+        <section class="section reveal">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title">The Challenge</h2>
+                    <p style="color: var(--silver-dim);">The existing identity lacked the <strong>mathematical precision</strong> required for a software firm. I was tasked with stripping away complexity to reveal a clean, high-performance mark that works flawlessly in any digital ecosystem.</p>
+                </div>
+                <div class="img-box">
+                    <img style="width: 100%; height: auto;" src="../Images/Bytesoft_logo_2.png" alt="Old Bytesoft Logo">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <h2 class="section-title">Visual Evolution</h2>
+            <div class="grid-2">
+                <div class="img-box" style="flex-direction: column;">
+                    <small style="color:var(--silver-dim); margin-bottom: 10px;">LEGACY</small>
+                    <div style="color:#222;">
+                    <img style="width: 100%; height: auto;" src="../Images/Bytesoft_logo_2.png" alt="Old Bytesoft Logo">
+                    </div>
+                </div>
+                <div class="img-box" style="flex-direction: column; border-color: var(--primary-purple);">
+                    <small style="color:var(--primary-purple); margin-bottom: 10px;">REIMAGINED</small>
+                    <div style="color:#fff;">
+                    <img style="width: 100%; height: auto;" src="../Images/Bytesoft_logo_10.png" alt="New Bytesoft Logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="grid-2">
+                <div class="img-box"> 
+                    <img style="width: 100%; height: auto;" src="../Images/Bytesoft_logo_Icons.png" alt="New Bytesoft Logo">
+                 
+                </div>
+                <div>
+                    <h2 class="section-title">Anatomy & Logic</h2>
+                    <p style="color: var(--silver-dim);"><strong style="color: #fff;">The Peak:</strong> Representing the summit of Nepal's landscape and the heights of innovation.<br><br>
+                    <strong style="color: #fff;">The Circuit:</strong> Representing the logical pathways of modern software development.</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section class="section reveal">
+            <div class="grid-2">
+                <div class="spec-card">
+                    <div class="silver-badge">Typography</div>
+                    <h3 style="font-size: 2rem; margin: 10px 0;">Bytesoft <span style="font-weight:300; color:var(--silver-dim)">Nepal</span></h3>
+                    <p style="color: var(--silver-dim);">Geometric Sans-Serif for a "bug-free" and precise digital appearance.</p>
+                </div>
+                <div class="spec-card">
+                    <div class="silver-badge">Color Theory</div>
+                    <div class="color-circle"></div>
+                    <p style="color: #fff;">Digital Violet (#5B3F91)</p>
+                    <p style="color: var(--silver-dim); font-size: 0.9rem;">Chosen for its association with luxury, innovation, and wisdom.</p>
+                </div>
+            </div>
+        </section>
+
+<section class="section reveal">
+    <div class="silver-badge">System Application</div>
+    <h2 class="section-title">Tactile Execution</h2>
+    <p style="color: var(--silver-dim); max-width: 600px;">
+        Visualizing the brand system across high-stakes physical and digital environments.
+    </p>
+    
+    <div class="excellence-grid">
+        <div class="mockup-item featured">
+            <img src="../Images/BytesoftBusinessCardMockup.jpg" alt="Business Card Mockup">
+            <div class="mockup-overlay">
+                <div class="mockup-info">
+                    <p>System Extension</p>
+                    <h4>Business Card Mockup</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-item">
+            <img src="../Images/Bytesoft_Website_Mockup.jpg" alt="Website Logo Mockup">
+            <div class="mockup-overlay">
+                <div class="mockup-info">
+                    <p>Digital Presence</p>
+                    <h4>Website Logo Mockup</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-item">
+            <img src="../Images/BytesoftTshirtMockup.png" alt="T-Shirt Mockup">
+            <div class="mockup-overlay">
+                <div class="mockup-info">
+                    <p>Brand Culture</p>
+                    <h4>T-Shirt Mockup</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+
+        <section class="impact-section reveal">
+            <h2 class="section-title">The Impact</h2>
+            <p class="impact-text">The result is a future-proof, unified brand that has elevated Bytesoft Nepal's presence from a local provider to a world-class technology partner.</p>
+            <div class="silver-badge" style="border-color: var(--primary-purple); color: #fff;">100% Brand Rollout Success</div>
+        </section>
+
+    </div>
+    
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 120; // How many pixels before revealing
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Initial call to show items in view on load
+        reveal();
+    </script>
+</body>
+</html>
