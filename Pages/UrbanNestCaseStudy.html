@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Nest | Brand Identity Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: #0c0c0c;
+            --primary-accent: #C07A5F; /* Terracotta from the logo line */
+            --navy-accent: #3A3E59; /* Navy from the typography */
+            --silver-main: #e0e0e0;
+            --silver-dim: #888888;
+            --silver-border: rgba(255,255,255,0.08);
+            --text-main: #ffffff;
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { box-sizing: border-box; cursor: default; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1150px; margin: 0 auto; padding: 0 24px; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Hero Section */
+        .hero { padding: 180px 0 100px; text-align: center; }
+
+        .hero-badge {
+            border: 1px solid var(--silver-border);
+            color: var(--silver-main);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            line-height: 1;
+            background: linear-gradient(to bottom, #ffffff 50%, #777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 600px;
+            background: #E8E5DF; /* Matching the beige circle background of the logo */
+            border-radius: 4px;
+            margin-top: 80px;
+            border: 1px solid var(--silver-border);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Section Styling */
+        .section { padding: 140px 0; border-bottom: 1px solid #111; }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--silver-main);
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Enhanced Card Styling */
+        .spec-card {
+            background: linear-gradient(145deg, #0f0f0f 0%, #050505 100%);
+            padding: 60px;
+            border: 1px solid var(--silver-border);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        .spec-card:hover {
+            border-color: rgba(192, 122, 95, 0.4);
+            transform: translateY(-8px);
+        }
+
+        .spec-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-accent);
+        }
+
+        .card-label {
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+            font-weight: 800;
+            display: block;
+        }
+
+        /* Mockup Grid */
+        .excellence-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            grid-template-rows: repeat(2, 300px);
+            gap: 20px;
+        }
+
+        .mockup-item {
+            position: relative;
+            background: #0d0d0d;
+            border: 1px solid var(--silver-border);
+            overflow: hidden;
+        }
+
+        .mockup-item.featured { grid-row: span 2; }
+
+        .mockup-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mockup-item:hover img { opacity: 1; transform: scale(1.05); }
+
+        .mockup-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .mockup-item:hover .mockup-overlay { opacity: 1; }
+
+        /* Impact Section */
+        .impact-section { text-align: center; padding: 160px 0; }
+
+        @media (max-width: 800px) {
+            .grid-2, .excellence-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 350px; }
+            .excellence-grid { grid-template-rows: auto; }
+            .mockup-item { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <div class="hero-badge reveal">Co-Living | Digital Nomad Housing</div>
+        <h1 class="reveal">Urban Nest</h1>
+        <p class="reveal" style="color: var(--silver-dim); margin-top: 25px; font-size: 1.1rem; letter-spacing: 1px;">Flexible Urban Living. Community Driven. Community Focused.</p>
+        
+        <div class="hero-image reveal">
+            <img src="Day24Assignment_BiwashGurung.png" alt="Urban Nest Logo" style="max-width: 450px; width: 90%;">
+        </div>
+    </header>
+
+    <section class="section reveal">
+        <div class="grid-2">
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <h2 class="section-title">The Strategic Brief</h2>
+                <p style="color: var(--silver-dim); font-size: 1.1rem;">Urban Nest addresses the housing needs of <strong>young professionals and digital nomads</strong>. The goal was to synthesize modern urban speed with the warmth of a community-focused home.</p>
+                <div style="margin-top: 20px;">
+                    <span class="hero-badge" style="border-color: var(--primary-accent); color: #fff;">Community Focused</span>
+                    <span class="hero-badge">Modern Living</span>
+                </div>
+            </div>
+            
+            <div class="spec-card">
+                <span class="card-label">01. Design Objective</span>
+                <h3 style="font-family: 'Playfair Display'; font-size: 1.8rem; margin: 10px 0 20px;">Trust & Reliability</h3>
+                <p style="color: var(--silver-dim); font-size: 0.95rem;">The identity positions Urban Nest as a smart housing solution, balancing a minimal aesthetic with warm, inviting elements to foster trust in a flexible rental market.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal">
+        <div class="hero-badge">Brand Application</div>
+        <h2 class="section-title">Environmental Presence</h2>
+        <div class="excellence-grid">
+            <div class="mockup-item featured">
+                <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#111; color:#333;">[Mockup: Interior Signage]</div>
+                <div class="mockup-overlay">
+                    <h4 style="margin:0;">Lobby Experience</h4>
+                    <p style="font-size: 0.8rem; color: var(--primary-accent);">Physical Environment</p>
+                </div>
+            </div>
+            <div class="mockup-item">
+                <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#1a1a1a; color:#333;">[Mockup: Mobile App]</div>
+                <div class="mockup-overlay">
+                    <h4 style="margin:0;">Digital Storefront</h4>
+                    <p style="font-size: 0.8rem;">Booking & Management</p>
+                </div>
+            </div>
+            <div class="mockup-item">
+                <div style="height:100%; display:flex; align-items:center; justify-content:center; background:#0a0a0a; color:#333;">[Mockup: Resident Kit]</div>
+                <div class="mockup-overlay">
+                    <h4 style="margin:0;">Resident Collateral</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section reveal">
+        <div class="grid-2">
+            <div class="spec-card">
+                <span class="card-label">02. Visual Anatomy</span>
+                <p style="color: var(--silver-main); margin-bottom: 15px;"><strong>The "U" Frame:</strong> Represents the Urban landscape and a Universal sense of belonging.</p>
+                <p style="color: var(--silver-dim); margin-bottom: 15px;"><strong>The Nest:</strong> The central house icon provides the psychological anchor of "Home" and comfort.</p>
+                <p style="color: var(--silver-dim);"><strong>The "N":</strong> Embedded within the house, representing the "Nest" and the "Network" of the community.</p>
+            </div>
+
+            <div class="spec-card">
+                <span class="card-label">03. Color & Type</span>
+                <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                    <div style="width: 50px; height: 50px; background: #C07A5F; border-radius: 4px;" title="Terracotta Warmth"></div>
+                    <div style="width: 50px; height: 50px; background: #3A3E59; border-radius: 4px;" title="Navy Reliability"></div>
+                    <div style="width: 50px; height: 50px; background: #E8E5DF; border-radius: 4px;" title="Beige Softness"></div>
+                </div>
+                <p style="color: var(--silver-dim);">A terracotta accent conveys warmth and brick-and-mortar stability, while the dark navy typography ensures a professional, reliable foundation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section reveal">
+        <h2 class="section-title">The Horizon</h2>
+        <p style="color: var(--silver-dim); max-width: 700px; margin: 0 auto 40px;">Urban Nest is now positioned as the premier housing solution for the modern urbanite, bridging the gap between solitude and community.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <div class="hero-badge" style="border-color: var(--silver-border);">Audience: 22–45 Professionals</div>
+            <div class="hero-badge" style="border-color: var(--primary-accent); color: #fff; background: rgba(192, 122, 95, 0.2);">Status: Brand Identity Complete</div>
+            <div class="hero-badge" style="border-color: var(--silver-border);">Market: Urban Residential</div>
+        </div>
+    </section>
+</div>
+
+<script>
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+</script>
+
+</body>
+</html>
