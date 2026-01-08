@@ -63,6 +63,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 4px; /* Classic Instagram gap */
+            
         }
         .insta-post {
             aspect-ratio: 1 / 1; /* Forces a perfect square */
@@ -73,7 +74,7 @@
         .insta-post img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures images fill the square without stretching */
+            object-fit: contain; /* Ensures images fill the square without stretching */
             transition: 0.5s;
         }
         .insta-post:hover img { transform: scale(1.1); }
@@ -157,17 +158,17 @@
             </div>
             
             <div class="insta-grid">
-                <div class="insta-post"><img src="LittleHeart _ New Year2026_3.jpg" alt="New Year Post"></div>
-                <div class="insta-post"><img src="ChristmasDesign_LittleHeart.jpg" alt="Christmas Post"></div>
-                <div class="insta-post"><img src="HappyTihar- LittleHeartPetShop04.jpg" alt="Tihar Post"></div>
+                <div class="insta-post"><img src="../Images/LittleHeart _ New Year2026_3.jpg" alt="New Year Post"></div>
+                <div class="insta-post"><img src="../Images/ChristmasDesign_LittleHeart.jpg" alt="Christmas Post"></div>
+                <div class="insta-post"><img src="../Images/HappyTihar- LittleHeartPetShop04.png" alt="Tihar Post"></div>
                 
-                <div class="insta-post"><img src="LittleHeart - Grooming Menu_Updated_Insta.jpg" alt="Grooming Menu Highlight"></div>
-                <div class="insta-post"><img src="2.jpg" alt="Size Guide"></div>
-                <div class="insta-post"><img src="1.jpg" alt="Wash and Dry Services"></div>
+                <div class="insta-post"><img src="../Images/" alt="Grooming Menu Highlight"></div>
+                <div class="insta-post"><img src="../Images/" alt="Size Guide"></div>
+                <div class="insta-post"><img src="../Images/" alt="Wash and Dry Services"></div>
                 
-                <div class="insta-post"><img src="HappyTihar- LittleHeartPetShop04.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
-                 <div class="insta-post"><img src="ChristmasDesign_LittleHeart.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
-                 <div class="insta-post"><img src="LittleHeart _ New Year2026_3.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
+                <div class="insta-post"><img src="../Images/" style="filter: brightness(0.8);" alt="Feed Post"></div>
+                 <div class="insta-post"><img src="../Images/" style="filter: brightness(0.8);" alt="Feed Post"></div>
+                 <div class="insta-post"><img src="../Images/" style="filter: brightness(0.8);" alt="Feed Post"></div>
             </div>
             <div style="display: flex; justify-content: space-around; padding: 15px 0 5px; font-size: 1.5rem;">
                 <div style="color: var(--accent);">⌂</div><div>Search</div><div>+</div><div>♡</div><div>○</div>
