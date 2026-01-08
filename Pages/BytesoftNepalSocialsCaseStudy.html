@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytesoft Nepal | Strategic Visual System</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --card-bg: #111111;
+            --accent: #6366f1; /* Refined Indigo */
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --border: rgba(255, 255, 255, 0.06);
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-primary); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* --- Header/Hero --- */
+        .hero { 
+            padding: 160px 0 80px; 
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        .eyebrow { 
+            color: var(--accent); 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.2em; 
+            font-size: 12px; 
+            margin-bottom: 24px;
+            display: block;
+        }
+        .hero h1 { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 800; 
+            line-height: 1.1; 
+            letter-spacing: -0.04em;
+            margin-bottom: 32px;
+        }
+        .hero p { 
+            font-size: 1.25rem; 
+            color: var(--text-secondary); 
+            max-width: 600px; 
+            font-weight: 300;
+        }
+
+        /* --- Bento Grid Section --- */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+            margin: 80px 0;
+        }
+
+        .bento-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+        .bento-item:hover { border-color: var(--accent); }
+
+        .bento-content { padding: 32px; }
+        .bento-content h3 { font-family: 'Plus Jakarta Sans'; margin-bottom: 12px; font-size: 1.5rem; }
+        .bento-content p { color: var(--text-secondary); font-size: 0.95rem; }
+
+        .img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* Custom Spans for Bento */
+        .col-8 { grid-column: span 8; }
+        .col-4 { grid-column: span 4; }
+        .row-2 { grid-row: span 2; }
+
+        /* --- Full Width Showcase --- */
+        .showcase { padding: 100px 0; }
+        .showcase-header { margin-bottom: 60px; max-width: 700px; }
+        .showcase-header h2 { font-family: 'Plus Jakarta Sans'; font-size: 2.5rem; margin-bottom: 20px; letter-spacing: -0.03em; }
+
+        .featured-img-container {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 40px;
+            margin-bottom: 40px;
+        }
+        .featured-img-container img { 
+            width: 100%; 
+            border-radius: 12px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        /* --- Details Bar --- */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .detail-card span { display: block; color: var(--accent); font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+        .detail-card p { font-size: 1rem; color: var(--text-primary); }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .col-8, .col-4 { grid-column: span 12; }
+            .details-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { padding: 100px 0 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <span class="eyebrow">Visual Systems Architecture</span>
+        <h1>Bytesoft Nepal:<br>Cultural Integrity in Tech.</h1>
+        <p>A strategic design system that bridges the gap between software engineering and Nepalese cultural storytelling.</p>
+    </header>
+
+    <div class="details-grid">
+        <div class="detail-card"><span>Client</span><p>Bytesoft Nepal</p></div>
+        <div class="detail-card"><span>Industry</span><p>IT Solutions</p></div>
+        <div class="detail-card"><span>Deliverables</span><p>Digital Brand Identity</p></div>
+        <div class="detail-card"><span>Strategy</span><p>Localized Resilience</p></div>
+    </div>
+
+    <section class="bento-grid">
+        <div class="bento-item col-8">
+            <div class="bento-content">
+                <h3>The 2082 Vision</h3>
+                <p>Architecting a multi-layered composition that symbolizes the digital dawn over the Himalayas.</p>
+            </div>
+            <img src="../Images/BytesoftNewYearPost_NewLogo.jpg" class="img-fill" alt="New Year Design">
+        </div>
+
+        <div class="bento-item col-4 row-2">
+            <img src="../Images/BuddhaPurnima_with_new_logo.jpg" class="img-fill" alt="Buddha Purnima">
+            <div class="bento-content">
+                <h3>Peaceful Logistics</h3>
+                <p>Using a gold-indigo palette to represent wisdom within the software industry.</p>
+            </div>
+        </div>
+
+        <div class="bento-item col-4">
+            <div class="bento-content">
+                <h3>Heritage Identity</h3>
+                <p>Merging iconic architecture with clean typography.</p>
+            </div>
+            <img src="../Images/Ganatrantra_1.jpg" class="img-fill" alt="Republic Day">
+        </div>
+
+        <div class="bento-item col-4">
+            <img src="../Images/Loktrantra.jpg" class="img-fill" alt="Democracy Day">
+        </div>
+    </section>
+
+    <section class="showcase">
+        <div class="showcase-header">
+            <span class="eyebrow">The Result</span>
+            <h2>Systemized Communication</h2>
+            <p>Every post is built upon a strict structural grid. The unified footer system ensures that contact details are accessible without compromising the artistic integrity of the cultural imagery.</p>
+        </div>
+
+        <div class="featured-img-container">
+            <img src="../Images/LABOURSDAY FINAL.jpg" alt="Labour Day System">
+        </div>
+
+        <div class="featured-img-container">
+            <img src="../Images/मातातिर्थ औंसी_01.jpg" alt="Mothers Day Portraiture">
+        </div>
+    </section>
+
+    <footer style="padding: 100px 0; text-align: center;">
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Architected by Biwash Gurung &copy; 2026</p>
+    </footer>
+</div>
+
+</body>
+</html>
