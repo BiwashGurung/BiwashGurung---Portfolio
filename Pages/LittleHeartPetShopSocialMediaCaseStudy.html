@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Heart Pet Shop | Social Media Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #111111;
+            --accent: #FFAB40; /* Warm Golden Orange */
+            --accent-soft: rgba(255, 171, 64, 0.15);
+            --text-p: #a0a0a0;
+            --text-h: #ffffff;
+            --border: rgba(255,255,255,0.1);
+        }
+
+        /* Style Guide Elements */
+        .swatch-group { display: flex; gap: 15px; margin-top: 20px; }
+        .swatch { width: 50px; height: 50px; border-radius: 8px; border: 1px solid var(--border); }
+        .type-showcase { border-left: 2px solid var(--accent); padding-left: 20px; margin-top: 20px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-h); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        img { max-width: 100%; height: auto; display: block; }
+        
+        /* Typography */
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.03em; }
+        p { font-size: 1.1rem; color: var(--text-p); font-weight: 300; margin-bottom: 20px; }
+
+        /* Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Layout & Components */
+        .section-padding { padding: 120px 0; }
+        .grid-split { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
+        .label { font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 20px; display: block; }
+        .img-display { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.5s; }
+        .img-display:hover { border-color: var(--accent); }
+
+        /* Hero */
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding-top: 100px; }
+        .hero-title { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; }
+
+        /*--- INSTAGRAM SMARTPHONE MOCKUP ---*/
+        .phone-mockup {
+            background: #000;
+            border-radius: 40px;
+            padding: 20px 15px;
+            border: 4px solid #222;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            max-width: 420px;
+            margin: 0 auto;
+        }
+        .insta-header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 0 10px;
+        }
+        .insta-profile-info { display: flex; gap: 15px; align-items: center; margin-bottom: 20px; padding: 0 10px; }
+        .profile-pic { width: 70px; height: 70px; background: var(--surface); border-radius: 50%; border: 2px solid var(--accent); overflow: hidden; }
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px; /* Classic Instagram gap */
+        }
+        .insta-post {
+            aspect-ratio: 1 / 1; /* Forces a perfect square */
+            overflow: hidden;
+            position: relative;
+            background: var(--surface);
+        }
+        .insta-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the square without stretching */
+            transition: 0.5s;
+        }
+        .insta-post:hover img { transform: scale(1.1); }
+        /*-----------------------------------*/
+
+        @media (max-width: 900px) { .grid-split { grid-template-columns: 1fr; gap: 40px; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <span class="label reveal">Visual Identity & Social Media</span>
+        <h1 class="hero-title reveal">Little Heart<br>Pet Shop.</h1>
+        <p class="reveal" style="max-width: 600px;">Cultivating trust and warmth for Pokhara’s premier pet grooming salon through cohesive seasonal storytelling and clear, functional service design.</p>
+    </header>
+
+       <section class="section-padding grid-split reveal" style="border-top: 1px solid var(--border);">
+        <div>
+            <span class="label">01 — The Brief</span>
+            <h2 style="font-size: 2.5rem;">Professionalizing Compassion.</h2>
+        </div>
+        <div>
+            <p>Little Heart Pet Shop needed a social media presence that reflected their high standards of care. The challenge was to transform a complex grooming price list into an easily digestible mobile format while maintaining a warm, approachable brand voice during festive seasons.</p>
+        </div>
+    </section>
+
+    <section class="section-padding grid-split reveal" style="background: var(--surface); margin: 0 -30px; padding: 100px 30px;">
+        <div>
+            <span class="label">02 — The Strategy</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Heart to Paws Connection.</h2>
+        </div>
+        <div>
+            <p>The goal was to professionalize the brand's social presence to drive bookings. We needed to balance emotional engagement with functional clarity.</p>
+            <p>The visual strategy utilized a warm, "golden" color palette to evoke comfort, paired with high-quality imagery of happy pets dressed for the occasion, instantly humanizing the brand.</p>
+        </div>
+    </section>
+
+        <section  class="section-padding grid-split reveal" style="border-top: 1px solid var(--border);">
+        <div>
+            <span class="label">03 — Style Guide</span>
+            <h2 style="font-size: 2.5rem;">Visual DNA.</h2>
+        </div>
+        <div>
+            <p>I selected a "Golden-Hour" palette to evoke feelings of warmth, safety, and domestic comfort. This was paired with a geometric sans-serif for clarity in information-heavy grooming menus.</p>
+            
+            <div class="swatch-group">
+                <div class="swatch" style="background: #FFAB40;" title="Primary Golden"></div>
+                <div class="swatch" style="background: #4E342E;" title="Chocolate Brown"></div>
+                <div class="swatch" style="background: #FFFFFF;" title="Clean White"></div>
+            </div>
+            
+            <div class="type-showcase">
+                <h3 style="font-family: 'Space Grotesk';">Space Grotesk (Headings)</h3>
+                <p style="font-family: 'Plus Jakarta Sans'; margin: 0;">Plus Jakarta Sans (Body Copy)</p>
+            </div>
+            
+        </div>
+    </section>
+
+    
+
+    <section class="section-padding reveal" style="background: var(--surface); margin: 0 -30px; padding: 100px 30px;">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <span class="label">04 — Social Cohesion</span>
+            <h2 style="font-size: 3rem;">The Feed Experience.</h2>
+            <p style="max-width: 500px; margin: 20px auto 0;">A unified visual language across holidays and services ensures the brand feels professional and reliable at every touchpoint.</p>
+        </div>
+
+        <div class="phone-mockup">
+            <div class="insta-header">
+                <div style="font-weight: 700; font-size: 1.1rem;">littleheartpetshop</div>
+                <div>•••</div>
+            </div>
+            <div class="insta-profile-info">
+                <div class="profile-pic"><img src="../Images/LittleHeartPetShop_BusinessCard_MockupFrontback.png" style="object-fit: cover; scale: 2; object-position: top center;"></div>
+                <div>
+                    <div style="font-weight: 700;">Little Heart Pet Shop</div>
+                    <div style="font-size: 0.9rem; color: var(--text-p);">Pet Groomer • Pokhara</div>
+                </div>
+            </div>
+            
+            <div class="insta-grid">
+                <div class="insta-post"><img src="LittleHeart _ New Year2026_3.jpg" alt="New Year Post"></div>
+                <div class="insta-post"><img src="ChristmasDesign_LittleHeart.jpg" alt="Christmas Post"></div>
+                <div class="insta-post"><img src="HappyTihar- LittleHeartPetShop04.jpg" alt="Tihar Post"></div>
+                
+                <div class="insta-post"><img src="LittleHeart - Grooming Menu_Updated_Insta.jpg" alt="Grooming Menu Highlight"></div>
+                <div class="insta-post"><img src="2.jpg" alt="Size Guide"></div>
+                <div class="insta-post"><img src="1.jpg" alt="Wash and Dry Services"></div>
+                
+                <div class="insta-post"><img src="HappyTihar- LittleHeartPetShop04.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
+                 <div class="insta-post"><img src="ChristmasDesign_LittleHeart.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
+                 <div class="insta-post"><img src="LittleHeart _ New Year2026_3.jpg" style="filter: brightness(0.8);" alt="Feed Post"></div>
+            </div>
+            <div style="display: flex; justify-content: space-around; padding: 15px 0 5px; font-size: 1.5rem;">
+                <div style="color: var(--accent);">⌂</div><div>Search</div><div>+</div><div>♡</div><div>○</div>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 0.8rem; margin-top: 30px; letter-spacing: 1px; text-transform: uppercase; color: var(--accent);"></p>
+    </section>
+        <section class="section-padding grid-split reveal">
+        <div>
+            <span class="label">05 — UX Architecture</span>
+            <h2 style="font-size: 2.5rem;">Logical Hierarchy.</h2>
+        </div>
+        <div>
+            <p>For the grooming menu, I implemented an <strong>Information Architecture</strong> that prioritizes the most frequently asked questions: "What is the service?" and "How much for my dog's size?"</p>
+            <ul style="color: var(--text-p); padding-left: 20px; margin-bottom: 30px;">
+                <li><strong>Iconography:</strong> Simplified dog silhouettes for instant size recognition.</li>
+                <li><strong>Typography:</strong> Bold pricing for scanning ease.</li>
+                <li><strong>Visual Cues:</strong> Seasonal themes (Tihar/Christmas) to maintain high engagement.</li>
+            </ul>
+            
+        </div>
+    </section>
+
+    <section class="section-padding grid-split reveal">
+        <div>
+            <span class="label">06 — Functional Clarity</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Simplifying the Complex.</h2>
+            <p>Pet grooming pricing is complicated. The challenge was to present variables (size, weight, service type) in a way that was instantly understandable on a small screen.</p>
+            <p>We developed a clear visual hierarchy using distinct headers, bullet points for deliverables, and iconography for dog sizes, making the booking decision effortless for owners.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+            <div class="img-display">
+                <img src="LittleHeart - Grooming Menu_Updated_Insta.jpg" alt="Full Illustrated Grooming Menu">
+            </div>
+            <div class="img-display">
+                <img src="2.jpg" alt="Dog Size Guide Visual">
+            </div>
+        </div>
+    </section>
+      <section class="section-padding reveal" style="border-top: 1px solid var(--border); text-align: center;">
+        <span class="label" style="border: none;">07 — The Result</span>
+        <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Measurable Impact.</h2>
+        <p style="max-width: 700px; margin: 0 auto 40px;">The redesign led to a 40% reduction in pricing-related inquiries on Instagram DM, as customers could now self-serve information. The festive designs achieved record engagement rates, strengthening Little Heart's position as Pokhara's community leader in pet care.</p>
+    </section>
+
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
