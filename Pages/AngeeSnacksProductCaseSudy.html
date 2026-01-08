@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angee's Snacks | Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --surface: #141414;
+            --accent: #ff9f43; /* Golden Orange */
+            --accent-muted: #4e342e;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.7; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+
+        /* Typography */
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .label { color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; margin-bottom: 20px; display: block; }
+
+        /* Sections */
+        .section-padding { padding: 120px 0; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Hero */
+        .hero { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; border-bottom: 1px solid var(--border); }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 30px; }
+        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 650px; }
+
+        /* Product Showcase Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+        .product-card { background: var(--surface); border: 1px solid var(--border); padding: 20px; border-radius: 20px; transition: 0.4s; }
+        .product-card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        .product-card h3 { margin: 20px 0 10px; color: var(--accent); }
+        .product-card p { font-size: 0.95rem; color: var(--text-dim); }
+
+        /* Manipulation Section */
+        .split-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+        .feature-box { background: var(--surface); padding: 40px; border-radius: 24px; border: 1px solid var(--border); }
+
+        /* Footer */
+        .footer { text-align: center; padding: 100px 0; border-top: 1px solid var(--border); }
+
+        @media (max-width: 900px) { .product-grid, .split-layout { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <span class="label reveal">Architecting Trust</span>
+        <h1 class="reveal">Angee’s<br><span style="color: var(--accent);">Snacks.</span></h1>
+        <p class="reveal">Establishing a "Human-Grade" visual standard for premium pet nutrition. A system built on transparency, high-protein logic, and the visible quality of single-ingredient integrity.</p>
+    </header>
+
+    <section class="section-padding reveal">
+        <span class="label">01 — The Nutritional Palette</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Flavor Systems & Integrity.</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="AngeeSnacks_ProductDesign - Carrot.jpg" alt="Angee's Snacks Chicken with Carrot">
+                <h3>Chicken & Carrot</h3>
+                <p>Designed to highlight high-protein density and beta-carotene benefits through vibrant, natural color theory.</p>
+            </div>
+            <div class="product-card">
+                <img src="AngeeSnacks_ProductDesign - Pumkin.jpg" alt="Angee's Snacks Chicken with Pumpkin">
+                <h3>Chicken & Pumpkin</h3>
+                <p>Emphasizing digestive health and "No Preservatives" through warm, earth-toned product photography.</p>
+            </div>
+            <div class="product-card">
+                <img src="AngeeSnacks_ProductDesign - SweetPotato.jpg" alt="Angee's Snacks Chicken with Sweet Potato">
+                <h3>Chicken & Sweet Potato</h3>
+                <p>Communicating sustained energy and human-grade quality within a curated, domestic lifestyle aesthetic.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding reveal">
+        <div class="split-layout">
+            <div>
+                <img src="InstaManipulation_AngeeSnacks0222.jpg" style="box-shadow: 0 30px 60px rgba(0,0,0,0.5);" alt="Angee's Snacks Social Content Strategy">
+            </div>
+            <div>
+                <span class="label">02 — Behavioral Engagement</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 25px;">The "Treat" Logic.</h2>
+                <p style="color: var(--text-dim); margin-bottom: 30px;">I architected a high-engagement digital campaign titled "Who Gets the Treat?" This interactive system uses photo-manipulation to break the standard grid, creating a 3D visual hierarchy that captures attention in fast-scrolling environments.</p>
+                <div class="feature-box">
+                    <h4 style="color: var(--accent); margin-bottom: 10px;">The Objective: Conversational Growth</h4>
+                    <p style="font-size: 0.9rem;">By pitting cats against dogs in a playful "selection" format, the design drove community interaction and reinforced the brand's dual-market appeal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding reveal" style="text-align: center;">
+        <span class="label">03 — Physical Architecture</span>
+        <h2 style="font-size: 3rem; margin-bottom: 40px;">Quality You Can See.</h2>
+        <p style="max-width: 700px; margin: 0 auto 60px; color: var(--text-dim);">The packaging design utilizes a raw Kraft texture to signal artisanal craftsmanship and organic purity. The central "Seal of Trust" features a child and pet silhouette, subconsciously validating the 100% human-grade safety standard.</p>
+        <img src="Angee'sSnacks_Mockup - Final.jpg" style="max-width: 800px; margin: 0 auto; border: 1px solid var(--border);" alt="Angee's Snacks Final Packaging System">
+    </section>
+
+    <footer class="footer reveal">
+        <h2 style="font-size: 3.5rem; margin-bottom: 20px;">The System Result.</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: var(--text-dim);">Angee’s Snacks successfully positioned itself as a premium health leader in the Nepalese pet market by harmonizing physical product transparency with a sophisticated digital narrative.</p>
+        <div style="margin-top: 50px;">
+             <a href="index.html" style="color: var(--accent); text-decoration: none; font-weight: 800; letter-spacing: 2px;">← BACK TO ALL SYSTEMS</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
