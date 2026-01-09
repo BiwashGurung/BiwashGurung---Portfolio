@@ -1141,47 +1141,65 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     const showMoreBtn = document.getElementById('showMoreBtn');
+    const allCards = Array.from(document.querySelectorAll('.project-card'));
     
+    // 1. RECOVERY: Use sessionStorage (resets when tab/window is closed)
+    const savedVisibilityCount = sessionStorage.getItem('visibleProjectsCount');
+    
+    if (savedVisibilityCount) {
+        const countToShow = parseInt(savedVisibilityCount);
+        
+        allCards.forEach((card, index) => {
+            if (index < countToShow) {
+                card.classList.remove('hidden');
+            }
+        });
+
+        // Hide button if we've already shown everything
+        const remainingHidden = document.querySelectorAll('.project-card.hidden').length;
+        if (remainingHidden === 0) {
+            showMoreBtn.parentElement.style.display = 'none';
+        }
+    }
+
+    // 2. CLICK LOGIC: Batch reveal (2 by 2)
     showMoreBtn.addEventListener('click', () => {
-        // Find all cards that are currently hidden
         const hiddenCards = Array.from(document.querySelectorAll('.project-card.hidden'));
         
-        // Pick the next 2 cards to show
+        // Take the next 2 cards
         const nextBatch = hiddenCards.slice(0, 2);
 
         nextBatch.forEach((card, index) => {
             card.classList.remove('hidden');
             
-            // GSAP Animation for a smooth reveal
+            // GSAP Reveal Animation
             gsap.fromTo(card, 
                 { opacity: 0, y: 30 }, 
                 { 
                     opacity: 1, 
                     y: 0, 
                     duration: 0.8, 
-                    delay: index * 0.2, 
+                    delay: index * 0.1, 
                     ease: "power3.out",
-                    onComplete: () => {
-                        // Refresh ScrollTrigger so the new items animate correctly
-                        ScrollTrigger.refresh();
-                    }
+                    onComplete: () => ScrollTrigger.refresh()
                 }
             );
         });
 
-        // If there are no more hidden cards left after this click, hide the button
+        // 3. SAVE TO SESSION: Remembers position for the "Back" button
+        const currentVisibleCount = document.querySelectorAll('.project-card:not(.hidden)').length;
+        sessionStorage.setItem('visibleProjectsCount', currentVisibleCount);
+
+        // Hide button if 0 or 1 card was left (since we reveal in pairs)
         if (hiddenCards.length <= 2) {
             gsap.to(showMoreBtn, {
                 opacity: 0,
-                y: 10,
-                duration: 0.4,
+                duration: 0.3,
                 onComplete: () => showMoreBtn.parentElement.style.display = 'none'
             });
         }
     });
 });
-
-
 
     </script>
   </body>
