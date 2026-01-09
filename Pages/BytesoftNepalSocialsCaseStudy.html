@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bytesoft Nepal | Strategic Visual System</title>
+    <link rel="shortcut icon" href="../Images/profile.jpg" type="image/x-icon" />
+
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     
@@ -11,12 +13,11 @@
         :root {
             --bg: #030303;
             --surface: #0a0a0a;
-            --card-bg: #111111;
-            --accent: #6366f1; /* Refined Indigo */
+            --card-bg: #0d0d0d;
+            --accent: #6366f1;
             --text-primary: #ffffff;
             --text-secondary: #94a3b8;
-            --border: rgba(255, 255, 255, 0.06);
-            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -28,102 +29,118 @@
             -webkit-font-smoothing: antialiased;
         }
 
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-        /* --- Header/Hero --- */
-        .hero { 
-            padding: 160px 0 80px; 
-            border-bottom: 1px solid var(--border);
-            text-align: left;
-        }
+        /* --- Header --- */
+        .hero { padding: 140px 0 80px; }
         .eyebrow { 
             color: var(--accent); 
-            font-weight: 600; 
+            font-weight: 700; 
             text-transform: uppercase; 
-            letter-spacing: 0.2em; 
-            font-size: 12px; 
-            margin-bottom: 24px;
+            letter-spacing: 0.3em; 
+            font-size: 10px; 
+            margin-bottom: 20px;
             display: block;
         }
         .hero h1 { 
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(2.5rem, 6vw, 4.5rem); 
             font-weight: 800; 
-            line-height: 1.1; 
+            line-height: 1.05; 
             letter-spacing: -0.04em;
-            margin-bottom: 32px;
-        }
-        .hero p { 
-            font-size: 1.25rem; 
-            color: var(--text-secondary); 
-            max-width: 600px; 
-            font-weight: 300;
+            margin-bottom: 30px;
         }
 
-        /* --- Bento Grid Section --- */
-        .bento-grid {
+        /* --- NEW: The Challenge --- */
+        .section-padding { padding: 100px 0; border-top: 1px solid var(--border); }
+        .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        .challenge-grid h2 { font-family: 'Plus Jakarta Sans'; font-size: 2.5rem; line-height: 1.1; }
+        .challenge-grid p { color: var(--text-secondary); font-size: 1.1rem; }
+
+        /* --- Brand DNA (Enhanced) --- */
+        .dna-section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .dna-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-            margin: 80px 0;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
         }
 
-        .bento-item {
+        .palette-container { display: flex; flex-direction: column; gap: 12px; }
+        .color-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+        .color-meta { display: flex; align-items: center; gap: 15px; }
+        .color-preview { width: 32px; height: 32px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+        .color-strip code { color: var(--text-secondary); font-size: 0.85rem; }
+
+        .typo-showcase {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+        .typo-item h4 { font-family: 'Plus Jakarta Sans'; font-size: 2rem; margin-bottom: 10px; }
+        .typo-item p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* --- Masonry Grid --- */
+        .masonry-wrapper { column-count: 3; column-gap: 24px; margin: 80px 0; }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
             background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            position: relative;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .bento-item:hover { border-color: var(--accent); }
+        .masonry-item img { width: 100%; height: auto; display: block; }
+        .card-meta { padding: 20px; }
+        .card-meta span { color: var(--accent); font-size: 10px; font-weight: 800; text-transform: uppercase; }
 
-        .bento-content { padding: 32px; }
-        .bento-content h3 { font-family: 'Plus Jakarta Sans'; margin-bottom: 12px; font-size: 1.5rem; }
-        .bento-content p { color: var(--text-secondary); font-size: 0.95rem; }
-
-        .img-fill { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-        /* Custom Spans for Bento */
-        .col-8 { grid-column: span 8; }
-        .col-4 { grid-column: span 4; }
-        .row-2 { grid-row: span 2; }
-
-        /* --- Full Width Showcase --- */
-        .showcase { padding: 100px 0; }
-        .showcase-header { margin-bottom: 60px; max-width: 700px; }
-        .showcase-header h2 { font-family: 'Plus Jakarta Sans'; font-size: 2.5rem; margin-bottom: 20px; letter-spacing: -0.03em; }
-
-        .featured-img-container {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 40px;
-            border-radius: 40px;
-            margin-bottom: 40px;
-        }
-        .featured-img-container img { 
-            width: 100%; 
-            border-radius: 12px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-        }
-
-        /* --- Details Bar --- */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            padding: 60px 0;
+        /* --- Result/Conclusion Section --- */
+        .result-section {
+            padding: 120px 0;
+            background: linear-gradient(to bottom, transparent, #0a0a0a);
             border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
+            margin-top: 60px;
         }
-        .detail-card span { display: block; color: var(--accent); font-size: 11px; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
-        .detail-card p { font-size: 1rem; color: var(--text-primary); }
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .result-text h2 { 
+            font-family: 'Plus Jakarta Sans'; 
+            font-size: clamp(2rem, 4vw, 3rem); 
+            line-height: 1.1; 
+            margin-bottom: 24px; 
+        }
+        .stat-card {
+            background: var(--accent);
+            color: white;
+            padding: 40px;
+            border-radius: 32px;
+            text-align: center;
+        }
+        .stat-card h3 { font-size: 3rem; font-family: 'Plus Jakarta Sans'; font-weight: 800; }
+        .stat-card p { opacity: 0.9; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Responsive --- */
+    
+
         @media (max-width: 900px) {
-            .col-8, .col-4 { grid-column: span 12; }
-            .details-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero { padding: 100px 0 60px; }
+            .dna-grid, .result-grid { grid-template-columns: 1fr; }
+            .masonry-wrapper { column-count: 2; }
+            .container { padding: 0 24px; }
+            .challenge-grid{ grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -131,67 +148,110 @@
 
 <div class="container">
     <header class="hero">
-        <span class="eyebrow">Visual Systems Architecture</span>
-        <h1>Bytesoft Nepal:<br>Cultural Integrity in Tech.</h1>
-        <p>A strategic design system that bridges the gap between software engineering and Nepalese cultural storytelling.</p>
+        <span class="eyebrow">Visual Systems for a Digital Nepal</span>
+        <h1>Bytesoft Nepal:<br>Visual Infrastructure.</h1>
     </header>
+    
 
-    <div class="details-grid">
-        <div class="detail-card"><span>Client</span><p>Bytesoft Nepal</p></div>
-        <div class="detail-card"><span>Industry</span><p>IT Solutions</p></div>
-        <div class="detail-card"><span>Deliverables</span><p>Digital Brand Identity</p></div>
-        <div class="detail-card"><span>Strategy</span><p>Localized Resilience</p></div>
-    </div>
-
-    <section class="bento-grid">
-        <div class="bento-item col-8">
-            <div class="bento-content">
-                <h3>The 2082 Vision</h3>
-                <p>Architecting a multi-layered composition that symbolizes the digital dawn over the Himalayas.</p>
+    <section class="section-padding">
+        <div class="challenge-grid">
+            <div>
+                <span class="eyebrow">The Challenge</span>
+                <h2>Fragmented Visuals vs. Technical Power.</h2>
             </div>
-            <img src="../Images/BytesoftNewYearPost_NewLogo.jpg" class="img-fill" alt="New Year Design">
-        </div>
-
-        <div class="bento-item col-4 row-2">
-            <img src="../Images/BuddhaPurnima_with_new_logo.jpg" class="img-fill" alt="Buddha Purnima">
-            <div class="bento-content">
-                <h3>Peaceful Logistics</h3>
-                <p>Using a gold-indigo palette to represent wisdom within the software industry.</p>
+            <div>
+                <p>Before this intervention, Bytesoft Nepal faced a common tech-firm dilemma: high-end software capabilities trapped in an inconsistent social media identity. The goal was to build a <strong>Visual System</strong> that felt as engineered as their code.</p>
             </div>
         </div>
-
-        <div class="bento-item col-4">
-            <div class="bento-content">
-                <h3>Heritage Identity</h3>
-                <p>Merging iconic architecture with clean typography.</p>
+    </section>
+    <section class="dna-section">
+        <span class="eyebrow">Design System</span>
+        <h2 style="font-family: 'Plus Jakarta Sans'; font-size: 2rem; margin-bottom: 40px;">The Visual Logic</h2>
+        
+        <div class="dna-grid">
+            <div class="palette-container">
+                <div class="color-strip">
+                    <div class="color-meta">
+                        <div class="color-preview" style="background: #6366f1;"></div>
+                        <strong>Accent Indigo</strong>
+                    </div>
+                    <code>#6366F1</code>
+                </div>
+                <div class="color-strip">
+                    <div class="color-meta">
+                        <div class="color-preview" style="background: #030303;"></div>
+                        <strong>Deep Neutral</strong>
+                    </div>
+                    <code>#030303</code>
+                </div>
+                <div class="color-strip">
+                    <div class="color-meta">
+                        <div class="color-preview" style="background: #94a3b8;"></div>
+                        <strong>Technical Slate</strong>
+                    </div>
+                    <code>#94A3B8</code>
+                </div>
             </div>
-            <img src="../Images/Ganatrantra_1.jpg" class="img-fill" alt="Republic Day">
-        </div>
 
-        <div class="bento-item col-4">
-            <img src="../Images/Loktrantra.jpg" class="img-fill" alt="Democracy Day">
+            <div class="typo-showcase">
+                <div class="typo-item">
+                    <p class="eyebrow" style="margin-bottom: 10px;">Primary Typeface</p>
+                    <h4>Plus Jakarta Sans</h4>
+                    <p>Used for high-impact headlines and brand statements. Its geometric structure represents modern engineering.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="showcase">
-        <div class="showcase-header">
-            <span class="eyebrow">The Result</span>
-            <h2>Systemized Communication</h2>
-            <p>Every post is built upon a strict structural grid. The unified footer system ensures that contact details are accessible without compromising the artistic integrity of the cultural imagery.</p>
+    <section class="masonry-wrapper">
+        <div class="masonry-item">
+            <img src="../Images/BytesoftNewYearPost_NewLogo.jpg" alt="New Year">
+            <div class="card-meta"><span>Campaign</span><h3>The 2082 Vision</h3></div>
         </div>
-
-        <div class="featured-img-container">
-            <img src="../Images/LABOURSDAY FINAL.jpg" alt="Labour Day System">
+        <div class="masonry-item">
+            <img src="../Images/BuddhaPurnima_with_new_logo.jpg" alt="Buddha Purnima">
+            <div class="card-meta"><span>Identity</span><h3>Spiritual Logic</h3></div>
         </div>
-
-        <div class="featured-img-container">
-            <img src="../Images/मातातिर्थ औंसी_01.jpg" alt="Mothers Day Portraiture">
+        <div class="masonry-item">
+            <img src="../Images/Ganatrantra_1.jpg" alt="Republic Day">
+            <div class="card-meta"><span>Heritage</span><h3>Identity Standards</h3></div>
+        </div>
+        <div class="masonry-item">
+            <img src="../Images/LABOURSDAY FINAL.jpg" alt="Labour Day">
+            <div class="card-meta"><span>Footer</span><h3>Contact Resilience</h3></div>
+        </div>
+        <div class="masonry-item">
+            <img src="../Images/मातातिर्थ औंसी_01.jpg" alt="Mother's Day">
+            <div class="card-meta"><span>Portrait</span><h3>Cultural Depth</h3></div>
+        </div>
+        <div class="masonry-item">
+            <img src="../Images/Loktrantra.jpg" alt="Democracy Day">
+            <div class="card-meta"><span>Growth</span><h3>Civic Design</h3></div>
         </div>
     </section>
 
-    <footer style="padding: 100px 0; text-align: center;">
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Architected by Biwash Gurung &copy; 2026</p>
-    </footer>
+    <section class="result-section">
+        <div class="result-grid">
+            <div class="result-text">
+                <span class="eyebrow">The Result</span>
+                <h2>Scalable Growth Through Unified Design.</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    By implementing this visual system, Bytesoft Nepal transitioned from a fragmented social presence to a cohesive, authoritative digital brand. 
+                </p>
+                <p style="color: var(--text-secondary);">
+                    The result is a design language that is inherently flexible—capable of honoring traditional Nepalese festivals while communicating complex software solutions without losing brand recognition.
+                </p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Visual Consistency Across All Channels</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+<div style="margin-top: 50px; margin-bottom: 50px; text-align: center; position: relative; z-index: 10;">
+<a href="../index.html#projects" style="color: var(--accent); text-decoration: none; font-weight: 800; letter-spacing: 2px; cursor: pointer;">← BACK TO ALL SYSTEMS</a>
 </div>
 
 </body>
