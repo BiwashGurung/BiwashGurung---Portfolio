@@ -427,6 +427,69 @@
         margin-top: 10px;
       }
 
+      /* Styling for hidden projects */
+.project-card.hidden {
+    display: none;
+}
+
+/* Show More Button Container */
+.show-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.btn-show-more {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+    padding: 20px 50px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-show-more:hover {
+    background: var(--white);
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* Projects 4 onwards will have this class initially */
+.project-card.hidden {
+    display: none;
+}
+
+.show-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.btn-show-more {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+    padding: 18px 45px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-show-more:hover {
+    background: var(--white);
+    color: #000;
+}
+
       /* --- Experience --- */
       .experience {
         padding: 140px 0;
@@ -793,97 +856,77 @@
         </div>
       </section>
 
-      <section id="projects" class="projects">
-        <div class="project-grid" id="projectGrid">
-          <div class="project-card wide reveal">
-            <img src="Images/Desktop_BytesoftLogo.png" alt="Bytesoft Nepal Logo" />
-            <div class="project-overlay">
-              <h3>BYTESOFT SYSTEM IDENTITY</h3>
-              <a href="Pages/BytesoftLogoCaseStudy.html" class="btn-case" 
-                >View Case Study</a
-              >
-            </div>
-          </div>
+<section id="projects" class="projects">
+  <div class="project-grid" id="projectGrid">
+    <div class="project-card wide reveal">
+      <img src="Images/Desktop_BytesoftLogo.png" alt="Bytesoft Nepal Logo" />
+      <div class="project-overlay">
+        <h3>BYTESOFT SYSTEM IDENTITY</h3>
+        <a href="Pages/BytesoftLogoCaseStudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-          <div class="project-card reveal">
-            <img
-              src="Images/LittleHEart_OutdoorMockup.png"
-              alt="Little Heart Pet Shop Logo"
-            />
-            <div class="project-overlay">
-              <h3>Little Heart Pet Shop Identity </h3>
-              <a href="Pages/LittleHeartPetShop.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
+    <div class="project-card reveal">
+      <img src="Images/LittleHEart_OutdoorMockup.png" alt="Little Heart Pet Shop Logo" />
+      <div class="project-overlay">
+        <h3>Little Heart Pet Shop Identity</h3>
+        <a href="Pages/LittleHeartPetShop.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-          <div class="project-card reveal">
-            <img
-              src="Images/BlueSkyIndustries_Logo.png"
-              alt="Blue Sky Industries Logo"
-            />
-            <div class="project-overlay">
-              <h3>Blue Sky Industries Import & Export Identity </h3>
-              <a href="Pages/BlueSkyIndustriesCaseStudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
+    <div class="project-card reveal">
+      <img src="Images/BlueSkyIndustries_Logo.png" alt="Blue Sky Industries Logo" />
+      <div class="project-overlay">
+        <h3>Blue Sky Industries Import & Export Identity</h3>
+        <a href="Pages/BlueSkyIndustriesCaseStudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-            <div class="project-card reveal">
-            <img
-              src="Images/AngeeSnacksMain.png"
-              alt="Angee's Snacks Identity"
-            />
-            <div class="project-overlay">
-              <h3>Angee's Snacks Identity </h3>
-              <a href="Pages/AngeeSnacksCaseStudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
-  <div class="project-card reveal">
-            <img
-              src="Images/UrbanNet_Lobby.png"
-              alt="Urban Nest Identity"
-            />
-            <div class="project-overlay">
-              <h3>Urban Nest Identity </h3>
-              <a href="Pages/UrbanNestCaseStudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
-          
-            <div class="project-card reveal">
-            <img
-              src="Images/business_card_front.jpg"
-              alt="Little Heart Pet Shop: Digital Brand Narrative"
-            />
-            <div class="project-overlay">
-              <h3>Little Heart Pet Shop: Digital Brand Narrative </h3>
-              <a href="Pages/LittleHeartPetShopSocialMediaCaseStudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
-          <div class="project-card reveal">
-            <img
-              src="Images/angeesnacksproducts.png"
-              alt="Angee’s Snacks: Premium Identity & Digital Narrative"
-            />
-            <div class="project-overlay">
-              <h3>Angee’s Snacks: Premium Identity & Digital Narrative </h3>
-              <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
+    <div class="project-card reveal hidden">
+      <img src="Images/AngeeSnacksMain.png" alt="Angee's Snacks Identity" />
+      <div class="project-overlay">
+        <h3>Angee's Snacks Identity</h3>
+        <a href="Pages/AngeeSnacksCaseStudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-           <div class="project-card reveal">
-            <img
-              src="Images/angeesnacksproducts.png"
-              alt="The Visual Infrastructure of Bytesoft Nepal"
-            />
-            <div class="project-overlay">
-              <h3>The Visual Infrastructure of Bytesoft Nepal </h3>
-              <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case">View Case Study</a>
-            </div>
-          </div>
+    <div class="project-card reveal hidden">
+      <img src="Images/UrbanNet_Lobby.png" alt="Urban Nest Identity" />
+      <div class="project-overlay">
+        <h3>Urban Nest Identity</h3>
+        <a href="Pages/UrbanNestCaseStudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
+    <div class="project-card reveal hidden">
+      <img src="Images/business_card_front.jpg" alt="Little Heart Pet Shop: Digital Brand Narrative" />
+      <div class="project-overlay">
+        <h3>Little Heart Pet Shop: Digital Brand Narrative</h3>
+        <a href="Pages/LittleHeartPetShopSocialMediaCaseStudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-        </div>
+    <div class="project-card reveal hidden">
+      <img src="Images/angeesnacksproducts.png" alt="Angee’s Snacks: Premium Identity & Digital Narrative" />
+      <div class="project-overlay">
+        <h3>Angee’s Snacks: Premium Identity & Digital Narrative</h3>
+        <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
 
-      </section>
+    <div class="project-card reveal hidden">
+      <img src="Images/angeesnacksproducts.png" alt="The Visual Infrastructure of Bytesoft Nepal" />
+      <div class="project-overlay">
+        <h3>The Visual Infrastructure of Bytesoft Nepal</h3>
+        <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case">View Case Study</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-more-container">
+    <button id="showMoreBtn" class="btn-show-more">Explore All Projects</button>
+  </div>
+</section>
 
 
 
@@ -1089,6 +1132,52 @@
             l.classList.add("active");
         });
       });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    
+    showMoreBtn.addEventListener('click', () => {
+        // Find all cards that are currently hidden
+        const hiddenCards = Array.from(document.querySelectorAll('.project-card.hidden'));
+        
+        // Pick the next 2 cards to show
+        const nextBatch = hiddenCards.slice(0, 2);
+
+        nextBatch.forEach((card, index) => {
+            card.classList.remove('hidden');
+            
+            // GSAP Animation for a smooth reveal
+            gsap.fromTo(card, 
+                { opacity: 0, y: 30 }, 
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.8, 
+                    delay: index * 0.2, 
+                    ease: "power3.out",
+                    onComplete: () => {
+                        // Refresh ScrollTrigger so the new items animate correctly
+                        ScrollTrigger.refresh();
+                    }
+                }
+            );
+        });
+
+        // If there are no more hidden cards left after this click, hide the button
+        if (hiddenCards.length <= 2) {
+            gsap.to(showMoreBtn, {
+                opacity: 0,
+                y: 10,
+                duration: 0.4,
+                onComplete: () => showMoreBtn.parentElement.style.display = 'none'
+            });
+        }
+    });
+});
+
+
+
     </script>
   </body>
 </html>
