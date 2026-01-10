@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Design Lab | Biwash Gurung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #111111;
+            --accent-ps: #00e5ff; /* Photoshop Cyan */
+            --accent-ai: #ff9f00; /* Illustrator Orange */
+            --text: #ffffff;
+            --text-dim: #999;
+            --border: rgba(255,255,255,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+        img, .vector-frame { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--border); background: #1a1a1a; }
+        
+        /* Hero Section */
+        .hero { padding: 120px 0; border-bottom: 1px solid var(--border); }
+        .tag { padding: 6px 14px; border-radius: 30px; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 20px; color: #000; }
+        .tag-ps { background: var(--accent-ps); }
+        .tag-ai { background: var(--accent-ai); }
+        
+        .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(3rem, 6vw, 5rem); line-height: 1; margin-bottom: 20px; }
+        .hero p { color: var(--text-dim); max-width: 550px; font-size: 1.1rem; }
+
+        /* Project Entry */
+        .study-entry { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 100px 0; border-bottom: 1px solid var(--border); align-items: center; }
+        .study-entry:nth-child(even) { direction: rtl; }
+        .study-entry:nth-child(even) .text-side { direction: ltr; }
+        
+        .image-side { position: relative; }
+        .image-side::after { content: ''; position: absolute; inset: 0; box-shadow: 0 30px 60px rgba(0,0,0,0.5); border-radius: 12px; z-index: -1; }
+        
+        .label-ps { color: var(--accent-ps); }
+        .label-ai { color: var(--accent-ai); }
+        .label-small { font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 10px; }
+        
+        h2 { font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 30px; line-height: 1.1; }
+        
+        .brief-box { display: grid; gap: 25px; border-left: 2px solid var(--border); padding-left: 30px; }
+        .brief-item h4 { color: var(--text); font-size: 1rem; margin-bottom: 8px; font-weight: 700; }
+        .brief-item p { color: var(--text-dim); font-size: 0.95rem; }
+
+        @media (max-width: 900px) { 
+            .study-entry { grid-template-columns: 1fr; gap: 50px; direction: ltr !important; padding: 70px 0; } 
+            .brief-box { border-left: none; padding-left: 0; border-top: 2px solid var(--border); padding-top: 30px; }
+        }
+
+
+        /* --- RESPONSIVE UTILITIES FOR THIS SECTION --- */
+    .summary-section {
+        padding: clamp(60px, 10vw, 120px) 0;
+        background: var(--surface);
+        margin-top: 50px;
+        border-top: 1px solid var(--accent-ps);
+    }
+
+    .summary-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr; /* Two columns on desktop */
+        gap: clamp(40px, 5vw, 80px);
+        align-items: start;
+    }
+
+    .achievement-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .achievement-item {
+        margin-bottom: clamp(20px, 3vw, 30px);
+        padding-left: 20px;
+        transition: 0.3s;
+    }
+
+    .verdict-card {
+        background: rgba(255, 255, 255, 0.03);
+        padding: clamp(25px, 5vw, 45px);
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Floating accent glow for the card */
+    .verdict-card::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 100px;
+        height: 100px;
+        background: var(--accent-ps);
+        filter: blur(80px);
+        opacity: 0.2;
+    }
+
+    /* RESPONSIVE BREAKPOINT (Mobile & Tablet) */
+    @media (max-width: 992px) {
+        .summary-grid {
+            grid-template-columns: 1fr; /* Stack columns on mobile */
+        }
+        
+        .summary-header h2 {
+            font-size: clamp(2.5rem, 8vw, 3.5rem) !important;
+        }
+
+        .cta-button {
+            width: 100%; /* Full width button on mobile */
+            text-align: center;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="hero">
+        <span class="tag tag-ps">Design Lab</span>
+        <h1>Technical<br>Explorations.</h1>
+        <p>A deep dive into cross-platform mastery, featuring advanced Photoshop compositing and precise Illustrator vector construction.</p>
+    </header>
+
+    <section class="study-entry">
+        <div class="image-side">
+            <img src="Day7Assignment_BiwashGurung.jpg" alt="Captain Anjan Sports Poster">
+        </div>
+        <div class="text-side">
+            <span class="label-small label-ps">01 — Photoshop Studio</span>
+            <h2>Dynamic Sports Composition</h2>
+            <div class="brief-box">
+                <div class="brief-item">
+                    <h4>The Why:</h4>
+                    <p>To master high-energy sports compositing and directional motion effects.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>The Process:</h4>
+                    <p>Utilized complex masking to isolate the athlete and footballs, layering motion blurs and textured typography to create a 3D stadium atmosphere.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>Result:</h4>
+                    <p>A professional promotional visual that balances intense action with clear text hierarchy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="study-entry">
+        <div class="image-side">
+            <img src="Day10Assignment_BiwashGurung.jpg" alt="Elon Musk Magazine Cover">
+        </div>
+        <div class="text-side">
+            <span class="label-small label-ps">02 — Editorial Design</span>
+            <h2>Typography Interplay</h2>
+            <div class="brief-box">
+                <div class="brief-item">
+                    <h4>The Why:</h4>
+                    <p>To study the relationship between bold type and high-contrast portraiture.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>The Process:</h4>
+                    <p>Integrated the headline directly into the subject's silhouette through precise layer masking, creating a sophisticated "peek-through" effect.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>Result:</h4>
+                    <p>A clean, minimal magazine cover that communicates a powerful narrative through layout alone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="study-entry">
+        <div class="image-side">
+            <img src="Day13Assignment_BiwashGurung.jpg" alt="Ncell Campaign">
+        </div>
+        <div class="text-side">
+            <span class="label-small label-ps">03 — Brand Adherence</span>
+            <h2>Corporate Promo Study</h2>
+            <div class="brief-box">
+                <div class="brief-item">
+                    <h4>The Why:</h4>
+                    <p>To practice executing designs within strict established brand guidelines (Ncell).</p>
+                </div>
+                <div class="brief-item">
+                    <h4>The Process:</h4>
+                    <p>Reconstructed brand-specific color palettes and shapes, ensuring perfect alignment and typography consistency for commercial use.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>Result:</h4>
+                    <p>A pixel-perfect replication that demonstrates commercial speed and brand-standard accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="study-entry">
+        <div class="image-side">
+            <img src="Day25Assignment_BiwashGurung.pdf" alt="Arrow Camp Logo">
+        </div>
+        <div class="text-side">
+            <span class="label-small label-ai">04 — Illustrator Vector</span>
+            <h2>Badge-Style Identity</h2>
+            <div class="brief-box">
+                <div class="brief-item">
+                    <h4>The Why:</h4>
+                    <p>To explore geometric symmetry and badge-style branding for outdoor identities.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>The Process:</h4>
+                    <p>Created using pathfinders and "Type on a Path" tools to ensure perfect circularity and scalable vector precision.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>Result:</h4>
+                    <p>A rugged, scalable "Arrow Camp" mark that remains legible at any size.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="study-entry">
+        <div class="image-side">
+            <img src="Day26Assignment_BiwashGurung.pdf" alt="Vintage Brand Logo">
+        </div>
+        <div class="text-side">
+            <span class="label-small label-ai">05 — Vector Illustration</span>
+            <h2>Classic Emblem Design</h2>
+            <div class="brief-box">
+                <div class="brief-item">
+                    <h4>The Why:</h4>
+                    <p>To study traditional heraldry and "Vintage Style" aesthetic through vector illustration.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>The Process:</h4>
+                    <p>Utilized custom leaf-wreath creation and shield motifs, focusing on perfect symmetry and balanced line weight.</p>
+                </div>
+                <div class="brief-item">
+                    <h4>Result:</h4>
+                    <p>A timeless, high-contrast emblem that demonstrates professional vector precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="summary-section reveal">
+    <div class="container">
+        
+        <div class="summary-header" style="text-align: center; margin-bottom: clamp(40px, 8vw, 70px);">
+            <span class="tag" style="background: white; color: black; margin-bottom: 15px;">Final Overview</span>
+            <h2 style="font-size: 3.5rem; line-height: 1.1;">Professional Growth.</h2>
+        </div>
+
+        <div class="summary-grid">
+            <div>
+                <h3 style="color: var(--accent-ps); font-size: 1.5rem; margin-bottom: 25px; font-family: 'Space Grotesk';">Strategic Milestones</h3>
+                <p style="color: var(--text-dim); margin-bottom: 40px; font-size: 1.1rem;">
+                    This design lab was more than just software practice; it was a journey into <strong>commercial design logic</strong>. Through these case studies, I have mastered:
+                </p>
+                
+                <ul class="achievement-list">
+                    <li class="achievement-item" style="border-left: 3px solid var(--accent-ps);">
+                        <strong style="display: block; color: white; margin-bottom: 5px;">High-Action Compositing</strong>
+                        <p style="color: var(--text-dim); font-size: 0.95rem;">Blending disparate assets into a singular, high-energy narrative using advanced Photoshop masking.</p>
+                    </li>
+                    <li class="achievement-item" style="border-left: 3px solid var(--accent-ai);">
+                        <strong style="display: block; color: white; margin-bottom: 5px;">Mathematical Vector Precision</strong>
+                        <p style="color: var(--text-dim); font-size: 0.95rem;">Building scalable identities in Illustrator using geometric grids to ensure legibility across all mediums.</p>
+                    </li>
+                    <li class="achievement-item" style="border-left: 3px solid var(--accent-ps);">
+                        <strong style="display: block; color: white; margin-bottom: 5px;">Corporate Brand Adherence</strong>
+                        <p style="color: var(--text-dim); font-size: 0.95rem;">Developing the discipline to work within strict 1:1 brand guidelines for major players like Ncell.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="verdict-card">
+                <h3 style="font-size: 1.4rem; margin-bottom: 25px; font-family: 'Space Grotesk';">The Conclusion</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; font-weight: 300; color: #ddd;">
+                    "The result of these studies is a versatile design toolkit. I am now capable of delivering <strong>pixel-perfect</strong> raster imagery and <strong>mathematically precise</strong> vector branding, ensuring a high-end visual standard for any client."
+                </p>
+                
+                <div style="margin-top: 50px; border-top: 1px solid var(--border); padding-top: 25px;">
+                    <span style="display: block; font-weight: 800; letter-spacing: 3px; color: var(--accent-ps); font-family: 'Space Grotesk';">BIWASH GURUNG</span>
+                    <span style="color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;">Creative Designer • 2026</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</div>
+<div style="margin-top: -50px; margin-bottom: 70px; text-align: center; position: relative; z-index: 10;">
+    <a href="../index.html#projects" style="color: var(--accent); text-decoration: none; font-weight: 800; letter-spacing: 2px; cursor: pointer;">← BACK TO ALL SYSTEMS</a>
+</div>
+
+</body>
+</html>
