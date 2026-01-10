@@ -317,25 +317,21 @@
         background: var(--border);
       }
 
+      .tool-item {
+        background: var(--bg);
+        padding: 40px; /* Reduced padding slightly to accommodate larger images */
+        border: 1px solid transparent;
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-
-     .tool-item {
-    background: var(--bg);
-    padding: 40px; /* Reduced padding slightly to accommodate larger images */
-    border: 1px solid transparent;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.tool-item:hover {
-    background: #0c0c0c;
-    border-color: var(--border);
-    transform: translateY(-10px);
-}
-
-
+      .tool-item:hover {
+        background: #0c0c0c;
+        border-color: var(--border);
+        transform: translateY(-10px);
+      }
 
       .tool-item h3 {
         font-size: 1.5rem;
@@ -349,21 +345,21 @@
         line-height: 1.6;
       }
       .tool-icon {
-    width: 120px; /* Increased size */
-    height: 120px; /* Maintain square aspect ratio */
-    margin-bottom: 25px;
-    object-fit: contain; /* Ensures the logo isn't distorted */
-    filter: grayscale(1) brightness(1.5); /* Keeps the Titanium aesthetic */
-    opacity: 0.8;
-    transition: 0.5s;
-    border-radius: 16px;
-}
+        width: 120px; /* Increased size */
+        height: 120px; /* Maintain square aspect ratio */
+        margin-bottom: 25px;
+        object-fit: contain; /* Ensures the logo isn't distorted */
+        filter: grayscale(1) brightness(1.5); /* Keeps the Titanium aesthetic */
+        opacity: 0.8;
+        transition: 0.5s;
+        border-radius: 16px;
+      }
 
-.tool-item:hover .tool-icon {
-    filter: grayscale(0); /* Adds a pop of color on hover */
-    opacity: 1;
-    transform: scale(1.1);
-}
+      .tool-item:hover .tool-icon {
+        filter: grayscale(0); /* Adds a pop of color on hover */
+        opacity: 1;
+        transform: scale(1.1);
+      }
 
       /* --- Projects --- */
       .projects {
@@ -433,67 +429,67 @@
       }
 
       /* Styling for hidden projects */
-.project-card.hidden {
-    display: none;
-}
+      .project-card.hidden {
+        display: none;
+      }
 
-/* Show More Button Container */
-.show-more-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-}
+      /* Show More Button Container */
+      .show-more-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+      }
 
-.btn-show-more {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid var(--border);
-    padding: 20px 50px;
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
+      .btn-show-more {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid var(--border);
+        padding: 20px 50px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
 
-.btn-show-more:hover {
-    background: var(--white);
-    color: #000;
-    transform: translateY(-5px);
-}
+      .btn-show-more:hover {
+        background: var(--white);
+        color: #000;
+        transform: translateY(-5px);
+      }
 
-/* Projects 4 onwards will have this class initially */
-.project-card.hidden {
-    display: none;
-}
+      /* Projects 4 onwards will have this class initially */
+      .project-card.hidden {
+        display: none;
+      }
 
-.show-more-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 60px;
-}
+      .show-more-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+      }
 
-.btn-show-more {
-    background: transparent;
-    color: var(--white);
-    border: 1px solid var(--border);
-    padding: 18px 45px;
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
+      .btn-show-more {
+        background: transparent;
+        color: var(--white);
+        border: 1px solid var(--border);
+        padding: 18px 45px;
+        border-radius: 100px;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
 
-.btn-show-more:hover {
-    background: var(--white);
-    color: #000;
-}
+      .btn-show-more:hover {
+        background: var(--white);
+        color: #000;
+      }
 
       /* --- Experience --- */
       .experience {
@@ -755,9 +751,9 @@
             >.
           </p>
           <div class="nepal-tag">
-            
-            <span>LOCATED IN POKHARA,</span> <span id="nepal-clock">NEPAL (00:00:00)</span>
-           <span> DESIGNING FOR GLOBAL SYSTEMS</span>
+            <span>LOCATED IN POKHARA,</span>
+            <span id="nepal-clock">NEPAL (00:00:00)</span>
+            <span> DESIGNING FOR GLOBAL SYSTEMS</span>
           </div>
         </div>
       </section>
@@ -820,126 +816,193 @@
             THE WORK<br />BENCH.
           </h2>
           <div class="toolkit-list reveal">
-    <div class="tool-item">
-        <img src="Images/photoshop.png" class="tool-icon" alt="Photoshop" />
-        <h3>PHOTOSHOP</h3>
-        <p>Advanced raster manipulation and visual asset production.</p>
-    </div>
-    
-    <div class="tool-item">
-        <img src="Images/illustrator.png" class="tool-icon" alt="Illustrator" />
-        <h3>ILLUSTRATOR</h3>
-        <p>Precision vector architecture and brand mark development.</p>
-    </div>
+            <div class="tool-item">
+              <img
+                src="Images/photoshop.png"
+                class="tool-icon"
+                alt="Photoshop"
+              />
+              <h3>PHOTOSHOP</h3>
+              <p>Advanced raster manipulation and visual asset production.</p>
+            </div>
 
-    <div class="tool-item">
-        <img src="Images/indesign.png" class="tool-icon" alt="InDesign" />
-        <h3>INDESIGN</h3>
-        <p>Typography-focused editorial design and layout structure.</p>
-    </div>
+            <div class="tool-item">
+              <img
+                src="Images/illustrator.png"
+                class="tool-icon"
+                alt="Illustrator"
+              />
+              <h3>ILLUSTRATOR</h3>
+              <p>Precision vector architecture and brand mark development.</p>
+            </div>
 
-    <div class="tool-item">
-        <img src="Images/canva.png" class="tool-icon" alt="Canva" />
-        <h3>CANVA</h3>
-        <p>Rapid content creation and social media asset streamlining.</p>
-    </div>
+            <div class="tool-item">
+              <img src="Images/indesign.png" class="tool-icon" alt="InDesign" />
+              <h3>INDESIGN</h3>
+              <p>Typography-focused editorial design and layout structure.</p>
+            </div>
 
-    <div class="tool-item">
-        <img src="Images/figma.png" class="tool-icon" alt="Figma" />
-        <h3>FIGMA</h3>
-        <p>Design systems and high-fidelity interaction design.</p>
-    </div>
+            <div class="tool-item">
+              <img src="Images/canva.png" class="tool-icon" alt="Canva" />
+              <h3>CANVA</h3>
+              <p>Rapid content creation and social media asset streamlining.</p>
+            </div>
 
-    <div class="tool-item">
-        <img src="Images/balsamiq.png" class="tool-icon" alt="Balsamiq" />
-        <h3>BALSAMIQ</h3>
-        <p>Low-fidelity wireframing and rapid UX structure mapping.</p>
-    </div>
-</div>
+            <div class="tool-item">
+              <img src="Images/figma.png" class="tool-icon" alt="Figma" />
+              <h3>FIGMA</h3>
+              <p>Design systems and high-fidelity interaction design.</p>
+            </div>
 
-
+            <div class="tool-item">
+              <img src="Images/balsamiq.png" class="tool-icon" alt="Balsamiq" />
+              <h3>BALSAMIQ</h3>
+              <p>Low-fidelity wireframing and rapid UX structure mapping.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-<section id="projects" class="projects">
-  <div class="project-grid" id="projectGrid">
-    <div class="project-card wide reveal">
-      <img src="Images/Desktop_BytesoftLogo.png" alt="Bytesoft Nepal Logo" />
-      <div class="project-overlay">
-        <h3>BYTESOFT SYSTEM IDENTITY</h3>
-        <a href="Pages/BytesoftLogoCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+      <section id="projects" class="projects">
+        <div class="project-grid" id="projectGrid">
+          <div class="project-card wide reveal">
+            <img
+              src="Images/Desktop_BytesoftLogo.png"
+              alt="Bytesoft Nepal Logo"
+            />
+            <div class="project-overlay">
+              <h3>BYTESOFT SYSTEM IDENTITY</h3>
+              <a href="Pages/BytesoftLogoCaseStudy.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal">
-      <img src="Images/LittleHEart_OutdoorMockup.png" alt="Little Heart Pet Shop Logo" />
-      <div class="project-overlay">
-        <h3>Little Heart Pet Shop Identity</h3>
-        <a href="Pages/LittleHeartPetShop.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal">
+            <img
+              src="Images/LittleHEart_OutdoorMockup.png"
+              alt="Little Heart Pet Shop Logo"
+            />
+            <div class="project-overlay">
+              <h3>Little Heart Pet Shop Identity</h3>
+              <a href="Pages/LittleHeartPetShop.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal">
-      <img src="Images/BlueSkyIndustries_Logo.png" alt="Blue Sky Industries Logo" />
-      <div class="project-overlay">
-        <h3>Blue Sky Industries Import & Export Identity</h3>
-        <a href="Pages/BlueSkyIndustriesCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal">
+            <img
+              src="Images/BlueSkyIndustries_Logo.png"
+              alt="Blue Sky Industries Logo"
+            />
+            <div class="project-overlay">
+              <h3>Blue Sky Industries Import & Export Identity</h3>
+              <a href="Pages/BlueSkyIndustriesCaseStudy.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal hidden">
-      <img src="Images/AngeeSnacksMain.png" alt="Angee's Snacks Identity" />
-      <div class="project-overlay">
-        <h3>Angee's Snacks Identity</h3>
-        <a href="Pages/AngeeSnacksCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal hidden">
+            <img
+              src="Images/AngeeSnacksMain.png"
+              alt="Angee's Snacks Identity"
+            />
+            <div class="project-overlay">
+              <h3>Angee's Snacks Identity</h3>
+              <a href="Pages/AngeeSnacksCaseStudy.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal hidden">
-      <img src="Images/UrbanNet_Lobby.png" alt="Urban Nest Identity" />
-      <div class="project-overlay">
-        <h3>Urban Nest Identity</h3>
-        <a href="Pages/UrbanNestCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal hidden">
+            <img src="Images/UrbanNet_Lobby.png" alt="Urban Nest Identity" />
+            <div class="project-overlay">
+              <h3>Urban Nest Identity</h3>
+              <a href="Pages/UrbanNestCaseStudy.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal hidden">
-      <img src="Images/business_card_front.jpg" alt="Little Heart Pet Shop: Digital Brand Narrative" />
-      <div class="project-overlay">
-        <h3>Little Heart Pet Shop: Digital Brand Narrative</h3>
-        <a href="Pages/LittleHeartPetShopSocialMediaCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal hidden">
+            <img
+              src="Images/business_card_front.jpg"
+              alt="Little Heart Pet Shop: Digital Brand Narrative"
+            />
+            <div class="project-overlay">
+              <h3>Little Heart Pet Shop: Digital Brand Narrative</h3>
+              <a
+                href="Pages/LittleHeartPetShopSocialMediaCaseStudy.html"
+                class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal hidden">
-      <img src="Images/angeesnacksproducts.png" alt="Angee’s Snacks: Premium Identity & Digital Narrative" />
-      <div class="project-overlay">
-        <h3>Angee’s Snacks: Premium Identity & Digital Narrative</h3>
-        <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
+          <div class="project-card reveal hidden">
+            <img
+              src="Images/angeesnacksproducts.png"
+              alt="Angee’s Snacks: Premium Identity & Digital Narrative"
+            />
+            <div class="project-overlay">
+              <h3>Angee’s Snacks: Premium Identity & Digital Narrative</h3>
+              <a href="Pages/AngeeSnacksProductCaseSudy.html" class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
 
-    <div class="project-card reveal hidden">
-      <img src="Images/Bytesoft_Logo.jpg" alt="The Visual Infrastructure of Bytesoft Nepal" />
-      <div class="project-overlay">
-        <h3>The Visual Infrastructure of Bytesoft Nepal</h3>
-        <a href="Pages/BytesoftNepalSocialsCaseStudy.html" class="btn-case">View Case Study</a>
-      </div>
-    </div>
-  </div>
+          <div class="project-card reveal hidden">
+            <img
+              src="Images/Bytesoft_Logo.jpg"
+              alt="The Visual Infrastructure of Bytesoft Nepal"
+            />
+            <div class="project-overlay">
+              <h3>The Visual Infrastructure of Bytesoft Nepal</h3>
+              <a
+                href="Pages/BytesoftNepalSocialsCaseStudy.html"
+                class="btn-case"
+                >View Case Study</a
+              >
+            </div>
+          </div>
+        </div>
 
-  <div class="show-more-container">
-    <button id="showMoreBtn" class="btn-show-more">Explore All Projects</button>
-  </div>
-</section>
-
-
-
-
+        <div class="show-more-container">
+          <button id="showMoreBtn" class="btn-show-more">
+            Explore All Projects
+          </button>
+        </div>
+      </section>
 
       <section id="experience" class="experience">
         <div class="timeline">
           <div class="exp-item left reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img
+                src="Images/New_Angee'sSnacks_Logo.png"
+                alt="Angees Snacks Logo"
+              />
+            </div>
+            <div class="exp-company">Angees Snacks</div>
+            <span class="exp-year">Dec 2025 - Present · Nepal · On-site</span>
+            <p class="exp-desc">
+              Designed comprehensive brand identity, including logo, typography,
+              colour system, and visual direction for pet treats brand,
+              enhancing brand recognition. Created packaging designs and
+              realistic mockups for dog & cat treats, optimising presentation
+              for production and marketplace listing. Produced social media
+              creatives and promotional visuals to effectively support
+              go-to-market activities, driving engagement. Maintained
+              consistent, trustworthy and premium brand presentation across
+              touchpoints.
+            </p>
+          </div>
+          <div class="exp-item right reveal">
             <div class="exp-dot"></div>
             <div class="exp-logo">
               <img
@@ -948,14 +1011,33 @@
               />
             </div>
             <div class="exp-company">Little Heart Pet Shop</div>
-            <span class="exp-year">Aug 2024 - Present · Nepal · On-site</span>
+            <span class="exp-year">Aug 2025 - Present · Nepal · On-site</span>
             <p class="exp-desc">
               Responsible for filming the full pet grooming process and editing
               high-quality videos using VN to showcase the shop’s services
               across social platforms. Also handle graphic design tasks
               including posters, banners, social media creatives, and
               promotional materials to strengthen brand visibility and customer
-              engagement
+              engagement.
+            </p>
+          </div>
+
+          <div class="exp-item left reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-logo">
+              <img
+                src="Images/Blue_Sky_industry_Logo_main.png"
+                alt="Blue Sky Industries Logo"
+              />
+            </div>
+            <div class="exp-company">Blue Sky Industries</div>
+            <span class="exp-year">May 2025 - May 2025 · Nepal · Contract</span>
+            <p class="exp-desc">
+              Designed and delivered a professional logo aligned with the
+              company's vision and approved for official use. Created a cohesive
+              brand style guide outlining logo usage, color schemes, typography,
+              and visual elements to ensure consistent application across all
+              marketing materials and platforms.
             </p>
           </div>
 
@@ -972,7 +1054,8 @@
               scalable visual languages and brand identity assets using Adobe
               Creative Suite, ensuring surgical precision across all digital
               interfaces. Collaborated on user-centered design strategies to
-              enhance project aesthetics and maintain rigorous brand consistency
+              enhance project aesthetics and maintain rigorous brand
+              consistency.
             </p>
           </div>
 
@@ -985,13 +1068,13 @@
             <span class="exp-year">Dec 2024 - Apr 2025 · Nepal · Hybrid</span>
             <p class="exp-desc">
               Designed the Conversational User Interface (CUX) and visual
-              identity for 'Xdezo Bot,' a real-time enrollment management
-              system. Focused on mapping intuitive user flows and information
-              architecture to simplify complex data interactions. Optimized the
-              visual hierarchy and interface logic, resulting in a 30%
-              improvement in user task completion speed. Collaborated with the
-              team to bridge the gap between high-fidelity design concepts and
-              final technical implementation.
+              identity for 'Telegram Xdezo Bot,' a real-time enrollment
+              management system. Focused on mapping intuitive user flows and
+              information architecture to simplify complex data interactions.
+              Optimized the visual hierarchy and interface logic, resulting in a
+              30% improvement in user task completion speed. Collaborated with
+              the team to bridge the gap between high-fidelity design concepts
+              and final technical implementation.
             </p>
           </div>
 
@@ -1027,8 +1110,18 @@
           </div>
           <div class="contact-side reveal">
             <ul class="social-list">
-              <li><a href="https://www.linkedin.com/in/biwashgurung" target="_blank">LINKEDIN</a></li>
-              <li><a href="https://www.behance.net/biwashgurung" target="_blank">BEHANCE</a></li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/biwashgurung"
+                  target="_blank"
+                  >LINKEDIN</a
+                >
+              </li>
+              <li>
+                <a href="https://www.behance.net/biwashgurung" target="_blank"
+                  >BEHANCE</a
+                >
+              </li>
               <!-- <li><a href="https://github.com/biwashgurung" target="_blank">GITHUB</a></li> -->
             </ul>
           </div>
@@ -1138,69 +1231,77 @@
         });
       });
 
+      document.addEventListener("DOMContentLoaded", () => {
+        const showMoreBtn = document.getElementById("showMoreBtn");
+        const allCards = Array.from(document.querySelectorAll(".project-card"));
 
-document.addEventListener("DOMContentLoaded", () => {
-    const showMoreBtn = document.getElementById('showMoreBtn');
-    const allCards = Array.from(document.querySelectorAll('.project-card'));
-    
-    // 1. RECOVERY: Use sessionStorage (resets when tab/window is closed)
-    const savedVisibilityCount = sessionStorage.getItem('visibleProjectsCount');
-    
-    if (savedVisibilityCount) {
-        const countToShow = parseInt(savedVisibilityCount);
-        
-        allCards.forEach((card, index) => {
+        // 1. RECOVERY: Use sessionStorage (resets when tab/window is closed)
+        const savedVisibilityCount = sessionStorage.getItem(
+          "visibleProjectsCount"
+        );
+
+        if (savedVisibilityCount) {
+          const countToShow = parseInt(savedVisibilityCount);
+
+          allCards.forEach((card, index) => {
             if (index < countToShow) {
-                card.classList.remove('hidden');
+              card.classList.remove("hidden");
             }
-        });
+          });
 
-        // Hide button if we've already shown everything
-        const remainingHidden = document.querySelectorAll('.project-card.hidden').length;
-        if (remainingHidden === 0) {
-            showMoreBtn.parentElement.style.display = 'none';
+          // Hide button if we've already shown everything
+          const remainingHidden = document.querySelectorAll(
+            ".project-card.hidden"
+          ).length;
+          if (remainingHidden === 0) {
+            showMoreBtn.parentElement.style.display = "none";
+          }
         }
-    }
 
-    // 2. CLICK LOGIC: Batch reveal (2 by 2)
-    showMoreBtn.addEventListener('click', () => {
-        const hiddenCards = Array.from(document.querySelectorAll('.project-card.hidden'));
-        
-        // Take the next 2 cards
-        const nextBatch = hiddenCards.slice(0, 2);
+        // 2. CLICK LOGIC: Batch reveal (2 by 2)
+        showMoreBtn.addEventListener("click", () => {
+          const hiddenCards = Array.from(
+            document.querySelectorAll(".project-card.hidden")
+          );
 
-        nextBatch.forEach((card, index) => {
-            card.classList.remove('hidden');
-            
+          // Take the next 2 cards
+          const nextBatch = hiddenCards.slice(0, 2);
+
+          nextBatch.forEach((card, index) => {
+            card.classList.remove("hidden");
+
             // GSAP Reveal Animation
-            gsap.fromTo(card, 
-                { opacity: 0, y: 30 }, 
-                { 
-                    opacity: 1, 
-                    y: 0, 
-                    duration: 0.8, 
-                    delay: index * 0.1, 
-                    ease: "power3.out",
-                    onComplete: () => ScrollTrigger.refresh()
-                }
+            gsap.fromTo(
+              card,
+              { opacity: 0, y: 30 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: "power3.out",
+                onComplete: () => ScrollTrigger.refresh(),
+              }
             );
-        });
+          });
 
-        // 3. SAVE TO SESSION: Remembers position for the "Back" button
-        const currentVisibleCount = document.querySelectorAll('.project-card:not(.hidden)').length;
-        sessionStorage.setItem('visibleProjectsCount', currentVisibleCount);
+          // 3. SAVE TO SESSION: Remembers position for the "Back" button
+          const currentVisibleCount = document.querySelectorAll(
+            ".project-card:not(.hidden)"
+          ).length;
+          sessionStorage.setItem("visibleProjectsCount", currentVisibleCount);
 
-        // Hide button if 0 or 1 card was left (since we reveal in pairs)
-        if (hiddenCards.length <= 2) {
+          // Hide button if 0 or 1 card was left (since we reveal in pairs)
+          if (hiddenCards.length <= 2) {
             gsap.to(showMoreBtn, {
-                opacity: 0,
-                duration: 0.3,
-                onComplete: () => showMoreBtn.parentElement.style.display = 'none'
+              opacity: 0,
+              duration: 0.3,
+              onComplete: () =>
+                (showMoreBtn.parentElement.style.display = "none"),
             });
-        }
-    });
-});
-
+          }
+        });
+      });
     </script>
   </body>
 </html>
