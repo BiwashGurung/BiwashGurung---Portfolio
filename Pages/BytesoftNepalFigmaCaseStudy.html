@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytesoft Nepal | UI/UX Case Study</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111111;
+            --accent: #00e5ff; /* Bytesoft Cyan */
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .hero span {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin: 20px 0;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 24px;
+            margin-top: 50px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+        }
+
+        /* --- Overview Section --- */
+        .overview {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            padding: 80px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .label {
+            color: var(--accent);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .meta-box h4 { margin-bottom: 5px; font-size: 1.1rem; }
+        .meta-box p { color: var(--text-dim); margin-top: 0; margin-bottom: 30px;}
+
+        /* --- Design System Section --- */
+        .design-system {
+            padding: 100px 0;
+            background: #080808;
+        }
+
+        .system-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .ds-image {
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        /* --- Visual Gallery --- */
+        .gallery {
+            padding: 100px 0;
+        }
+
+        .full-screen {
+            width: 100%;
+            border-radius: 20px;
+            margin: 40px 0 80px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        /* --- Figma Specs --- */
+        .specs {
+            background: var(--card);
+            padding: 60px;
+            border-radius: 30px;
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        /* --- Back Button --- */
+        .back-btn {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 800;
+            padding: 15px 30px;
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin-bottom: 100px;
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            color: black;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .overview, .system-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <span>Agency Redesign 2024</span>
+            <h1>Bytesoft Nepal</h1>
+            <p style="color: var(--text-dim); font-size: 1.2rem;">Modernizing the digital identity of Nepal's leading IT firm.</p>
+            <img src="../Images/Bytesoft_Hero.jpg" alt="Bytesoft 3D Mockup" class="hero-img">
+        </header>
+
+        <section class="overview">
+            <div class="story-text">
+                <span class="label">The Challenge</span>
+                <p style="font-size: 1.3rem;">Bytesoft Nepal needed a digital home that matched their reputation for agility and enterprise-grade quality. The old structure was content-heavy, and we needed to make their 250+ successful projects the star of the show while simplifying the user journey.</p>
+                
+                <span class="label" style="margin-top: 40px;">The Solution</span>
+                <p>I implemented a high-contrast, grid-based layout that prioritizes 'Trust' through client testimonials and 'Clarity' through a redesigned service architecture. The final design focuses on a "Mobile-First" approach, ensuring the agency looks professional on any device.</p>
+            </div>
+
+            <div class="meta-data">
+                <div class="meta-box">
+                    <span class="label">My Role</span>
+                    <h4>UI/UX & Visual Designer</h4>
+                    <p>Research, Wireframing, High-Fidelity Design, Prototyping.</p>
+                </div>
+                <div class="meta-box">
+                    <span class="label">Project Type</span>
+                    <h4>Agency Web Platform</h4>
+                    <p>B2B IT Solutions</p>
+                </div>
+                <div class="meta-box">
+                    <span class="label">Design Stack</span>
+                    <h4>Figma, Photoshop</h4>
+                    <p>Auto-Layout, Components, Style Guides.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="design-system">
+            <div class="system-grid">
+                <div>
+                    <span class="label">Design System</span>
+                    <h2>Consistency & Scalability</h2>
+                    <p style="color: var(--text-dim);">To ensure the brand felt cohesive, I developed a strict design system. I chose <b>Inter</b> for its technical clarity and a high-energy <b>Electric Cyan</b> to represent innovation against a professional deep-charcoal background.</p>
+                </div>
+                <img src="../Images/Bytesoft_DesignSystem.jpg" alt="Design System Board" class="ds-image">
+            </div>
+        </section>
+
+        <section class="gallery">
+            <span class="label">Final Deliverables</span>
+            <h2>High-Fidelity Interface</h2>
+            
+            <img src="../Images/Bytesoft_Home_Full.jpg" alt="Homepage Full View" class="full-screen">
+
+            <div class="mobile-grid">
+                <img src="../Images/Bytesoft_Mobile.jpg" alt="Mobile Design" class="ds-image">
+                <div style="display: flex; flex-direction: column; justify-content: center; padding: 40px;">
+                    <span class="label">Responsive Design</span>
+                    <h3>Built for Every Screen</h3>
+                    <p style="color: var(--text-dim);">Over 60% of Bytesoft's traffic comes from mobile. I ensured every component—from the service cards to the complex footer—was optimized for thumb-friendly navigation and fast loading.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs">
+            <span class="label">Behind the Scenes</span>
+            <h2>Technical Execution</h2>
+            <p style="color: var(--text-dim); max-width: 700px; margin: 0 auto 40px;">The project was built using Figma's advanced features, including <b>Auto-Layout 5.0</b>, <b>Variable Color Modes</b>, and <b>Interactive Components</b> to ensure a seamless handoff to developers.</p>
+            <img src="../Images/Figma_Specs.jpg" alt="Figma Layout Grid" style="width: 100%; border-radius: 15px; opacity: 0.8;">
+        </section>
+
+        <div style="text-align: center;">
+            <a href="../index.html#projectGrid" class="back-btn">VIEW ALL PROJECTS</a>
+        </div>
+    </div>
+
+</body>
+</html>
