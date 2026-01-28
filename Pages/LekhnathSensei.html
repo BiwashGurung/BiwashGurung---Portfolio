@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekhnath Sensei | UI/UX Case Study</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d90429; /* Martial Arts Red */
+            --bg-dark: #050505;
+            --bg-card: #111111;
+            --text-light: #ffffff;
+            --text-muted: #999999;
+            --heading-font: 'Kelly Slab', cursive;
+            /* Change 'sans-serif' to your font name if you have one */
+            --body-font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--body-font);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+
+        h1, h2, h3, h4, .label {
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .label {
+            color: var(--primary);
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: clamp(3.5rem, 10vw, 6.5rem); line-height: 1; margin: 15px 0; }
+        .hero-img { 
+            width: 100%; 
+            border-radius: 12px; 
+            margin-top: 50px; 
+            border: 1px solid #222;
+        }
+
+        /* --- MISSION SECTION --- */
+        .section-padding { padding: 100px 0; }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* --- DESIGN LANGUAGE (CENTERED & REDESIGNED) --- */
+        .design-language {
+            text-align: center;
+            background: #0a0a0a;
+            padding: 100px 20px;
+            border-radius: 40px;
+        }
+
+        .typo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .typo-box { flex: 1; min-width: 250px; }
+        .big-text-display { font-family: 'Kelly Slab'; font-size: 4.5rem; color: var(--primary); line-height: 1; }
+        .body-text-display { font-size: 1.5rem; color: #fff; font-weight: 500; border-top: 1px solid #333; padding-top: 20px; margin-top: 10px; }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .swatch {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #222;
+            margin-bottom: 8px;
+        }
+
+        /* --- SLIDER --- */
+        .slider-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+        }
+
+        .slides img { width: 100%; display: none; }
+        .slides img.active { display: block; animation: punch 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+
+        @keyframes punch {
+            0% { transform: scale(1.1); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            border: none;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-family: var(--heading-font);
+            z-index: 5;
+        }
+        .prev { left: 0; border-radius: 0 5px 5px 0; }
+        .next { right: 0; border-radius: 5px 0 0 5px; }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 100px 0; border-top: 1px solid #222; }
+        .btn-back {
+            text-decoration: none;
+            color: white;
+            border: 1px solid var(--primary);
+            padding: 15px 40px;
+            font-family: var(--heading-font);
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--primary); }
+
+        @media (max-width: 768px) {
+            .mission-grid { grid-template-columns: 1fr; }
+            .typo-container { gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <span class="label">Landing Page Redesign</span>
+            <h1>Lekhnath Sensei</h1>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">Bringing martial arts heritage into a high-conversion digital experience.</p>
+            <img src="../Images/LS_Hero_Mockup.jpg" alt="Lekhnath Sensei Design" class="hero-img">
+        </header>
+
+        <section class="section-padding mission-grid">
+            <div>
+                <span class="label">The Challenge</span>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Digitalizing the Dojo</h2>
+                <p>The core objective was to create a digital presence for <b>Lekhnath Sensei</b> that balances authority with approachability. I focused on a "One-Page Strategy" that leads potential students from instructor history directly into class registration.</p>
+            </div>
+            <div style="background: var(--bg-card); padding: 40px; border-radius: 15px; border-top: 3px solid var(--primary);">
+                <h4 style="margin-bottom: 10px;">Project Deliverables</h4>
+                <ul style="color: var(--text-muted); padding-left: 18px;">
+                    <li>Competitive Research</li>
+                    <li>Wireframing</li>
+                    <li>High-Fidelity UI</li>
+                    <li>Visual Identity</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="design-language">
+            <span class="label">Visual Foundations</span>
+            <h2 style="font-size: 2.8rem;">Discipline & Type</h2>
+            
+            <div class="typo-container">
+                <div class="typo-box">
+                    <span class="label" style="font-size: 0.7rem;">Display Face</span>
+                    <div class="big-text-display">Kelly Slab</div>
+                </div>
+                <div class="typo-box">
+                    <span class="label" style="font-size: 0.7rem;">Content Face</span>
+                    <div class="body-text-display">Primary Body Text</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">
+                        Optimized for legibility in class descriptions and schedules.
+                    </p>
+                </div>
+            </div>
+
+            <div class="color-palette">
+                <div><div class="swatch" style="background: #d90429;"></div><small>#D90429</small></div>
+                <div><div class="swatch" style="background: #000;"></div><small>#000000</small></div>
+                <div><div class="swatch" style="background: #fff;"></div><small>#FFFFFF</small></div>
+            </div>
+        </section>
+
+        <section class="section-padding" style="text-align: center;">
+            <span class="label">Interface Tour</span>
+            <h2 style="font-size: 2.5rem;">Core Sections</h2>
+            
+            <div class="slider-wrapper">
+                <div class="slides" id="gallery">
+                    <img src="../Images/LS_Slide1.jpg" class="active" alt="Hero Section">
+                    <img src="../Images/LS_Slide2.jpg" alt="Programs Section">
+                    <img src="../Images/LS_Slide3.jpg" alt="Contact Section">
+                </div>
+                <button class="nav-btn prev" onclick="moveSlide(-1)">PREV</button>
+                <button class="nav-btn next" onclick="moveSlide(1)">NEXT</button>
+            </div>
+        </section>
+
+        <section class="section-padding mission-grid" style="border-top: 1px solid #1a1a1a;">
+            <img src="../Images/LS_Mobile.jpg" alt="Mobile UI" style="width: 100%; border-radius: 15px;">
+            <div>
+                <span class="label">Mobile Experience</span>
+                <h2>Focus on the Go</h2>
+                <p>Ensuring the class schedule is accessible on mobile was a priority. The responsive layout utilizes a single-column stack that keeps the <b>"Join Now"</b> action always within reach.</p>
+            </div>
+        </section>
+
+        <footer>
+            <a href="../index.html" class="btn-back">BACK TO PROJECTS</a>
+        </footer>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        function moveSlide(n) {
+            const slides = document.querySelectorAll('#gallery img');
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + n + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+    </script>
+</body>
+</html>
