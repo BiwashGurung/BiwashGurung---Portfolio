@@ -16,7 +16,7 @@
     <meta property="og:title" content="Biwash Gurung | Fullstack Architect">
     <meta property="og:description" content="Turning complex problems into clean, deployable code. Explore the projects and technical journey of Biwash Gurung.">
    
-<link rel="icon" type="image/png" href="Images/profile.jpg">
+    <link rel="icon" type="image/png" href="Images/profile.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://biwashgurung.com.np/">
@@ -26,7 +26,6 @@
 
     <link rel="canonical" href="https://biwashgurung.com.np/">
   
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
@@ -104,19 +103,41 @@
             color: var(--text-sec);
             font-family: var(--font-mono);
         }
-        .nav-info a {
-            color: var(--text-sec);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-info a:hover {
-            color: var(--accent);
+        .nav-info a { color: var(--text-sec); text-decoration: none; transition: 0.2s; }
+        .nav-info a:hover { color: var(--accent); }
+
+        /* --- UPDATED HERO & ABOUT LAYOUT --- */
+        .hero-section { 
+            padding: 40px 0; 
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
         }
 
-        /* --- HERO --- */
-        .hero { padding: 40px 0; border-bottom: 1px solid var(--border); }
-        .hero h1 { font-size: 2rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.5px; }
-        .hero p { max-width: 750px; font-size: 1.1rem; color: var(--text-sec); }
+        .hero-top-wrapper {
+            width: 100%;
+            max-width: 850px; 
+            text-align: left;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-img { 
+            width: 110px; 
+            height: 110px; 
+            border-radius: 50%; 
+            border: 1px solid var(--border); 
+            flex-shrink: 0; 
+            object-fit: cover; 
+        }
+
+        .hero-content { flex-grow: 1; }
+        .hero-content h1 { font-size: 2rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.5px; }
+        .hero-content p { font-size: 1.05rem; color: var(--text-sec); }
+
         .exp-badge {
             display: inline-block;
             background: rgba(63, 185, 80, 0.1);
@@ -128,6 +149,19 @@
             border: 1px solid rgba(63, 185, 80, 0.3);
             margin-bottom: 10px;
         }
+
+        .about-card { 
+            background: var(--surface); 
+            border: 1px solid var(--border); 
+            border-radius: 6px; 
+            padding: 24px; 
+            width: 100%;
+            max-width: 850px; 
+        }
+
+        .about-card h3 { font-size: 0.9rem; color: var(--text-sec); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .about-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-main); }
+        .about-text b { color: var(--accent); }
 
         /* --- LANGUAGES & TOOLS --- */
         .sec-head { padding: 40px 0 16px; display: flex; align-items: center; gap: 8px; }
@@ -168,6 +202,7 @@
         .btn-contact:hover { background: var(--border); border-color: var(--text-sec); }
 
         @media (max-width: 768px) {
+            .hero-top-wrapper { flex-direction: column; text-align: center; }
             .skills-grid, .project-grid { grid-template-columns: 1fr; }
             .nav-info, .watching-status { font-size: 0.7rem; }
         }
@@ -194,10 +229,26 @@
             </div>
         </nav>
 
-        <section class="hero">
-            <div class="exp-badge">1+ Year Professional Experience</div>
-            <h1>Hi there, I'm Biwash 👋</h1>
-            <p>Fullstack Architect specializing in Python, Django, and scalable backend infrastructure. I turn complex problems into clean, deployable code with over a year of industry-proven experience.</p>
+        <section class="hero-section">
+            <div class="hero-top-wrapper">
+                <img src="Images/profile.jpg" alt="Biwash Gurung" class="profile-img">
+                <div class="hero-content">
+                    <div class="exp-badge">1+ Year Professional Experience</div>
+                    <h1>Hi there, I'm Biwash 👋</h1>
+                    <p>Fullstack Architect specializing in Python, Django, and scalable backend infrastructure.</p>
+                </div>
+            </div>
+            
+            <div class="about-card">
+                <h3><i class="fa-solid fa-book-open"></i> About Me</h3>
+               <div class="about-text">
+    I am a <b>Fullstack Python & Django Developer</b> based in Pokhara. Currently, I specialize in architecting scalable backend systems and end-to-end web solutions, bridging the gap between complex business logic and clean, deployable code.
+    <br><br>
+    My technical expertise is rooted in the <b>Django</b> framework, where I have a proven track record of building production-ready platforms. Most notably, I engineered a full-stack service platform for <i>Little Heart Pet Shop</i>, integrating a <b>MySQL</b> database and a responsive <b>Bootstrap</b> frontend. This system has successfully processed <b>300+ real-world bookings</b> to date.
+    <br><br>
+    I hold a <b>BSc (Hons) in Computing</b> from Informatics College Pokhara (London Metropolitan University), which provided a rigorous foundation in software systems and problem-solving. From local deployment to managing <b>cPanel</b> hosting environments, I am driven by creating digital solutions that deliver measurable value for businesses.
+</div>
+            </div>
         </section>
 
         <div class="sec-head">
@@ -296,7 +347,7 @@
         setInterval(updateWatchers, 3000);
 
         gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.skills-card, .p-card, .time-item').forEach(el => {
+        gsap.utils.toArray('.skills-card, .p-card, .time-item, .about-card').forEach(el => {
             gsap.from(el, { 
                 scrollTrigger: { trigger: el, start: "top 95%" }, 
                 y: 15, opacity: 0, duration: 0.6, ease: "power2.out" 
