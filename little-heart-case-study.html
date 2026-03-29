@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Little Heart Pet Shop | Biwash Gurung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reusing your CSS variables for consistency */
+        :root {
+            --bg: #0d1117; --surface: #161b22; --border: #30363d;
+            --accent: #2f81f7; --success: #3fb950; --text-main: #e6edf3; --text-sec: #7d8590;
+        }
+        body { background: var(--bg); color: var(--text-main); font-family: -apple-system, sans-serif; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Repo Header */
+        .repo-header { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+        .badge { border: 1px solid var(--border); padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sec); }
+
+        /* Layout Split */
+        .case-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; }
+
+        /* Content Box */
+        .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
+        .readme-header { padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .readme-body { padding: 32px; }
+        
+        h1, h2 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+        .stat-item { background: var(--surface); padding: 15px; border-radius: 6px; border: 1px solid var(--border); }
+        
+        /* Sidebar */
+        .side-section { margin-bottom: 32px; }
+        .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; }
+        .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; }
+
+        @media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="repo-header">
+            <i class="fa-regular fa-bookmark"></i>
+            <span style="color: var(--accent); font-weight: 600;">Little-Heart-Pet-Shop</span>
+            <span class="badge">Public</span>
+        </div>
+
+        <div class="case-grid">
+            <main class="readme-box">
+                <div class="readme-header">
+                    <i class="fa-solid fa-list"></i> README.md
+                </div>
+                <div class="readme-body">
+                    <h1>Project Overview</h1>
+                    <p>Little Heart Pet Shop is a premier pet grooming service in Pokhara. The goal was to replace a manual phone-based booking system with a robust automated platform to handle high demand.</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <strong style="color: var(--success); font-size: 1.5rem;">300+</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Live Bookings Processed</p>
+                        </div>
+                        <div class="stat-item">
+                            <strong style="color: var(--accent); font-size: 1.5rem;">99.9%</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">System Uptime (cPanel)</p>
+                        </div>
+                    </div>
+
+                    <h2>The Challenge</h2>
+                    <p>The client faced issues with double-booking and "dead hours" where the staff was free but no customers were scheduled. They needed a system that could manage specific time slots for dog grooming sessions.</p>
+
+                    <h2>The Solution</h2>
+                    <ul>
+                        <li><strong>Backend:</strong> Built a custom appointment logic in Django to prevent scheduling conflicts.</li>
+                        <li><strong>Database:</strong> Relational MySQL structure to track customer history and pet details.</li>
+                        <li><strong>Frontend:</strong> Mobile-first UI using Bootstrap to ensure customers can book while on the go.</li>
+                    </ul>
+
+                    <h2>Technical Execution</h2>
+                    <p>One of the key technical hurdles was handling the media content—filming and editing sessions to be displayed on the site. I integrated a media pipeline that showcased recent grooming results to build trust with new users.</p>
+                </div>
+            </main>
+
+            <aside>
+                <div class="side-section">
+                    <span class="side-title">About</span>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">A full-stack solution for grooming services, featuring real-time availability and automated admin notifications.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://littleheartpetshop.com.np" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem;">
+                            <i class="fa-solid fa-link"></i> littleheartpetshop.com.np
+                        </a>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Languages</span>
+                    <div>
+                        <span class="tag">Python (Django)</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Deployment</span>
+                    <div style="font-size: 0.85rem; color: var(--text-sec);">
+                        <i class="fa-solid fa-server"></i> Live on cPanel Hosting
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <footer style="margin-top: 40px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
+            <a href="index.html" style="color: var(--text-sec); text-decoration: none; font-size: 0.8rem;">← Back to Portfolio</a>
+        </footer>
+    </div>
+</body>
+</html>
