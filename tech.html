@@ -15,14 +15,15 @@
     <meta property="og:url" content="https://biwashgurung.com.np/">
     <meta property="og:title" content="Biwash Gurung | Fullstack Architect">
     <meta property="og:description" content="Turning complex problems into clean, deployable code. Explore the projects and technical journey of Biwash Gurung.">
-    <meta property="og:image" content="https://biwashgurung.com.np/assets/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://biwashgurung.com.np/assets/og-image.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://biwashgurung.com.np/">
     <meta property="twitter:title" content="Biwash Gurung | Fullstack Architect">
     <meta property="twitter:description" content="Fullstack Architect specializing in Python/Django and scalable backend infrastructure.">
     <meta property="twitter:image" content="https://biwashgurung.com.np/assets/og-image.jpg">
 
     <link rel="canonical" href="https://biwashgurung.com.np/">
-
     <link rel="icon" type="image/png" href="favicon.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -69,7 +70,6 @@
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
         
-        /* Dynamic Watcher Style */
         .watching-status {
             display: flex;
             align-items: center;
@@ -102,6 +102,14 @@
             font-size: 0.8rem;
             color: var(--text-sec);
             font-family: var(--font-mono);
+        }
+        .nav-info a {
+            color: var(--text-sec);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .nav-info a:hover {
+            color: var(--accent);
         }
 
         /* --- HERO --- */
@@ -179,6 +187,7 @@
                 </div>
                 <div class="nav-info">
                     <span><i class="fa-solid fa-location-dot"></i> Pokhara, NP</span>
+                    <span><a href="https://www.linkedin.com/in/biwashgurung" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></span>
                     <span><i class="fa-solid fa-code-branch"></i> main</span>
                 </div>
             </div>
@@ -273,24 +282,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        // 1. DYNAMIC WATCHER LOGIC
         const watcherEl = document.getElementById('watcher-count');
         let currentWatchers = 5000;
 
         function updateWatchers() {
-            // Randomly fluctuate between -3 and +3 to make it look alive
             const change = Math.floor(Math.random() * 7) - 3;
             currentWatchers += change;
-            
-            // Keep it around the 5000 range
             if(currentWatchers < 4980) currentWatchers += 5;
             if(currentWatchers > 5020) currentWatchers -= 5;
-            
             watcherEl.innerText = currentWatchers.toLocaleString();
         }
-        setInterval(updateWatchers, 3000); // Update every 3 seconds
+        setInterval(updateWatchers, 3000);
 
-        // 2. REVEAL ANIMATIONS
         gsap.registerPlugin(ScrollTrigger);
         gsap.utils.toArray('.skills-card, .p-card, .time-item').forEach(el => {
             gsap.from(el, { 
