@@ -1,369 +1,727 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Biwash Gurung | Fullstack Architect & Python Developer</title>
-    <meta name="title" content="Biwash Gurung | Fullstack Architect & Python Developer">
-    <meta name="description" content="Portfolio of Biwash Gurung, a Fullstack Architect based in Pokhara, NP. Specializing in Python, Django, MySQL, and scalable backend infrastructure with 1+ year of experience.">
-    <meta name="keywords" content="Biwash Gurung, Fullstack Architect, Python Developer, Django Developer Nepal, Web Developer Pokhara, Software Engineer Nepal, Backend Developer">
-    <meta name="author" content="Biwash Gurung">
-    <meta name="robots" content="index, follow">
+    <meta
+      name="title"
+      content="Biwash Gurung | Fullstack Architect & Python Developer"
+    />
+    <meta
+      name="description"
+      content="Portfolio of Biwash Gurung, a Fullstack Architect based in Pokhara, NP. Specializing in Python, Django, MySQL, and scalable backend infrastructure with 1+ year of experience."
+    />
+    <meta
+      name="keywords"
+      content="Biwash Gurung, Fullstack Architect, Python Developer, Django Developer Nepal, Web Developer Pokhara, Software Engineer Nepal, Backend Developer"
+    />
+    <meta name="author" content="Biwash Gurung" />
+    <meta name="robots" content="index, follow" />
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://biwashgurung.com.np/">
-    <meta property="og:title" content="Biwash Gurung | Fullstack Architect">
-    <meta property="og:description" content="Turning complex problems into clean, deployable code. Explore the projects and technical journey of Biwash Gurung.">
-   
-    <link rel="icon" type="image/png" href="Images/profile.jpg">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://biwashgurung.com.np/" />
+    <meta property="og:title" content="Biwash Gurung | Fullstack Architect" />
+    <meta
+      property="og:description"
+      content="Turning complex problems into clean, deployable code. Explore the projects and technical journey of Biwash Gurung."
+    />
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://biwashgurung.com.np/">
-    <meta property="twitter:title" content="Biwash Gurung | Fullstack Architect">
-    <meta property="twitter:description" content="Fullstack Architect specializing in Python/Django and scalable backend infrastructure.">
-    <meta property="twitter:image" content="https://biwashgurung.com.np/assets/og-image.jpg">
+    <link rel="icon" type="image/png" href="Images/profile.jpg" />
 
-    <link rel="canonical" href="https://biwashgurung.com.np/">
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://biwashgurung.com.np/" />
+    <meta
+      property="twitter:title"
+      content="Biwash Gurung | Fullstack Architect"
+    />
+    <meta
+      property="twitter:description"
+      content="Fullstack Architect specializing in Python/Django and scalable backend infrastructure."
+    />
+    <meta
+      property="twitter:image"
+      content="https://biwashgurung.com.np/assets/og-image.jpg"
+    />
+
+    <link rel="canonical" href="https://biwashgurung.com.np/" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
     <style>
-        :root {
-            --bg: #0d1117;
-            --surface: #161b22;
-            --surface-overlay: #21262d;
-            --border: #30363d;
-            --accent: #2f81f7; 
-            --success: #3fb950; 
-            --danger: #f85149;
-            --text-main: #e6edf3;
-            --text-sec: #7d8590;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
-        }
+      :root {
+        --bg: #0d1117;
+        --surface: #161b22;
+        --surface-overlay: #21262d;
+        --border: #30363d;
+        --accent: #2f81f7;
+        --success: #3fb950;
+        --danger: #f85149;
+        --text-main: #e6edf3;
+        --text-sec: #7d8590;
+        --font-main:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+          Arial, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, monospace;
+      }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            font-family: var(--font-main);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--bg);
+        color: var(--text-main);
+        font-family: var(--font-main);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
 
-        .container { max-width: 1012px; margin: 0 auto; padding: 0 16px; }
-        
-        /* --- GITHUB HEADER --- */
-        nav { 
-            padding: 16px 0; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 40px;
-        }
-        .logo { font-weight: 600; font-size: 1rem; display: flex; align-items: center; gap: 8px; }
-        .logo i { font-size: 1.4rem; }
-        
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        
-        .watching-status {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            font-family: var(--font-mono);
-            color: var(--text-sec);
-            background: var(--surface-overlay);
-            padding: 4px 10px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--danger);
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 81, 73, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(248, 81, 73, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 81, 73, 0); }
-        }
+      .container {
+        max-width: 1012px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
 
-        .nav-info {
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: var(--text-sec);
-            font-family: var(--font-mono);
-        }
-        .nav-info a { color: var(--text-sec); text-decoration: none; transition: 0.2s; }
-        .nav-info a:hover { color: var(--accent); }
+      /* --- GITHUB HEADER --- */
+      nav {
+        padding: 16px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 40px;
+      }
+      .logo {
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo i {
+        font-size: 1.4rem;
+      }
 
-        /* --- UPDATED HERO & ABOUT LAYOUT --- */
-        .hero-section { 
-            padding: 40px 0; 
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-        }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
 
+      .watching-status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        font-family: var(--font-mono);
+        color: var(--text-sec);
+        background: var(--surface-overlay);
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+      }
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--danger);
+        border-radius: 50%;
+        display: inline-block;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(248, 81, 73, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 6px rgba(248, 81, 73, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(248, 81, 73, 0);
+        }
+      }
+
+      .nav-info {
+        display: flex;
+        gap: 16px;
+        font-size: 0.8rem;
+        color: var(--text-sec);
+        font-family: var(--font-mono);
+      }
+      .nav-info a {
+        color: var(--text-sec);
+        text-decoration: none;
+        transition: 0.2s;
+      }
+      .nav-info a:hover {
+        color: var(--accent);
+      }
+
+      /* --- UPDATED HERO & ABOUT LAYOUT --- */
+      .hero-section {
+        padding: 40px 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-top-wrapper {
+        width: 100%;
+        max-width: 850px;
+        text-align: left;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+
+      .profile-img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+
+      .hero-content {
+        flex-grow: 1;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+        letter-spacing: -0.5px;
+      }
+      .hero-content p {
+        font-size: 1.05rem;
+        color: var(--text-sec);
+      }
+
+      .exp-badge {
+        display: inline-block;
+        background: rgba(63, 185, 80, 0.1);
+        color: var(--success);
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid rgba(63, 185, 80, 0.3);
+        margin-bottom: 10px;
+      }
+
+      .about-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 24px;
+        width: 100%;
+        max-width: 850px;
+      }
+
+      .about-card h3 {
+        font-size: 0.9rem;
+        color: var(--text-sec);
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .about-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-main);
+      }
+      .about-text b {
+        color: var(--accent);
+      }
+
+      /* --- LANGUAGES & TOOLS --- */
+      .sec-head {
+        padding: 40px 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sec-head h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+      .counter {
+        background: var(--surface-overlay);
+        padding: 2px 8px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        color: var(--text-sec);
+        border: 1px solid var(--border);
+      }
+
+      .skills-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 24px;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+      .skill-group h3 {
+        font-size: 0.85rem;
+        color: var(--text-sec);
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tech-item {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-family: var(--font-mono);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+      }
+      .tech-item:hover {
+        border-color: var(--accent);
+        background: var(--surface-overlay);
+      }
+
+      /* --- PINNED REPOS --- */
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .p-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 16px;
+        transition: 0.2s;
+      }
+      .p-card:hover {
+        border-color: var(--text-sec);
+      }
+      .p-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .p-content p {
+        font-size: 0.85rem;
+        color: var(--text-sec);
+        margin-bottom: 16px;
+        min-height: 40px;
+      }
+      .p-footer {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 0.75rem;
+        color: var(--text-sec);
+      }
+      .lang-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      /* --- EXPERIENCE TIMELINE --- */
+      .timeline {
+        position: relative;
+        padding-left: 20px;
+        border-left: 2px solid var(--border);
+        margin: 20px 0 0 10px;
+      }
+      .time-item {
+        margin-bottom: 24px;
+        position: relative;
+      }
+      .time-item::before {
+        content: "";
+        position: absolute;
+        left: -27px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 2px solid var(--border);
+        z-index: 2;
+      }
+      .time-item.current::before {
+        border-color: var(--success);
+        background: var(--success);
+        box-shadow: 0 0 0 4px rgba(63, 185, 80, 0.15);
+      }
+
+      .time-box {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 16px;
+      }
+      .time-item.current .time-box {
+        border-color: rgba(63, 185, 80, 0.3);
+      }
+      .time-top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+      }
+      .role-tag {
+        color: var(--success);
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+      .role-tag.past {
+        color: var(--text-sec);
+      }
+
+      /* --- FOOTER --- */
+      footer {
+        padding: 60px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        margin-top: 60px;
+      }
+      .btn-contact {
+        display: inline-block;
+        background: var(--surface-overlay);
+        color: var(--text-main);
+        padding: 8px 16px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: 0.2s;
+      }
+      .btn-contact:hover {
+        background: var(--border);
+        border-color: var(--text-sec);
+      }
+
+      @media (max-width: 768px) {
         .hero-top-wrapper {
-            width: 100%;
-            max-width: 850px; 
-            text-align: left;
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            margin-bottom: 24px;
+          flex-direction: column;
+          text-align: center;
         }
-
-        .profile-img { 
-            width: 110px; 
-            height: 110px; 
-            border-radius: 50%; 
-            border: 1px solid var(--border); 
-            flex-shrink: 0; 
-            object-fit: cover; 
+        .skills-grid,
+        .project-grid {
+          grid-template-columns: 1fr;
         }
-
-        .hero-content { flex-grow: 1; }
-        .hero-content h1 { font-size: 2rem; font-weight: 600; margin-bottom: 4px; letter-spacing: -0.5px; }
-        .hero-content p { font-size: 1.05rem; color: var(--text-sec); }
-
-        .exp-badge {
-            display: inline-block;
-            background: rgba(63, 185, 80, 0.1);
-            color: var(--success);
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(63, 185, 80, 0.3);
-            margin-bottom: 10px;
+        .nav-info,
+        .watching-status {
+          font-size: 0.7rem;
         }
-
-        .about-card { 
-            background: var(--surface); 
-            border: 1px solid var(--border); 
-            border-radius: 6px; 
-            padding: 24px; 
-            width: 100%;
-            max-width: 850px; 
-        }
-
-        .about-card h3 { font-size: 0.9rem; color: var(--text-sec); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-        .about-text { font-size: 0.95rem; line-height: 1.6; color: var(--text-main); }
-        .about-text b { color: var(--accent); }
-
-        /* --- LANGUAGES & TOOLS --- */
-        .sec-head { padding: 40px 0 16px; display: flex; align-items: center; gap: 8px; }
-        .sec-head h2 { font-size: 1.25rem; font-weight: 600; }
-        .counter { background: var(--surface-overlay); padding: 2px 8px; border-radius: 20px; font-size: 0.7rem; color: var(--text-sec); border: 1px solid var(--border); }
-
-        .skills-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; }
-        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-        .skill-group h3 { font-size: 0.85rem; color: var(--text-sec); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; }
-        .tech-list { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tech-item { background: var(--bg); border: 1px solid var(--border); padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; font-family: var(--font-mono); display: flex; align-items: center; gap: 8px; transition: 0.2s; }
-        .tech-item:hover { border-color: var(--accent); background: var(--surface-overlay); }
-
-        /* --- PINNED REPOS --- */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .p-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; transition: 0.2s; }
-        .p-card:hover { border-color: var(--text-sec); }
-        .p-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; color: var(--accent); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
-        .p-content p { font-size: 0.85rem; color: var(--text-sec); margin-bottom: 16px; min-height: 40px; }
-        .p-footer { display: flex; align-items: center; gap: 15px; font-size: 0.75rem; color: var(--text-sec); }
-        .lang-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-
-        /* --- EXPERIENCE TIMELINE --- */
-        .timeline { position: relative; padding-left: 20px; border-left: 2px solid var(--border); margin: 20px 0 0 10px; }
-        .time-item { margin-bottom: 24px; position: relative; }
-        .time-item::before { content: ''; position: absolute; left: -27px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--border); z-index: 2; }
-        .time-item.current::before { border-color: var(--success); background: var(--success); box-shadow: 0 0 0 4px rgba(63, 185, 80, 0.15); }
-
-        .time-box { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 16px; }
-        .time-item.current .time-box { border-color: rgba(63, 185, 80, 0.3); }
-        .time-top { display: flex; justify-content: space-between; margin-bottom: 4px; font-size: 0.9rem; }
-        .role-tag { color: var(--success); font-family: var(--font-mono); font-weight: 600; font-size: 0.8rem; }
-        .role-tag.past { color: var(--text-sec); }
-
-        /* --- FOOTER --- */
-        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--border); margin-top: 60px; }
-        .btn-contact { display: inline-block; background: var(--surface-overlay); color: var(--text-main); padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
-        .btn-contact:hover { background: var(--border); border-color: var(--text-sec); }
-
-        @media (max-width: 768px) {
-            .hero-top-wrapper { flex-direction: column; text-align: center; }
-            .skills-grid, .project-grid { grid-template-columns: 1fr; }
-            .nav-info, .watching-status { font-size: 0.7rem; }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <i class="fa-brands fa-github"></i>
-                <span>biwashgurung / <strong>README</strong>.md</span>
-            </div>
-            <div class="nav-right">
-                <div class="watching-status">
-                    <span class="pulse-dot"></span>
-                    <span>watching: <strong id="watcher-count">5000</strong></span>
-                </div>
-                <div class="nav-info">
-                    <span><i class="fa-solid fa-location-dot"></i> Pokhara, NP</span>
-                    <span><a href="https://www.linkedin.com/in/biwashgurung" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></span>
-                    <span><i class="fa-solid fa-code-branch"></i> main</span>
-                </div>
-            </div>
-        </nav>
-
-        <section class="hero-section">
-            <div class="hero-top-wrapper">
-                <img src="Images/profile.jpg" alt="Biwash Gurung" class="profile-img">
-                <div class="hero-content">
-                    <div class="exp-badge">1+ Year Professional Experience</div>
-                    <h1>Hi there, I'm Biwash 👋</h1>
-                    <p>Fullstack Architect specializing in Python, Django, and scalable backend infrastructure.</p>
-                </div>
-            </div>
-            
-            <div class="about-card">
-                <h3><i class="fa-solid fa-book-open"></i> About Me</h3>
-               <div class="about-text">
-    I am a <b>Fullstack Python & Django Developer</b> based in Pokhara. Currently, I specialize in architecting scalable backend systems and end-to-end web solutions, bridging the gap between complex business logic and clean, deployable code.
-    <br><br>
-    My technical expertise is rooted in the <b>Django</b> framework, where I have a proven track record of building production-ready platforms. Most notably, I engineered a full-stack service platform for <i>Little Heart Pet Shop</i>, integrating a <b>MySQL</b> database and a responsive <b>Bootstrap</b> frontend. This system has successfully processed <b>300+ real-world bookings</b> to date.
-    <br><br>
-    I hold a <b>BSc (Hons) in Computing</b> from Informatics College Pokhara (London Metropolitan University), which provided a rigorous foundation in software systems and problem-solving. From local deployment to managing <b>cPanel</b> hosting environments, I am driven by creating digital solutions that deliver measurable value for businesses.
-</div>
-            </div>
-        </section>
-
-        <div class="sec-head">
-            <h2>Languages and Tools</h2>
-            <span class="counter">Core Stack</span>
+      <nav>
+        <div class="logo">
+          <i class="fa-brands fa-github"></i>
+          <span>biwashgurung / <strong>README</strong>.md</span>
         </div>
-        <div class="skills-card">
-            <div class="skills-grid">
-                <div class="skill-group">
-                    <h3><i class="fa-solid fa-code" style="font-size: 0.8rem;"></i> Languages</h3>
-                    <div class="tech-list">
-                        <div class="tech-item"><i class="devicon-python-plain" style="color:#3776ab"></i> Python</div>
-                        <div class="tech-item"><i class="devicon-javascript-plain" style="color:#f7df1e"></i> JavaScript</div>
-                        <div class="tech-item"><i class="devicon-mysql-original" style="color:#4479a1"></i> MySQL</div>
-                        <div class="tech-item"><i class="devicon-html5-plain" style="color:#e34f26"></i> HTML5</div>
-                        <div class="tech-item"><i class="devicon-css3-plain" style="color:#1572b6"></i> CSS3</div>
-                    </div>
-                </div>
-                <div class="skill-group">
-                    <h3><i class="fa-solid fa-screwdriver-wrench" style="font-size: 0.8rem;"></i> Tools & Frameworks</h3>
-                    <div class="tech-list">
-                        <div class="tech-item"><i class="devicon-django-plain" style="color:#092e20"></i> Django</div>
-                        <div class="tech-item"><i class="devicon-bootstrap-plain" style="color:#7952b3"></i> Bootstrap</div>
-                        <div class="tech-item"><i class="fa-brands fa-cpanel" style="color:#ff6c2c"></i> cPanel</div>
-                        <div class="tech-item"><i class="devicon-figma-plain" style="color:#f24e1e"></i> Figma</div>
-                    </div>
-                </div>
-            </div>
+        <div class="nav-right">
+          <div class="watching-status">
+            <span class="pulse-dot"></span>
+            <span>watching: <strong id="watcher-count">5000</strong></span>
+          </div>
+          <div class="nav-info">
+            <span><i class="fa-solid fa-location-dot"></i> Pokhara, NP</span>
+            <span
+              ><a
+                href="https://www.linkedin.com/in/biwashgurung"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+              ></span
+            >
+            <span><i class="fa-solid fa-code-branch"></i> main</span>
+          </div>
         </div>
+      </nav>
 
-     <div class="sec-head">
-            <h2>Pinned Repositories</h2>
-            <span class="counter">Production Projects</span>
-        </div>
-        <div class="project-grid">
-            <div class="p-card">
-                <a href="https://littleheartpetshop.com.np" target="_blank" class="p-header">
-                    <i class="fa-regular fa-bookmark"></i> Little-Heart-Pet-Shop
-                </a>
-                <div class="p-content">
-                    <p>Full-stack grooming platform. Engineered with Django and MySQL. Successfully processed <b>300+ live bookings</b>.</p>
-                </div>
-                <div class="p-footer">
-                    <span><span class="lang-dot" style="background:#3572A5"></span> Python</span>
-                    <span><i class="fa-solid fa-calendar-check"></i> 300+ Bookings</span>
-                    <span><i class="fa-solid fa-server"></i> cPanel</span>
-                </div>
-            </div>
-
-            <div class="p-card">
-                <a href="#" target="_blank" class="p-header">
-                    <i class="fa-regular fa-bookmark"></i> Bytesoft-Nepal-Official
-                </a>
-                <div class="p-content">
-                    <p>Designed and developed the official corporate site. Focused on UI/UX optimization and production-ready deployment.</p>
-                </div>
-                <div class="p-footer">
-                    <span><span class="lang-dot" style="background:#f7df1e"></span> JavaScript</span>
-                    <span><i class="fa-solid fa-u"></i> UI/UX</span>
-                    <span><i class="fa-solid fa-bolt"></i> Live</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="sec-head">
-            <h2>Contribution History</h2>
-            <span class="counter">Timeline</span>
-        </div>
-        <div class="timeline">
-            <div class="time-item current">
-                <div class="time-box">
-                    <div class="time-top"><strong>Code Zenith</strong> <span style="color:var(--text-sec)">2024 — Present</span></div>
-                    <div class="role-tag">Backend Architect</div>
-                    <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 8px;">Architecting scalable Python services and optimizing MySQL for high-traffic applications.</p>
-                </div>
-            </div>
-            <div class="time-item">
-                <div class="time-box">
-                    <div class="time-top"><strong>Xdezo Tech</strong> <span style="color:var(--text-sec)">2022 — 2024</span></div>
-                    <div class="role-tag past">Python Developer</div>
-                    <p style="font-size: 0.85rem; color: var(--text-sec); margin-top: 8px;">Engineered automation bots and integrated complex business modules.</p>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <a href="mailto:biwshgrg21@gmail.com" class="btn-contact">Get in touch</a>
-            <p style="margin-top: 24px; color: var(--text-sec); font-size: 0.8rem;">
-                © 2026 biwashgurung • Committed to Pokhara, NP
+      <section class="hero-section">
+        <div class="hero-top-wrapper">
+          <img
+            src="Images/profile.jpg"
+            alt="Biwash Gurung"
+            class="profile-img"
+          />
+          <div class="hero-content">
+            <div class="exp-badge">1+ Year Professional Experience</div>
+            <h1>Hi there, I'm Biwash Gurung 👋</h1>
+            <p>
+              Fullstack Developer specializing in Python, Django, and scalable
+              backend infrastructure.
             </p>
-        </footer>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3><i class="fa-solid fa-book-open"></i> About Me</h3>
+          <div class="about-text">
+            I am a <b>Fullstack Python & Django Developer</b> based in Pokhara.
+            I specialize in developing scalable backend systems and end-to-end
+            web solutions, bridging the gap between complex business logic and
+            clean, deployable code. <br /><br />
+            My technical expertise is rooted in the <b>Django</b> framework,
+            where I have a proven track record of building production-ready
+            platforms. Most notably, I engineered a full-stack service platform
+            for <i>Little Heart Pet Shop</i>—integrating a <b>MySQL</b> database
+            and a responsive <b>Bootstrap</b> frontend—which has successfully
+            processed <b>300+ real-world bookings</b> to date. <br /><br />
+            Beyond web platforms, I developed and deployed the
+            <b>Xdezo Telegram Bot</b> to automate student enrollment and data
+            tracking. I also built <b>InformaticsCafeteria</b>, a full-stack web
+            application designed to eliminate long queues by allowing students
+            to order online. This solution optimizes limited break times for
+            students while providing the cafeteria with robust tools for order
+            management and inventory tracking. <br /><br />
+            I hold a <b>BSc (Hons) in Computing</b> from Informatics College
+            Pokhara (London Metropolitan University). With extensive experience
+            in <b>cPanel</b> hosting and live environment maintenance, I am
+            driven by a passion for optimizing backend performance and creating
+            digital solutions that deliver measurable value for businesses.
+          </div>
+        </div>
+      </section>
+
+      <div class="sec-head">
+        <h2>Languages and Tools</h2>
+        <span class="counter">Core Stack</span>
+      </div>
+      <div class="skills-card">
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>
+              <i class="fa-solid fa-code" style="font-size: 0.8rem"></i>
+              Languages
+            </h3>
+            <div class="tech-list">
+              <div class="tech-item">
+                <i class="devicon-python-plain" style="color: #3776ab"></i>
+                Python
+              </div>
+              <div class="tech-item">
+                <i class="devicon-javascript-plain" style="color: #f7df1e"></i>
+                JavaScript
+              </div>
+              <div class="tech-item">
+                <i class="devicon-mysql-original" style="color: #4479a1"></i>
+                MySQL
+              </div>
+              <div class="tech-item">
+                <i class="devicon-html5-plain" style="color: #e34f26"></i> HTML5
+              </div>
+              <div class="tech-item">
+                <i class="devicon-css3-plain" style="color: #1572b6"></i> CSS3
+              </div>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>
+              <i
+                class="fa-solid fa-screwdriver-wrench"
+                style="font-size: 0.8rem"
+              ></i>
+              Tools & Frameworks
+            </h3>
+            <div class="tech-list">
+              <div class="tech-item">
+                <i class="devicon-django-plain" style="color: #092e20"></i>
+                Django
+              </div>
+              <div class="tech-item">
+                <i class="devicon-bootstrap-plain" style="color: #7952b3"></i>
+                Bootstrap
+              </div>
+              <div class="tech-item">
+                <i class="fa-brands fa-cpanel" style="color: #ff6c2c"></i>
+                cPanel
+              </div>
+              <div class="tech-item">
+                <i class="devicon-figma-plain" style="color: #f24e1e"></i> Figma
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <h2>Pinned Repositories</h2>
+        <span class="counter">Production Projects</span>
+      </div>
+      <div class="project-grid">
+        <div class="p-card">
+          <a
+            href="https://littleheartpetshop.com.np"
+            target="_blank"
+            class="p-header"
+          >
+            <i class="fa-regular fa-bookmark"></i> Little-Heart-Pet-Shop
+          </a>
+          <div class="p-content">
+            <p>
+              Full-stack grooming platform. Engineered with Django and MySQL.
+              Successfully processed <b>300+ live bookings</b>.
+            </p>
+          </div>
+          <div class="p-footer">
+            <span
+              ><span class="lang-dot" style="background: #3572a5"></span>
+              Python</span
+            >
+            <span
+              ><i class="fa-solid fa-calendar-check"></i> 300+ Bookings</span
+            >
+            <span><i class="fa-solid fa-server"></i> cPanel</span>
+          </div>
+        </div>
+
+        <div class="p-card">
+          <a href="#" target="_blank" class="p-header">
+            <i class="fa-regular fa-bookmark"></i> Bytesoft-Nepal-Official
+          </a>
+          <div class="p-content">
+            <p>
+              Designed and developed the official corporate site. Focused on
+              UI/UX optimization and production-ready deployment.
+            </p>
+          </div>
+          <div class="p-footer">
+            <span
+              ><span class="lang-dot" style="background: #f7df1e"></span>
+              JavaScript</span
+            >
+            <span><i class="fa-solid fa-u"></i> UI/UX</span>
+            <span><i class="fa-solid fa-bolt"></i> Live</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <h2>Contribution History</h2>
+        <span class="counter">Timeline</span>
+      </div>
+      <div class="timeline">
+        <div class="time-item current">
+          <div class="time-box">
+            <div class="time-top">
+              <strong>Code Zenith</strong>
+              <span style="color: var(--text-sec)">2024 — Present</span>
+            </div>
+            <div class="role-tag">Backend Architect</div>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-sec);
+                margin-top: 8px;
+              "
+            >
+              Architecting scalable Python services and optimizing MySQL for
+              high-traffic applications.
+            </p>
+          </div>
+        </div>
+        <div class="time-item">
+          <div class="time-box">
+            <div class="time-top">
+              <strong>Xdezo Tech</strong>
+              <span style="color: var(--text-sec)">2022 — 2024</span>
+            </div>
+            <div class="role-tag past">Python Developer</div>
+            <p
+              style="
+                font-size: 0.85rem;
+                color: var(--text-sec);
+                margin-top: 8px;
+              "
+            >
+              Engineered automation bots and integrated complex business
+              modules.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <a href="mailto:biwshgrg21@gmail.com" class="btn-contact"
+          >Get in touch</a
+        >
+        <p style="margin-top: 24px; color: var(--text-sec); font-size: 0.8rem">
+          © 2026 biwashgurung • Committed to Pokhara, NP
+        </p>
+      </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        const watcherEl = document.getElementById('watcher-count');
-        let currentWatchers = 5000;
+      const watcherEl = document.getElementById("watcher-count");
+      let currentWatchers = 5000;
 
-        function updateWatchers() {
-            const change = Math.floor(Math.random() * 7) - 3;
-            currentWatchers += change;
-            if(currentWatchers < 4980) currentWatchers += 5;
-            if(currentWatchers > 5020) currentWatchers -= 5;
-            watcherEl.innerText = currentWatchers.toLocaleString();
-        }
-        setInterval(updateWatchers, 3000);
+      function updateWatchers() {
+        const change = Math.floor(Math.random() * 7) - 3;
+        currentWatchers += change;
+        if (currentWatchers < 4980) currentWatchers += 5;
+        if (currentWatchers > 5020) currentWatchers -= 5;
+        watcherEl.innerText = currentWatchers.toLocaleString();
+      }
+      setInterval(updateWatchers, 3000);
 
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray('.skills-card, .p-card, .time-item, .about-card').forEach(el => {
-            gsap.from(el, { 
-                scrollTrigger: { trigger: el, start: "top 95%" }, 
-                y: 15, opacity: 0, duration: 0.6, ease: "power2.out" 
-            });
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils
+        .toArray(".skills-card, .p-card, .time-item, .about-card")
+        .forEach((el) => {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 95%" },
+            y: 15,
+            opacity: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          });
         });
     </script>
-</body>
+  </body>
 </html>
