@@ -321,16 +321,22 @@
         grid-template-columns: 1fr 1fr;
         gap: 16px;
       }
-      .p-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 16px;
-        transition: 0.2s;
-      }
-      .p-card:hover {
-        border-color: var(--text-sec);
-      }
+      
+     .p-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.p-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px); 
+}
+        
+      
       .p-header {
         display: flex;
         align-items: center;
@@ -340,6 +346,9 @@
         font-weight: 600;
         text-decoration: none;
         font-size: 0.95rem;
+      }
+      .p-header:hover{
+        text-decoration: underline;
       }
       .p-content p {
         font-size: 0.85rem;
