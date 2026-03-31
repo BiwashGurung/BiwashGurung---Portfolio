@@ -6,36 +6,44 @@
     <title>Case Study: Little Heart Pet Shop | Biwash Gurung</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reusing your CSS variables for consistency */
         :root {
             --bg: #0d1117; --surface: #161b22; --border: #30363d;
             --accent: #2f81f7; --success: #3fb950; --text-main: #e6edf3; --text-sec: #7d8590;
         }
-        body { background: var(--bg); color: var(--text-main); font-family: -apple-system, sans-serif; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        body { background: var(--bg); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; padding-bottom: 50px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
-        /* Repo Header */
+        /* Repo Style Header */
         .repo-header { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
         .badge { border: 1px solid var(--border); padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sec); }
 
-        /* Layout Split */
         .case-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; }
 
-        /* Content Box */
-        .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); }
+        /* Main Content Column */
+        .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); overflow: hidden; }
         .readme-header { padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
         .readme-body { padding: 32px; }
         
-        h1, h2 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+        h1, h2, h3 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; color: var(--text-main); }
+        h1 { font-size: 1.8rem; margin-top: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
         .stat-item { background: var(--surface); padding: 15px; border-radius: 6px; border: 1px solid var(--border); }
         
-        /* Sidebar */
-        .side-section { margin-bottom: 32px; }
-        .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; }
-        .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; }
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 10px; color: var(--text-main); }
+        
+        .code-block { background: var(--surface); padding: 20px; border-radius: 6px; border: 1px solid var(--border); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.85rem; color: var(--text-sec); margin: 20px 0; line-height: 1.5; }
+        .highlight { color: var(--accent); font-weight: bold; }
 
-        @media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } }
+        .dashboard-img { width: 100%; border-radius: 6px; border: 1px solid var(--border); margin: 20px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+
+        /* Sidebar Column */
+        .side-section { margin-bottom: 32px; }
+        .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; border: 1px solid rgba(47, 129, 247, 0.3); }
+
+        @media (max-width: 850px) { .case-grid { grid-template-columns: 1fr; } .readme-body { padding: 20px; } }
     </style>
 </head>
 <body>
@@ -53,7 +61,7 @@
                 </div>
                 <div class="readme-body">
                     <h1>Project Overview</h1>
-                    <p>Little Heart Pet Shop is a premier pet grooming service in Pokhara. The goal was to replace a manual phone-based booking system with a robust automated platform to handle high demand.</p>
+                    <p>Little Heart Pet Shop is a premier dog grooming salon and boutique based in Pokhara. Founded by a certified professional groomer with international expertise from Australia, the shop is widely recognized for its high standards of care. The objective was to engineer a full-stack platform that showcases premium products and manages high-precision grooming appointments.</p>
 
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -61,58 +69,96 @@
                             <p style="font-size: 0.8rem; color: var(--text-sec);">Live Bookings Processed</p>
                         </div>
                         <div class="stat-item">
-                            <strong style="color: var(--accent); font-size: 1.5rem;">99.9%</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-sec);">System Uptime (cPanel)</p>
+                            <strong style="color: var(--accent); font-size: 1.5rem;">Dynamic</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Pricing & Time Engine</p>
                         </div>
                     </div>
 
                     <h2>The Challenge</h2>
-                    <p>The client faced issues with double-booking and "dead hours" where the staff was free but no customers were scheduled. They needed a system that could manage specific time slots for dog grooming sessions.</p>
-
-                    <h2>The Solution</h2>
+                    <p>The client required a system that could handle the high complexity of grooming logistics—where every service choice impacts the overall calendar availability and final pricing.</p>
                     <ul>
-                        <li><strong>Backend:</strong> Built a custom appointment logic in Django to prevent scheduling conflicts.</li>
-                        <li><strong>Database:</strong> Relational MySQL structure to track customer history and pet details.</li>
-                        <li><strong>Frontend:</strong> Mobile-first UI using Bootstrap to ensure customers can book while on the go.</li>
+                        <li><strong>Algorithmic Complexity:</strong> Total cost and duration must be calculated dynamically based on Pet Size (S/M/L) + Base Service + Optional Add-ons.</li>
+                        <li><strong>Time-Slot Conflict Prevention:</strong> If a calculated session requires 1 hour and 45 minutes, the system must automatically block subsequent slots to prevent overlapping bookings.</li>
+                        <li><strong>Session Inclusions:</strong> The UI must dynamically update to show specific inclusions (e.g., Double bath, Sanitary cleaning) based on the selected service type.</li>
+                        <li><strong>Real-Time Recovery:</strong> Upon cancellation, the previously occupied time block must instantly return to the "Available" pool in the database.</li>
+                        <li><strong>QR Ticket Automation:</strong> Generating secure QR codes for digital check-ins and dispatching them via automated emails.</li>
                     </ul>
 
                     <h2>Technical Execution</h2>
-                    <p>One of the key technical hurdles was handling the media content—filming and editing sessions to be displayed on the site. I integrated a media pipeline that showcased recent grooming results to build trust with new users.</p>
+                    <p>I translated the shop's operational rules into a robust <b>Django Pricing & Duration Engine</b>. This ensures that every add-on selected by a customer is accounted for in the shop's daily schedule.</p>
+
+                    <div class="code-block">
+                        // Pricing & Timing Logic Map<br>
+                        - De-matting / De-shedding : + Rs 500 | + 15 min<br>
+                        - Nail Trim / Teeth Brush  : + Rs 250 | + 5 min<br>
+                        - Special/Flea Shampoo     : + Rs 500 | (Health Focus)<br>
+                        ----------------------------------------------------<br>
+                        <span class="highlight">Current Calculation Target:</span><br>
+                        Base: Wash & Dry (Medium) = 1 hr 30 min<br>
+                        Add-on: De-shedding (+15 min)<br>
+                        <span class="highlight">Final Result -> Time: 1 hr 45 min | Cost: Rs 2300</span>
+                    </div>
+
+                    <h3>Admin Dashboard Integration</h3>
+                    <p>To help the groomer manage daily flow, I developed a custom visual calendar in the Django Admin panel. This provides a real-time view of all upcoming and completed grooming sessions.</p>
+                    
+                    <img src="Images/image_12797b.png" alt="Little Heart Admin Dashboard" class="dashboard-img">
+
+                    <h2>The Solution</h2>
+                    <ul>
+                        <li><strong>Backend (Python/Django):</strong> Built the core logic for appointment scheduling, email automation, and QR code generation.</li>
+                        <li><strong>Database (MySQL):</strong> Implemented a relational structure to store customer history, pet profiles, and dynamic service rates.</li>
+                        <li><strong>Frontend (Bootstrap/JS):</strong> Engineered a Cross-Platform web interface with Universal Responsiveness. Whether accessed via a smartphone, tablet, or desktop, the layout dynamically adapts to provide a seamless booking experience across all devices.</li>
+                    </ul>
                 </div>
             </main>
 
             <aside>
                 <div class="side-section">
-                    <span class="side-title">About</span>
-                    <p style="font-size: 0.85rem; color: var(--text-sec);">A full-stack solution for grooming services, featuring real-time availability and automated admin notifications.</p>
+                    <span class="side-title">Project Info</span>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">A full-stack algorithmic booking platform featuring real-time availability and automated client notifications.</p>
                     <div style="margin-top: 15px;">
                         <a href="https://littleheartpetshop.com.np" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem;">
-                            <i class="fa-solid fa-link"></i> littleheartpetshop.com.np
+                            <i class="fa-solid fa-link"></i> Live Website
                         </a>
                     </div>
                 </div>
 
                 <div class="side-section">
-                    <span class="side-title">Languages</span>
+                    <span class="side-title">Languages & Tools</span>
                     <div>
-                        <span class="tag">Python (Django)</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
                         <span class="tag">MySQL</span>
                         <span class="tag">JavaScript</span>
-                        <span class="tag">Bootstrap</span>
+                        <span class="tag">Bootstrap 5</span>
                     </div>
                 </div>
 
                 <div class="side-section">
-                    <span class="side-title">Deployment</span>
+                    <span class="side-title">Key Accomplishments</span>
                     <div style="font-size: 0.85rem; color: var(--text-sec);">
-                        <i class="fa-solid fa-server"></i> Live on cPanel Hosting
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> 300+ Successful Bookings<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Conflict-Free Logic<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Automated QR Emails<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Mobile-First UX
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Deployment Stack</span>
+                    <div style="font-size: 0.85rem; color: var(--text-sec);">
+                        <i class="fa-solid fa-server"></i> <b>cPanel</b> (Professional Experience)<br>
+                        <i class="fa-solid fa-shield-halved"></i> SSL Secured
                     </div>
                 </div>
             </aside>
         </div>
         
-        <footer style="margin-top: 40px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
-            <a href="index.html" style="color: var(--text-sec); text-decoration: none; font-size: 0.8rem;">← Back to Portfolio</a>
+        <footer style="margin-top: 60px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
+            <a href="index.html" style="color: var(--text-sec); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </a>
         </footer>
     </div>
 </body>
