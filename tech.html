@@ -321,22 +321,23 @@
         grid-template-columns: 1fr 1fr;
         gap: 16px;
       }
-      
-     .p-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    cursor: pointer;
-}
 
-.p-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px); 
-}
-        
-      
+      .p-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 16px;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+        cursor: pointer;
+      }
+
+      .p-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+
       .p-header {
         display: flex;
         align-items: center;
@@ -347,7 +348,7 @@
         text-decoration: none;
         font-size: 0.95rem;
       }
-      .p-header:hover{
+      .p-header:hover {
         text-decoration: underline;
       }
       .p-content p {
@@ -604,9 +605,9 @@
       </div>
       <div class="project-grid">
         <div class="p-card">
-         <a href="little-heart-case-study.html" class="p-header">
-    <i class="fa-regular fa-bookmark"></i> Little-Heart-Pet-Shop
-</a>
+          <a href="little-heart-case-study.html" class="p-header">
+            <i class="fa-regular fa-bookmark"></i> Little-Heart-Pet-Shop
+          </a>
           <div class="p-content">
             <p>
               Full-stack grooming platform. Engineered with Django and MySQL.
@@ -617,6 +618,14 @@
             <span
               ><span class="lang-dot" style="background: #3572a5"></span>
               Python</span
+            >
+            <span
+              ><span class="lang-dot" style="background: #f1e05a"></span>
+              JS</span
+            >
+            <span
+              ><span class="lang-dot" style="background: #e38c00"></span>
+              MySQL</span
             >
             <span
               ><i class="fa-solid fa-calendar-check"></i> 300+ Bookings</span
