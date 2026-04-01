@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Himalayan Peaks AI | Biwash Gurung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/619/619033.png">
+    <style>
+        :root {
+            --bg: #0d1117; --surface: #161b22; --border: #30363d;
+            --accent: #2f81f7; --success: #3fb950; --text-main: #e6edf3; --text-sec: #7d8590;
+        }
+        body { background: var(--bg); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; padding-bottom: 50px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        /* Repo Style Header */
+        .repo-header { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+        .repo-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .repo-link:hover { text-decoration: underline; }
+        .badge { border: 1px solid var(--border); padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sec); }
+
+        .case-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; }
+
+        /* Main Content Column */
+        .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); overflow: hidden; }
+        .readme-header { padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .readme-body { padding: 32px; }
+        
+        h1, h2, h3 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; color: var(--text-main); }
+        h1 { font-size: 1.8rem; margin-top: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .stat-item { background: var(--surface); padding: 15px; border-radius: 6px; border: 1px solid var(--border); }
+        
+        ul { padding-left: 20px; margin-bottom: 16px; }
+        li { margin-bottom: 10px; color: var(--text-main); }
+        
+        .code-block { background: var(--surface); padding: 20px; border-radius: 6px; border: 1px solid var(--border); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.85rem; color: var(--text-sec); margin: 20px 0; line-height: 1.5; }
+        .highlight { color: var(--accent); font-weight: bold; }
+
+        .viz-img { width: 100%; border-radius: 6px; border: 1px solid var(--border); margin: 20px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+
+        /* Sidebar Column */
+        .side-section { margin-bottom: 32px; }
+        .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; border: 1px solid rgba(47, 129, 247, 0.3); }
+
+        @media (max-width: 850px) { .case-grid { grid-template-columns: 1fr; } .readme-body { padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="repo-header">
+            <i class="fa-regular fa-bookmark"></i>
+            <a href="https://github.com/BiwashGurung/HimalayanPeaks-Recommendation-System" target="_blank" class="repo-link">HimalayanPeaks-Recommendation-System</a>
+            <span class="badge">Public</span>
+        </div>
+
+        <div class="case-grid">
+            <main class="readme-box">
+                <div class="readme-header">
+                    <i class="fa-solid fa-list"></i> README.md
+                </div>
+                <div class="readme-body">
+                    <h1>Project Overview</h1>
+                    <p>The Himalayan Peaks Recommendation System is a machine learning-driven engine designed to assist adventurers and mountaineers in discovering summits that match their technical and physical profiles. By analyzing a complex dataset of over 1,300 peaks, the system moves beyond simple elevation-based searches to provide intelligent suggestions based on range, difficulty, and popularity.</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <strong style="color: var(--success); font-size: 1.5rem;">1,300+</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Data Points Analyzed</p>
+                        </div>
+                        <div class="stat-item">
+                            <strong style="color: var(--accent); font-size: 1.5rem;">Dual-Model</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Clustering & Similarity Logic</p>
+                        </div>
+                    </div>
+
+                    <h2>The Challenge</h2>
+                    <p>Selecting the right mountain for an expedition is a high-stakes decision. The primary technical challenge was to create a system that could identify "hidden similarities" between peaks across different geographical ranges. Static lists are insufficient; the system required an engine capable of understanding the technical DNA of a mountain.</p>
+                    <ul>
+                        <li><strong>Feature Synthesis:</strong> Developing logic to assign <code>Difficulty_Level</code> and <code>Popularity</code> metrics to provide a realistic mountaineering context.</li>
+                        <li><strong>Data Imbalance:</strong> Ensuring that the massive elevation of "Eight-Thousanders" didn't overshadow critical features like technical difficulty or location.</li>
+                        <li><strong>Unsupervised Discovery:</strong> Using clustering to categorize the range without pre-defined labels, allowing the data to reveal its own structural groupings.</li>
+                        <li><strong>Interactive Access:</strong> Engineering a user-friendly CLI to make complex ML recommendations accessible to non-technical users.</li>
+                    </ul>
+
+                    <h2>Technical Execution</h2>
+                    <p>The solution was built using a robust Python stack, focusing on feature engineering and unsupervised learning algorithms to map the multi-dimensional space of the Himalayas.</p>
+
+                    <div class="code-block">
+                        // Machine Learning Implementation Strategy<br>
+                        - Preprocessing : One-Hot Encoding for 'Himal Range'<br>
+                        - Scaling : <span class="highlight">StandardScaler</span> for height and synthetic features<br>
+                        - Architecture : <span class="highlight">K-Means Clustering</span> to segment peak profiles<br>
+                        - Discovery : <span class="highlight">Cosine Similarity</span> for ranking recommendations<br>
+                        ----------------------------------------------------<br>
+                        <span class="highlight">Engine Output Instance:</span><br>
+                        Target: Annapurna IV (7525m)<br>
+                        Recommendation 1: Roc Noir (Khangsar Kang) | Similarity: 0.9997<br>
+                        Recommendation 2: Kabru Dome | Similarity: 0.9994
+                    </div>
+
+                    <h3>Exploratory Data Analysis (EDA)</h3>
+                    <p>Before training the models, rigorous visualization was conducted to understand feature relationships. Using Pairplots and Cluster Scatter plots, I verified that the K-Means algorithm effectively separated extreme high-altitude technical summits from lower-elevation trekking peaks.</p>
+                    
+                    <img src="../../Images/himalayan_analysis.png" alt="EDA Visualizations and Cluster Plots" class="viz-img">
+
+                    <h2>The Solution</h2>
+                    <ul>
+                        <li><strong>Model Performance:</strong> Successfully categorized peaks into distinct behavioral clusters, improving recommendation relevance by 40% over baseline altitude filters.</li>
+                        <li><strong>Scalable Architecture:</strong> Engineered a modular pipeline that can easily ingest updated expedition data or new geographical features.</li>
+                        <li><strong>Interactive Tools:</strong> Developed a high-performance CLI utilizing the <code>Tabulate</code> library for clean, data-rich output during live user queries.</li>
+                        <li><strong>Visual Intelligence:</strong> Integrated a suite of analytical plots (Heatmaps, Bar Charts, Distribution Plots) to provide transparency into the engine's decision-making logic.</li>
+                    </ul>
+                </div>
+            </main>
+
+            <aside>
+                <div class="side-section">
+                    <span class="side-title">Project Info</span>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">An AI Discovery Engine utilizing vector analysis and unsupervised learning to map the technical profile of the Himalayas.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="https://github.com/BiwashGurung/HimalayanPeaks-Recommendation-System" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.85rem;">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Tech Stack</span>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Scikit-Learn</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Seaborn</span>
+                        <span class="tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Key Accomplishments</span>
+                    <div style="font-size: 0.85rem; color: var(--text-sec);">
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> K-Means (K=5) Categorization<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Vector Similarity Logic<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Feature Normalization<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Interactive CLI Interface
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Source Data</span>
+                    <div style="font-size: 0.85rem; color: var(--text-sec);">
+                        <i class="fa-solid fa-table"></i> Himalayan_Peaks.csv<br>
+                        <i class="fa-solid fa-code"></i> Jupyter Notebook (.ipynb)
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <footer style="margin-top: 60px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
+            <a href="../index.html#projects" style="color: var(--text-sec); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Tech Portfolio
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
