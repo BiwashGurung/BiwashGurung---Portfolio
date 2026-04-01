@@ -10,16 +10,19 @@
         :root {
             --bg: #0d1117; --surface: #161b22; --border: #30363d;
             --accent: #2f81f7; --success: #3fb950; --text-main: #e6edf3; --text-sec: #7d8590;
+            --tg-blue: #0088cc;
         }
         body { background: var(--bg); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; padding-bottom: 50px; }
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
+        /* Repo Style Header */
         .repo-header { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
         .repo-link { color: var(--accent); font-weight: 600; text-decoration: none; }
         .badge { border: 1px solid var(--border); padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sec); }
 
         .case-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; }
 
+        /* Main Content Column */
         .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); overflow: hidden; }
         .readme-header { padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
         .readme-body { padding: 32px; }
@@ -30,17 +33,35 @@
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
         .stat-item { background: var(--surface); padding: 15px; border-radius: 6px; border: 1px solid var(--border); }
         
-        ul { padding-left: 20px; margin-bottom: 16px; }
-        li { margin-bottom: 10px; }
-        
+        /* Telegram Mockup Window */
+        .tg-window { 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            margin: 30px 0; 
+            background: #1c2128;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .tg-bar { 
+            background: #24292e; 
+            padding: 10px 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .tg-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--tg-blue); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+        .tg-img { width: 100%; height: auto; display: block; filter: brightness(0.9); }
+
         .code-block { background: var(--surface); padding: 20px; border-radius: 6px; border: 1px solid var(--border); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.85rem; color: var(--text-sec); margin: 20px 0; line-height: 1.5; }
         .highlight { color: var(--accent); font-weight: bold; }
 
+        /* Sidebar Column */
         .side-section { margin-bottom: 32px; }
         .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
         .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; border: 1px solid rgba(47, 129, 247, 0.3); }
 
-        @media (max-width: 850px) { .case-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 850px) { .case-grid { grid-template-columns: 1fr; } .readme-body { padding: 20px; } }
     </style>
 </head>
 <body>
@@ -58,80 +79,88 @@
                 </div>
                 <div class="readme-body">
                     <h1>Project Overview</h1>
-                    <p>The Xdezo Bot is an automated digital concierge for Xdezo Technology, based in Pokhara. It was engineered to bridge the gap between students and the institution, providing 24/7 access to course details, pricing, and enrollment without requiring physical presence or staff intervention.</p>
+                    <p>The Xdezo Bot is a custom-engineered chatbot for Xdezo Technology (Pokhara). It serves as a 24/7 digital assistant, allowing students to explore 15+ professional courses, check pricing/discounts, and complete formal enrollment without any physical interaction. It bridges the gap between the institution and prospective students through a seamless mobile interface.</p>
 
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <strong style="color: var(--success); font-size: 1.5rem;">MySQL</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-sec);">Persistent Student Storage</p>
+                            <strong style="color: var(--success); font-size: 1.5rem;">Live</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Deployed on PythonAnywhere</p>
                         </div>
                         <div class="stat-item">
-                            <strong style="color: var(--accent); font-size: 1.5rem;">State-Aware</strong>
-                            <p style="font-size: 0.8rem; color: var(--text-sec);">Multi-step Enrollment Logic</p>
+                            <strong style="color: var(--accent); font-size: 1.5rem;">MySQL</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Persistent Enrollment Data</p>
                         </div>
                     </div>
 
                     <h2>The Challenge</h2>
-                    <p>Educational institutions often struggle with manual enrollment queues and repetitive queries. The challenge was to create a bot that could handle complex, multi-step user data collection while ensuring the data survived a bot restart or server migration.</p>
+                    <p>Traditional enrollment processes involve manual forms and physical office visits. For an IT institution, this is a bottleneck. The challenge was to build a system that could:</p>
                     <ul>
-                        <li><strong>Asynchronous State Management:</strong> Collecting student details (Name, Email, Phone, Course) in a specific sequence without losing context.</li>
-                        <li><strong>Instant Validation:</strong> Creating a secure method for students to verify the authenticity of their course certificates.</li>
-                        <li><strong>Scalable Deployment:</strong> Hosting the bot in a live environment capable of handling simultaneous user interactions.</li>
+                        <li><strong>Handle State Flow:</strong> Manage a linear conversation where the bot "remembers" a student's name while asking for their email.</li>
+                        <li><strong>Provide Instant Validation:</strong> Verify training certificates via unique IDs to prevent credential fraud.</li>
+                        <li><strong>Drive Engagement:</strong> Use interactive buttons (Inline Keyboards) to make information discovery faster than a website.</li>
                     </ul>
 
-                    
-
-                    <h2>Technical Execution</h2>
-                    <p>I utilized the <code>pyTelegramBotAPI</code> to build the command architecture and integrated <code>mysql-connector</code> to funnel student data directly into a production-grade MySQL database on PythonAnywhere.</p>
-
-                    <div class="code-block">
-                        // Enrollment State Machine Logic<br>
-                        1. User clicks <span class="highlight">"Enroll"</span> -> State: 'name'<br>
-                        2. Bot receives Name -> State: 'email'<br>
-                        3. Bot receives Email -> State: 'phone'<br>
-                        4. Final Step: <span class="highlight">SQL INSERT</span> to `enrollments` table<br>
-                        ----------------------------------------------------<br>
-                        <span class="highlight">Verification Engine:</span><br>
-                        Input: CERT12345<br>
-                        Logic: Cross-check against Valid_Cert_IDs dictionary<br>
-                        Result: ✅ "Verified: Biwash Gurung"
+                    <div class="tg-window">
+                        <div class="tg-bar">
+                            <div class="tg-avatar">X</div>
+                            <div>
+                                <div style="font-size: 0.85rem; font-weight: 600;">Xdezo Bot</div>
+                                <div style="font-size: 0.7rem; color: var(--success);">bot</div>
+                            </div>
+                        </div>
+                        <img src="../../Images/xdezo-bot.jpg" alt="Telegram Bot Conversation Interface" class="tg-img">
                     </div>
 
-                    <h3>Deployment Strategy</h3>
-                    <p>The bot is deployed on <b>PythonAnywhere</b>, utilizing a robust <code>while True</code> polling loop with error handling to ensure maximum uptime and immediate response to user callback queries.</p>
+                    <h2>Technical Execution</h2>
+                    <p>I utilized the <code>Telebot</code> (pyTelegramBotAPI) library in Python to handle asynchronous requests and integrated it with a MySQL backend for data persistence.</p>
 
-                    <h2>The Solution</h2>
+                    <div class="code-block">
+                        // Enrollment Logic Architecture<br>
+                        - <span class="highlight">Step 1:</span> Trigger "Enroll" -> Initialize ENROLLMENT_STATE[chat_id]<br>
+                        - <span class="highlight">Step 2:</span> Capture Name -> Capture Email -> Capture Phone<br>
+                        - <span class="highlight">Step 3:</span> Execute SQL: INSERT INTO enrollments (name, email, phone, course)<br>
+                        - <span class="highlight">Step 4:</span> Clear user from state to free memory<br>
+                        ----------------------------------------------------<br>
+                        <span class="highlight">Certificate Verification Logic:</span><br>
+                        IF input.startswith("CERT") AND cert_id IN VALID_CERT_IDS:<br>
+                        &nbsp;&nbsp;&nbsp;RETURN "✅ Issued to [Student Name]"
+                    </div>
+
+                    <h3>Deployment & Performance</h3>
+                    <p>The bot is hosted on <b>PythonAnywhere</b>. To ensure reliability, I implemented a robust polling loop with exception handling to maintain 99.9% uptime, allowing students to verify certificates or enroll even outside of office hours.</p>
+
+                    <h2>Conclusion</h2>
                     <ul>
-                        <li><strong>Automated Enrollment:</strong> Students can enroll in any of the 15+ courses (Full Stack, UI/UX, Mobile Dev) directly through the Telegram interface.</li>
-                        <li><strong>Security & Verification:</strong> Implemented a Certificate Verification system allowing users to validate credentials using unique IDs.</li>
-                        <li><strong>Dynamic Information Hub:</strong> Integrated an <code>InlineKeyboardMarkup</code> menu that provides instant info on pricing discounts (up to 40% off), location, and internship eligibility.</li>
+                        <li><strong>Full Automation:</strong> Successfully automated the initial inquiry and enrollment phase, reducing manual administrative work.</li>
+                        <li><strong>User Friendly:</strong> Integrated a "no-typing" menu using <code>InlineKeyboardButton</code> for discovery of courses like Django, Flutter, and UI/UX.</li>
+                        <li><strong>Data Driven:</strong> All student leads are stored securely in a MariaDB/MySQL database for staff follow-up.</li>
                     </ul>
                 </div>
             </main>
 
             <aside>
                 <div class="side-section">
-                    <span class="side-title">Project Info</span>
-                    <p style="font-size: 0.85rem; color: var(--text-sec);">An automated chatbot solution for Xdezo Technology providing course discovery and database-driven enrollment.</p>
+                    <span class="side-title">Project Details</span>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">A production-ready chatbot facilitating digital transformation for a Pokhara-based tech company.</p>
                 </div>
 
                 <div class="side-section">
                     <span class="side-title">Tech Stack</span>
                     <div>
                         <span class="tag">Python</span>
-                        <span class="tag">Telebot API</span>
                         <span class="tag">MySQL</span>
+                        <span class="tag">Telebot API</span>
                         <span class="tag">PythonAnywhere</span>
                     </div>
                 </div>
 
                 <div class="side-section">
-                    <span class="side-title">Core Features</span>
+                    <span class="side-title">Core Modules</span>
                     <div style="font-size: 0.85rem; color: var(--text-sec);">
-                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> 15+ Course Listings<br>
-                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> State-Based Enrollment<br>
-                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Certificate Verification<br>
-                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Discount Logic Engine
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> State Management<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> CRUD Operations<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Verification Engine<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Inline UI Components
                     </div>
                 </div>
             </aside>
@@ -139,7 +168,7 @@
         
         <footer style="margin-top: 60px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
             <a href="../index.html#projects" style="color: var(--text-sec); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
-                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+                <i class="fa-solid fa-arrow-left"></i> Back to tech Portfolio
             </a>
         </footer>
     </div>
