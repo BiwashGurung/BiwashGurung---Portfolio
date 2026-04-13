@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Informatics Cafeteria | Biwash Gurung</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/1046/1046747.png">
+    <style>
+        :root {
+            --bg: #0d1117; --surface: #161b22; --border: #30363d;
+            --accent: #2f81f7; --success: #3fb950; --warning: #d29922; --danger: #f85149;
+            --text-main: #e6edf3; --text-sec: #7d8590;
+        }
+        body { background: var(--bg); color: var(--text-main); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; padding-bottom: 50px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        /* Repo Style Header */
+        .repo-header { display: flex; align-items: center; gap: 10px; padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+        .repo-link { color: var(--accent); font-weight: 600; text-decoration: none; }
+        .badge { border: 1px solid var(--border); padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; color: var(--text-sec); }
+
+        .case-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 24px; }
+
+        /* Main Content Box */
+        .readme-box { border: 1px solid var(--border); border-radius: 6px; background: var(--bg); overflow: hidden; }
+        .readme-header { padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .readme-body { padding: 32px; }
+        
+        h1, h2, h3 { border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-top: 24px; color: var(--text-main); }
+        h1 { font-size: 1.8rem; margin-top: 0; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0; }
+        .stat-item { background: var(--surface); padding: 15px; border-radius: 6px; border: 1px solid var(--border); }
+        
+        /* Analysis & Tables */
+        .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .analysis-card { background: var(--surface); padding: 20px; border-radius: 6px; border: 1px solid var(--border); }
+        .analysis-card h4 { margin-top: 0; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.85rem; }
+        th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        th { background: var(--surface); color: var(--accent); text-align: center; }
+        .center { text-align: center; }
+
+        .viz-window { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin: 30px 0; background: #000; }
+        .viz-img { width: 100%; height: auto; display: block; opacity: 0.9; }
+
+        .code-block { background: var(--surface); padding: 20px; border-radius: 6px; border: 1px solid var(--border); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.85rem; color: var(--text-sec); margin: 20px 0; line-height: 1.5; }
+        .highlight { color: var(--accent); font-weight: bold; }
+
+        /* Sidebar Styling */
+        .side-section { margin-bottom: 32px; }
+        .side-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 12px; display: block; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px; }
+        .tag { display: inline-block; background: #1f6feb22; color: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; margin: 0 4px 8px 0; border: 1px solid rgba(47, 129, 247, 0.3); }
+
+        @media (max-width: 850px) { .case-grid { grid-template-columns: 1fr; } .analysis-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="repo-header">
+            <i class="fa-regular fa-bookmark"></i>
+            <a href="#" class="repo-link">Informatics-Cafeteria-System</a>
+            <span class="badge">Public</span>
+        </div>
+
+        <div class="case-grid">
+            <main class="readme-box">
+                <div class="readme-header">
+                    <i class="fa-solid fa-list"></i> README.md
+                </div>
+                <div class="readme-body">
+                    <h1>Informatics Cafeteria System</h1>
+                    
+                    <h2>Project Introduction</h2>
+                    <p>The <b>Informatics Cafeteria</b> is a full-stack digital transformation project designed to bridge the gap between traditional canteen services and the modern needs of a growing academic institution. As the student population at Informatics College Pokhara expanded to nearly 800 individuals, the existing manual ordering infrastructure became a significant bottleneck in daily campus operations.</p>
+
+                    <h2>Project Description</h2>
+                    <p>This web application provides a centralized digital platform where students, faculty, and staff can manage their dining needs asynchronously. Developed using the <b>Django</b> framework and <b>MySQL</b>, the system features a dynamic, image-rich menu, secure user authentication, and a robust backend to handle concurrent order processing. Beyond simple transactions, the project integrates complex logistical features like <b>Dine-in/Takeaway scheduling</b> and <b>Group Ordering</b>.</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <strong style="color: var(--success); font-size: 1.2rem;">Khalti</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Payment Integration</p>
+                        </div>
+                        <div class="stat-item">
+                            <strong style="color: var(--accent); font-size: 1.2rem;">850+</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">User Capacity</p>
+                        </div>
+                        <div class="stat-item">
+                            <strong style="color: var(--warning); font-size: 1.2rem;">Real-time</strong>
+                            <p style="font-size: 0.8rem; color: var(--text-sec);">Order Tracking</p>
+                        </div>
+                    </div>
+
+                    <h2>The Problem: The Manual Bottleneck</h2>
+                    <p>Before the implementation of this system, the Informatics Cafeteria relied entirely on physical queues and manual counter transactions. Critical pain points identified include:</p>
+                    <ul>
+                        <li><b>Time Inefficiency:</b> With 785 students and 66 staff members, wait times often exceeded lunch break durations.</li>
+                        <li><b>Academic Disruption:</b> Long queues led to students and lecturers arriving late for scheduled classes.</li>
+                        <li><b>Operational Chaos:</b> Manual recording during "rush hours" led to frequent miscommunication and order inaccuracies.</li>
+                    </ul>
+
+                    <h2>The Solution: A Streamlined Digital Ecosystem</h2>
+                    <p>The system serves as a comprehensive solution by digitizing the lifecycle of a food order, built on an <b>Incremental Development Methodology</b>.</p>
+                    
+                    <div class="viz-window">
+                        <img src="../../Images/cafeteria-dashboard.png" alt="Informatics Cafeteria Dashboard View" class="viz-img">
+                    </div>
+
+                    <ul>
+                        <li><b>Queue Elimination:</b> Users place orders via the web app from anywhere, only visiting the counter when their tracker signals the order is "Ready."</li>
+                        <li><b>Resource Planning:</b> The Dine-in/Takeaway scheduling allows kitchen staff to view upcoming demand and balance workloads.</li>
+                        <li><b>Data Integrity:</b> An integrated Admin Panel replaces manual ledger-keeping with automated reporting and analytics.</li>
+                    </ul>
+
+                    <h2>Strategic Analysis (SWOT)</h2>
+                    <div class="analysis-grid">
+                        <div class="analysis-card">
+                            <h4>Strengths</h4>
+                            <p style="font-size: 0.85rem;">User-friendly UX, responsive design, secure Khalti integration, and unique Group Ordering logic.</p>
+                        </div>
+                        <div class="analysis-card">
+                            <h4>Weaknesses</h4>
+                            <p style="font-size: 0.85rem;">Currently limited to Khalti/Cash payments and certain manual dependencies for Lost & Found.</p>
+                        </div>
+                    </div>
+
+                    <h2>Access Control Matrix</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Entity</th>
+                                <th class="center">Admin (C R U D)</th>
+                                <th class="center">User (C R U D)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Profile Management</td><td class="center">✔ ✔ ✔ ✔</td><td class="center">✔ ✘ ✔ ✘</td></tr>
+                            <tr><td>Food Items & Menu</td><td class="center">✔ ✔ ✔ ✔</td><td class="center">✘ ✔ ✘ ✘</td></tr>
+                            <tr><td>Cart & Ordering</td><td class="center">✔ ✔ ✔ ✔</td><td class="center">✔ ✘ ✔ ✔</td></tr>
+                            <tr><td>Payments & Reports</td><td class="center">✔ ✔ ✔ ✔</td><td class="center">✔ ✘ ✔ ✘</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Risk Management</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identified Risk</th>
+                                <th>Mitigation Strategy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>System Crash (Busy Hours)</td><td>Implementing server-side load balancing and weekly health monitoring.</td></tr>
+                            <tr><td>Payment Gateway Downtime</td><td>Automated alert messages to switch users to Cash on Delivery.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Quality Assurance Approach</h2>
+                    <ul>
+                        <li><strong>Black Box Testing:</strong> Functional verification of ordering and payment flows.</li>
+                        <li><strong>Unit Testing:</strong> Code-level validation of Django methods and Python logic blocks.</li>
+                    </ul>
+                </div>
+            </main>
+
+            <aside>
+                <div class="side-section">
+                    <span class="side-title">Project Context</span>
+                    <p style="font-size: 0.85rem; color: var(--text-sec);">Developed to optimize time management and service productivity for Informatics College Pokhara.</p>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Tech Stack</span>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag">Khalti API</span>
+                    </div>
+                </div>
+
+                <div class="side-section">
+                    <span class="side-title">Key Pillars</span>
+                    <div style="font-size: 0.85rem; color: var(--text-sec);">
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> SRS Documentation<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> SWOT/PEST Analysis<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Incremental SDLC<br>
+                        <i class="fa-solid fa-check" style="color: var(--success); margin-right: 5px;"></i> Multi-tier Testing
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <footer style="margin-top: 60px; text-align: center; border-top: 1px solid var(--border); padding-top: 20px;">
+            <a href="../index.html#projects" style="color: var(--text-sec); text-decoration: none; font-size: 0.85rem; font-weight: 600;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </footer>
+    </div>
+</body>
+</html>
