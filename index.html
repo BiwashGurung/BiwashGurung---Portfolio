@@ -74,6 +74,7 @@
         --silver: #888888;
         --border: rgba(255, 255, 255, 0.05);
         --accent: #ffffff;
+        --green-glow: #00ff66;
       }
 
       * {
@@ -165,6 +166,45 @@
         color: var(--white);
       }
 
+      /* --- Open For Work Live Badge --- */
+      .available-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 255, 102, 0.06);
+        border: 1px solid rgba(0, 255, 102, 0.15);
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 9px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--green-glow);
+        margin-left: 5px;
+      }
+      .pulse-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--green-glow);
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 8px var(--green-glow);
+      }
+      .pulse-dot::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        border-radius: inherit;
+        animation: badgePulse 2s infinite ease-out;
+        top: 0;
+        left: 0;
+      }
+      @keyframes badgePulse {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(3.5); opacity: 0; }
+      }
       /* --- NEW HAMBURGER MENU STYLES --- */
       .menu-toggle {
         display: none;
@@ -679,6 +719,9 @@
           display: block;
           transform: translateY(0);
         }
+        /* Drop availability indicator into normal line layout inside collapsed menu layout */
+        .available-badge { margin-left: 0; margin-top: 15px; width: auto; display: none; }
+        .nav-inner.active .available-badge { display: inline-flex; }
 
         .toolkit-row,
         .toolkit-list {
@@ -776,6 +819,12 @@ font-size: 22px;
         <a href="#experience" class="nav-item">History</a>
         <a href="#contact" class="nav-item">Contact</a>
         <a href="tech/index.html" class="nav-item" target="_blank" rel="noopener noreferrer">Tech</a>
+        <a href="mailto:biwashgrg21@gmail.com" class="status-badge-premium" style="text-decoration: none;">
+        <div class="available-badge">
+          <div class="pulse-dot"></div>
+          Available for Hire
+        </div>
+        </a>
       </div>
     </nav>
 
