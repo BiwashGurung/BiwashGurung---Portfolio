@@ -1,242 +1,397 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Biwash Gurung | Video Editor</title>
-    <link rel="icon" href="../Images/profile.jpg" type="image/x-icon">
-    
+    <link rel="icon" href="../Images/profile.jpg" type="image/x-icon" />
+
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        :root {
-            /* Deep, cinematic obsidian blue/black */
-            --bg-dark: #02040a; 
-            --surface-dark: #0a0e17;
-            --text-main: #f8fafc;
-            --text-readable: #e2e8f0; /* Lightened for better visibility */
-            --accent: #38bdf8;
-        }
+      :root {
+        /* Deep, cinematic obsidian blue/black */
+        --bg-dark: #02040a;
+        --surface-dark: #0a0e17;
+        --text-main: #f8fafc;
+        --text-readable: #e2e8f0; /* Lightened for better visibility */
+        --accent: #38bdf8;
+      }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            cursor: none; /* Custom cursor */
-        }
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+        cursor: none; /* Custom cursor */
+      }
 
-        /* --- Custom Cursor --- */
-        .cursor-dot {
-            width: 8px; height: 8px;
-            background-color: var(--accent);
-            border-radius: 50%; position: fixed;
-            top: 0; left: 0; pointer-events: none; z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s;
-        }
-        .cursor-outline {
-            width: 40px; height: 40px;
-            border: 1px solid rgba(56, 189, 248, 0.5);
-            border-radius: 50%; position: fixed;
-            top: 0; left: 0; pointer-events: none; z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s;
-        }
+      /* --- Custom Cursor --- */
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.2s,
+          height 0.2s;
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(56, 189, 248, 0.5);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.2s,
+          height 0.2s,
+          background-color 0.2s;
+      }
 
-        /* --- Canvas Wave Background --- */
-        #waveCanvas {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1; pointer-events: none;
-            opacity: 0.6;
-        }
+      /* --- Canvas Wave Background --- */
+      #waveCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.6;
+      }
 
-        /* --- Navigation --- */
-        .navbar {
-            background: rgba(2, 4, 10, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .nav-link {
-            color: var(--text-readable) !important;
-            text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .nav-link:hover { color: var(--text-main) !important; }
+      /* --- Navigation --- */
+      .navbar {
+        background: rgba(2, 4, 10, 0.8);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .nav-link {
+        color: var(--text-readable) !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
+        transition: color 0.3s ease;
+      }
+      .nav-link:hover {
+        color: var(--text-main) !important;
+      }
 
-        /* --- Typography & Globals --- */
-        section { padding: 100px 0; }
-        .display-1 { font-weight: 900; letter-spacing: -2px; line-height: 1.1; }
-        .text-readable { color: var(--text-readable); font-size: 1.1rem; line-height: 1.7; }
-        .section-title {
-            font-size: 0.85rem; text-transform: uppercase;
-            letter-spacing: 3px; color: var(--accent);
-            margin-bottom: 2rem; display: flex; align-items: center; font-weight: 600;
-        }
-        .section-title::after {
-            content: ""; height: 1px; width: 50px;
-            background: var(--accent); opacity: 0.5; margin-left: 15px;
-        }
+      /* --- Typography & Globals --- */
+      section {
+        padding: 100px 0;
+      }
+      .display-1 {
+        font-weight: 900;
+        letter-spacing: -2px;
+        line-height: 1.1;
+      }
+      .text-readable {
+        color: var(--text-readable);
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      .section-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--accent);
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+      }
+      .section-title::after {
+        content: "";
+        height: 1px;
+        width: 50px;
+        background: var(--accent);
+        opacity: 0.5;
+        margin-left: 15px;
+      }
 
-        /* --- Hero Image --- */
-        .hero-img-wrapper {
-            position: relative; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8); aspect-ratio: 4/5;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .hero-img-wrapper img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.7s ease; filter: contrast(1.1) brightness(0.9);
-        }
-        .hero-img-wrapper:hover img { transform: scale(1.04); }
+      /* --- Hero Image --- */
+      .hero-img-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+        aspect-ratio: 4/5;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .hero-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+        filter: contrast(1.1) brightness(0.9);
+      }
+      .hero-img-wrapper:hover img {
+        transform: scale(1.04);
+      }
 
-        /* --- Infinite Marquee Slider --- */
-        .ticker-wrapper {
-            width: 100%; overflow: hidden;
-            background: var(--surface-dark);
-            border-top: 1px solid rgba(255,255,255,0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            padding: 1.5rem 0; display: flex;
-        }
-        .ticker-track {
-            display: flex; white-space: nowrap;
-            animation: ticker 25s linear infinite;
-        }
-        .ticker-wrapper:hover .ticker-track { animation-play-state: paused; }
-        .ticker-item {
-            font-size: 1.25rem; font-weight: 600; text-transform: uppercase;
-            padding: 0 3rem; display: flex; align-items: center; gap: 3rem;
-            color: var(--text-main); letter-spacing: 1px;
-        }
-        .ticker-item i { color: var(--accent); font-size: 0.5rem; }
+      /* --- Infinite Marquee Slider --- */
+      .ticker-wrapper {
+        width: 100%;
+        overflow: hidden;
+        background: var(--surface-dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        padding: 1.5rem 0;
+        display: flex;
+      }
+      .ticker-track {
+        display: flex;
+        white-space: nowrap;
+        animation: ticker 25s linear infinite;
+      }
+      .ticker-wrapper:hover .ticker-track {
+        animation-play-state: paused;
+      }
+      .ticker-item {
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 3rem;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        color: var(--text-main);
+        letter-spacing: 1px;
+      }
+      .ticker-item i {
+        color: var(--accent);
+        font-size: 0.5rem;
+      }
 
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
         }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
 
-        /* --- Modern Horizontal Scroll Projects --- */
+      /* --- Modern Horizontal Scroll Projects --- */
+      .horizontal-scroll-section {
+        overflow: hidden;
+        background: var(--bg-dark);
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .horizontal-container {
+        display: flex;
+        width: max-content;
+        padding: 0 5vw;
+        align-items: center;
+        gap: 5vw;
+      }
+
+      .project-panel {
+        width: 70vw;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        background: var(--surface-dark);
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .project-info {
+        padding: 4rem;
+        width: 40%;
+        z-index: 2;
+      }
+      .project-info h2 {
+        font-size: 3rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+      }
+
+      /* New custom classes for better text visibility */
+      .project-category {
+        color: var(--accent);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      .project-desc {
+        color: var(--text-readable);
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      /* --- Video Containers (Mixed Layout) --- */
+      .project-video {
+        width: 60%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-dark);
+      }
+
+      /* Horizontal Layout */
+      .project-video.horizontal iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+        filter: grayscale(20%);
+        transition: filter 0.4s ease;
+      }
+
+      /* Vertical (Shorts/Reels) Layout */
+      .project-video.vertical iframe {
+        height: 85%;
+        aspect-ratio: 9/16;
+        width: auto;
+        max-width: 100%;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        filter: grayscale(15%);
+        transition:
+          filter 0.4s ease,
+          transform 0.4s ease;
+      }
+
+      .project-panel:hover .project-video iframe {
+        filter: grayscale(0%);
+      }
+      .project-panel:hover .project-video.vertical iframe {
+        transform: scale(1.02);
+      }
+
+      /* Vertical Override for Mobile */
+      @media (max-width: 991px) {
         .horizontal-scroll-section {
-            overflow: hidden; 
-            background: var(--bg-dark);
-            padding: 0; 
-            height: 100vh; 
-            display: flex; flex-direction: column; justify-content: center;
+          height: auto;
+          padding: 100px 0;
+          display: block;
         }
-        
         .horizontal-container {
-            display: flex; width: max-content; padding: 0 5vw;
-            align-items: center; gap: 5vw;
+          flex-direction: column;
+          width: 100%;
+          padding: 0 20px;
+          gap: 40px;
         }
-
         .project-panel {
-            width: 70vw; 
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            background: var(--surface-dark);
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.05);
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+          width: 100%;
+          height: auto;
+          flex-direction: column-reverse;
         }
-
         .project-info {
-            padding: 4rem; width: 40%; z-index: 2;
+          width: 100%;
+          padding: 2rem;
         }
-        .project-info h2 { font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.1; }
-        
-        /* New custom classes for better text visibility */
-        .project-category { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 1.5rem; }
-        .project-desc { color: var(--text-readable); font-size: 1.05rem; line-height: 1.7; }
-        
-        /* --- Video Containers (Mixed Layout) --- */
+        .project-info h2 {
+          font-size: 2rem;
+        }
+
+        /* Mobile Video Adjustments */
         .project-video {
-            width: 60%; 
-            height: 100%; 
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-dark); 
+          width: 100%;
         }
-        
-        /* Horizontal Layout */
         .project-video.horizontal iframe {
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            border: none;
-            filter: grayscale(20%); 
-            transition: filter 0.4s ease;
+          aspect-ratio: 16/9;
+          height: auto;
         }
-
-        /* Vertical (Shorts/Reels) Layout */
+        .project-video.vertical {
+          padding: 2rem 0;
+        }
         .project-video.vertical iframe {
-            height: 85%; 
-            aspect-ratio: 9/16;
-            width: auto;
-            max-width: 100%;
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            filter: grayscale(15%); 
-            transition: filter 0.4s ease, transform 0.4s ease;
+          height: auto;
+          width: 65%;
+          aspect-ratio: 9/16;
         }
+      }
 
-        .project-panel:hover .project-video iframe { filter: grayscale(0%); }
-        .project-panel:hover .project-video.vertical iframe { transform: scale(1.02); }
-
-        /* Vertical Override for Mobile */
-        @media (max-width: 991px) {
-            .horizontal-scroll-section { height: auto; padding: 100px 0; display: block; }
-            .horizontal-container { flex-direction: column; width: 100%; padding: 0 20px; gap: 40px; }
-            .project-panel { width: 100%; height: auto; flex-direction: column-reverse; }
-            .project-info { width: 100%; padding: 2rem; }
-            .project-info h2 { font-size: 2rem; }
-            
-            /* Mobile Video Adjustments */
-            .project-video { width: 100%; }
-            .project-video.horizontal iframe { aspect-ratio: 16/9; height: auto; }
-            .project-video.vertical { padding: 2rem 0; }
-            .project-video.vertical iframe { height: auto; width: 65%; aspect-ratio: 9/16; }
+      @media (max-width: 768px) {
+        body {
+          cursor: auto;
         }
-
-        @media (max-width: 768px) {
-            body { cursor: auto; }
-            .cursor-dot, .cursor-outline { display: none; }
-            .display-1 { font-size: 3rem; }
-            .ticker-item { font-size: 1rem; }
-            .project-video.vertical iframe { width: 85%; }
+        .cursor-dot,
+        .cursor-outline {
+          display: none;
         }
-
-        /* --- Buttons --- */
-        .btn-outline-accent {
-            border: 1px solid var(--accent); color: var(--accent);
-            border-radius: 50px; padding: 12px 30px; font-weight: 600;
-            letter-spacing: 1px; text-transform: uppercase;
-            font-size: 0.85rem; transition: all 0.3s ease;
+        .display-1 {
+          font-size: 3rem;
         }
-        .btn-outline-accent:hover {
-            background: var(--accent); color: var(--bg-dark);
-            transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        .ticker-item {
+          font-size: 1rem;
         }
+        .project-video.vertical iframe {
+          width: 85%;
+        }
+      }
 
-        .gsap-reveal { opacity: 0; transform: translateY(40px); }
+      /* --- Buttons --- */
+      .btn-outline-accent {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+      }
+      .btn-outline-accent:hover {
+        background: var(--accent);
+        color: var(--bg-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+      }
+
+      .gsap-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Animated Canvas Wave Background -->
     <canvas id="waveCanvas"></canvas>
 
@@ -246,305 +401,451 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand text-white fw-bold" href="#">Biwash Visuals</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-white"></i>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav gap-4">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#edits">Edits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="#">Biwash Visuals</a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <i class="fas fa-bars text-white"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-4">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#edits">Edits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Home Section -->
-    <section id="home" class="min-vh-100 d-flex align-items-center position-relative pt-5">
-        <div class="container mt-5">
-            <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <p class="section-title gsap-reveal">Video Editor</p>
-                    <h1 class="display-1 text-white mb-4 hero-title">
-                        <span class="d-block gsap-title">Crafting Motion.</span>
-                        <span class="d-block text-secondary gsap-title" style="color: #475569 !important;">Elevating Brands.</span>
-                    </h1>
-                    <p class="text-readable w-100 w-md-75 mb-5 gsap-reveal">
-                        Specializing in high-retention cinematic edits for YouTube and dynamic short-form content for Instagram. I build visual momentum.
-                    </p>
-                    <div class="gsap-reveal d-flex align-items-center gap-4">
-                        <a href="#edits" class="btn btn-outline-accent">View Projects</a>
-                        <a href="#contact" class="text-white text-decoration-none fw-bold">Let's Talk <i class="fas fa-arrow-right ms-2 text-accent" style="color: var(--accent);"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 offset-lg-1">
-                    <div class="hero-img-wrapper gsap-reveal">
-                       
-                        <img src="../Images/profile.jpg" alt="Biwash Gurung">
-                    </div>
-                </div>
+    <section
+      id="home"
+      class="min-vh-100 d-flex align-items-center position-relative pt-5"
+    >
+      <div class="container mt-5">
+        <div class="row align-items-center">
+          <div class="col-lg-7 mb-5 mb-lg-0">
+            <p class="section-title gsap-reveal">Video Editor</p>
+            <h1 class="display-1 text-white mb-4 hero-title">
+              <span class="d-block gsap-title">Crafting Motion.</span>
+              <span
+                class="d-block text-secondary gsap-title"
+                style="color: #475569 !important"
+                >Elevating Brands.</span
+              >
+            </h1>
+            <p class="text-readable w-100 w-md-75 mb-5 gsap-reveal">
+              Specializing in high-retention cinematic edits for YouTube and
+              dynamic short-form content for Instagram. I build visual momentum.
+            </p>
+            <div class="gsap-reveal d-flex align-items-center gap-4">
+              <a href="#edits" class="btn btn-outline-accent">View Projects</a>
+              <a href="#contact" class="text-white text-decoration-none fw-bold"
+                >Let's Talk
+                <i
+                  class="fas fa-arrow-right ms-2 text-accent"
+                  style="color: var(--accent)"
+                ></i
+              ></a>
             </div>
+          </div>
+          <div class="col-lg-4 offset-lg-1">
+            <div class="hero-img-wrapper gsap-reveal">
+              <img src="../Images/profile.jpg" alt="Biwash Gurung" />
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Infinite Marquee Slider -->
     <div class="ticker-wrapper gsap-reveal">
-        <div class="ticker-track">
-            <!-- First Set -->
-            <div class="ticker-item">
-                Total Views 1M+ <i class="fas fa-circle"></i>
-                166K+ Organic Views <i class="fas fa-circle"></i>
-                Edited 100+ Dog Grooming Videos <i class="fas fa-circle"></i>
-                1+ Year of Experience <i class="fas fa-circle"></i>
-            </div>
-            <!-- Duplicated Set for Looping -->
-            <div class="ticker-item">
-                Total Views 1M+ <i class="fas fa-circle"></i>
-                166K+ Organic Views <i class="fas fa-circle"></i>
-                Edited 100+ Dog Grooming Videos <i class="fas fa-circle"></i>
-                1+ Year of Experience <i class="fas fa-circle"></i>
-            </div>
+      <div class="ticker-track">
+        <!-- First Set -->
+        <div class="ticker-item">
+          Total Views 1M+ <i class="fas fa-circle"></i> 166K+ Organic Views
+          <i class="fas fa-circle"></i> Edited 100+ Dog Grooming Videos
+          <i class="fas fa-circle"></i> 1+ Year of Experience
+          <i class="fas fa-circle"></i>
         </div>
+        <!-- Duplicated Set for Looping -->
+        <div class="ticker-item">
+          Total Views 1M+ <i class="fas fa-circle"></i> 166K+ Organic Views
+          <i class="fas fa-circle"></i> Edited 100+ Dog Grooming Videos
+          <i class="fas fa-circle"></i> 1+ Year of Experience
+          <i class="fas fa-circle"></i>
+        </div>
+      </div>
     </div>
 
     <!-- About Section -->
     <section id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0 gsap-reveal">
-                    <div style="width: 100%; aspect-ratio: 4/5; background: var(--surface-dark); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 0 50px rgba(0,0,0,0.5);">
-                         <i class="fas fa-film fa-5x" style="color: rgba(255,255,255,0.05);"></i>
-                    </div>
-                </div>
-                <div class="col-lg-6 offset-lg-1">
-                    <p class="section-title gsap-reveal">Behind the Cuts</p>
-                    <h2 class="h1 fw-bold mb-4 gsap-reveal">Rhythm, pacing, and visual architecture.</h2>
-                    <p class="text-readable mb-4 gsap-reveal">
-                        I am Biwash Gurung. I don't just cut footage together; I design comprehensive visual systems. Drawing from a strong foundation in digital interface design and brand identity, I approach video editing with a meticulous eye for structural hierarchy and aesthetic precision.
-                    </p>
-                    <p class="text-readable mb-5 gsap-reveal">
-                        Whether pacing a long-form YouTube documentary or maximizing impact in a 15-second Instagram reel, the goal remains the same: seamless, premium delivery that holds audience attention.
-                    </p>
-                    <div class="row gsap-reveal mt-4 pt-4 border-top border-secondary border-opacity-25">
-                        <div class="col-6">
-                            <h5 class="text-white mb-3">Software Arsenal</h5>
-                            <ul class="list-unstyled text-readable">
-                                <li class="mb-2"><i class="fas fa-play text-accent me-2" style="color:var(--accent); font-size: 0.8em;"></i> Adobe Premiere Pro</li>
-                                <li><i class="fas fa-play text-accent me-2" style="color:var(--accent); font-size: 0.8em;"></i> After Effects</li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <h5 class="text-white mb-3">Core Expertise</h5>
-                            <ul class="list-unstyled text-readable">
-                                <li class="mb-2">Narrative Pacing</li>
-                                <li>Motion Graphics</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-5 mb-lg-0 gsap-reveal">
+            <div class="hero-img-wrapper gsap-reveal">
+              <img
+                src="../Images/workstation.png"
+                alt="Biwash Gurung Workspace"
+              />
             </div>
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+            <p class="section-title gsap-reveal">Behind the Cuts</p>
+            <h2 class="h1 fw-bold mb-4 gsap-reveal">
+              Rhythm, pacing, and visual architecture.
+            </h2>
+            <p class="text-readable mb-4 gsap-reveal">
+              I am Biwash Gurung. I don't just cut footage together; I design
+              comprehensive visual systems. Drawing from a strong foundation in
+              digital interface design and brand identity, I approach video
+              editing with a meticulous eye for structural hierarchy and
+              aesthetic precision.
+            </p>
+            <p class="text-readable mb-5 gsap-reveal">
+              Whether pacing a long-form YouTube documentary or maximizing
+              impact in a 15-second Instagram reel, the goal remains the same:
+              seamless, premium delivery that holds audience attention.
+            </p>
+            <div
+              class="row gsap-reveal mt-4 pt-4 border-top border-secondary border-opacity-25"
+            >
+              <div class="col-6">
+                <h5 class="text-white mb-3">Software Arsenal</h5>
+                <ul class="list-unstyled text-readable">
+                  <li class="mb-2">
+                    <i
+                      class="fas fa-play text-accent me-2"
+                      style="color: var(--accent); font-size: 0.8em"
+                    ></i>
+                    Adobe Premiere Pro
+                  </li>
+                  <li>
+                    <i
+                      class="fas fa-play text-accent me-2"
+                      style="color: var(--accent); font-size: 0.8em"
+                    ></i>
+                    After Effects
+                  </li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h5 class="text-white mb-3">Core Expertise</h5>
+                <ul class="list-unstyled text-readable">
+                  <li class="mb-2">Narrative Pacing</li>
+                  <li>Motion Graphics</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Modern Horizontal Scroll Projects Section -->
     <section id="edits" class="horizontal-scroll-section">
-        <!-- Title wrapper that stays visible -->
-        <div class="container mb-4 d-none d-lg-block gsap-reveal">
-             <p class="section-title">Selected Works</p>
+      <!-- Title wrapper that stays visible -->
+      <div class="container mb-4 d-none d-lg-block gsap-reveal">
+        <p class="section-title">Selected Works</p>
+      </div>
+
+      <div class="horizontal-container">
+        <!-- Project 1: Swastha Nepal (Vertical) -->
+        <div class="project-panel">
+          <div class="project-info">
+            <h2>Swastha Nepal App</h2>
+            <p class="project-category">YouTube Shorts • Ad Campaign</p>
+            <p class="project-desc">
+              High-converting vertical advertisement designed for mobile
+              viewers. Focused on rapid hook delivery, clear typography, and
+              strong value proposition.
+            </p>
+          </div>
+          <div class="project-video vertical">
+            <!-- YouTube Short Embed -->
+            <iframe
+              src="https://www.youtube.com/embed/QxeMaMVpHvk?rel=0&modestbranding=1"
+              title="Swastha Nepal App Ads"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
-        
-        <div class="horizontal-container">
-            
-            <!-- Project 1: Swastha Nepal (Vertical) -->
-            <div class="project-panel">
-                <div class="project-info">
-                    <h2>Swastha Nepal App</h2>
-                    <p class="project-category">YouTube Shorts • Ad Campaign</p>
-                    <p class="project-desc">High-converting vertical advertisement designed for mobile viewers. Focused on rapid hook delivery, clear typography, and strong value proposition.</p>
-                </div>
-                <div class="project-video vertical">
-                    <!-- YouTube Short Embed -->
-                    <iframe src="https://www.youtube.com/embed/QxeMaMVpHvk?rel=0&modestbranding=1" title="Swastha Nepal App Ads" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
 
-            <!-- Project 2: IG Reel (Vertical) -->
-            <div class="project-panel">
-                <div class="project-info">
-                    <h2>Viral Dog Grooming</h2>
-                    <p class="project-category">Instagram Reel • Engagement Optimization</p>
-                    <p class="project-desc">Generated over 166K+ organic views through high-paced short-form editing, tight visual pacing, and dynamic transitions tailored for Instagram's algorithm.</p>
-                </div>
-                <div class="project-video vertical">
-                    <!-- Instagram Embed -->
-                    <iframe src="https://www.instagram.com/reel/DO3Lib6kwvD/embed/" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <!-- Project 3: New Video Addition (Horizontal) -->
-            <div class="project-panel">
-                <div class="project-info">
-                    <h2>Cinematic Storytelling</h2>
-                    <p class="project-category">YouTube • Rhythm & Pacing</p>
-                    <p class="project-desc">A stylized narrative focusing on seamless B-roll integration, heavy sound design, and widescreen cinematic color grading to maintain high audience retention.</p>
-                </div>
-                <div class="project-video horizontal">
-                    <!-- New YouTube Embed -->
-                    <iframe src="https://www.youtube.com/embed/dmyWQE0ZiSg?rel=0&modestbranding=1" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <!-- Project 4: YT Short (Vertical) -->
-            <div class="project-panel">
-                <div class="project-info">
-                    <h2>Premium Grooming Cut</h2>
-                    <p class="project-category">YouTube Shorts • Visual Rhythm</p>
-                    <p class="project-desc">Garnered 24K+ views. Precision editing with tight pacing, audio-driven cuts, and a premium visual flow that retains viewers to the end of the short.</p>
-                </div>
-                <div class="project-video vertical">
-                    <!-- YouTube Short Embed -->
-                    <iframe src="https://www.youtube.com/embed/cZwj9T71W58?rel=0&modestbranding=1" title="Dog Grooming YT Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-
+        <!-- Project 2: IG Reel (Vertical) -->
+        <div class="project-panel">
+          <div class="project-info">
+            <h2>Viral Dog Grooming</h2>
+            <p class="project-category">
+              Instagram Reel • Engagement Optimization
+            </p>
+            <p class="project-desc">
+              Generated over 166K+ organic views through high-paced short-form
+              editing, tight visual pacing, and dynamic transitions tailored for
+              Instagram's algorithm.
+            </p>
+          </div>
+          <div class="project-video vertical">
+            <!-- Instagram Embed -->
+            <iframe
+              src="https://www.instagram.com/reel/DO3Lib6kwvD/embed/"
+              allowtransparency="true"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+
+        <!-- Project 3: New Video Addition (Horizontal) -->
+        <div class="project-panel">
+          <div class="project-info">
+            <h2>Cinematic Storytelling</h2>
+            <p class="project-category">YouTube • Rhythm & Pacing</p>
+            <p class="project-desc">
+              A stylized narrative focusing on seamless B-roll integration,
+              heavy sound design, and widescreen cinematic color grading to
+              maintain high audience retention.
+            </p>
+          </div>
+          <div class="project-video horizontal">
+            <!-- New YouTube Embed -->
+            <iframe
+              src="https://www.youtube.com/embed/dmyWQE0ZiSg?rel=0&modestbranding=1"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Project 4: YT Short (Vertical) -->
+        <div class="project-panel">
+          <div class="project-info">
+            <h2>Premium Grooming Cut</h2>
+            <p class="project-category">YouTube Shorts • Visual Rhythm</p>
+            <p class="project-desc">
+              Garnered 24K+ views. Precision editing with tight pacing,
+              audio-driven cuts, and a premium visual flow that retains viewers
+              to the end of the short.
+            </p>
+          </div>
+          <div class="project-video vertical">
+            <!-- YouTube Short Embed -->
+            <iframe
+              src="https://www.youtube.com/embed/cZwj9T71W58?rel=0&modestbranding=1"
+              title="Dog Grooming YT Short"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="border-top border-secondary border-opacity-25 position-relative">
-        <div class="container text-center py-5">
-            <p class="section-title justify-content-center gsap-reveal">Next Steps</p>
-            <h2 class="display-3 fw-bold mb-4 gsap-reveal">Let's build something.</h2>
-            <p class="text-readable mb-5 w-100 w-md-50 mx-auto gsap-reveal">
-                I prioritize focused, asynchronous communication to ensure project details are perfectly documented. Reach out via text or email to discuss your next brief.
-            </p>
-            
-            <div class="d-flex justify-content-center gap-4 gsap-reveal flex-wrap">
-                <a href="https://wa.me/YOURNUMBER" target="_blank" class="btn btn-outline-accent d-flex align-items-center gap-2">
-                    <i class="fab fa-whatsapp fs-5"></i> Message on WhatsApp
-                </a>
-                <a href="mailto:your@email.com" class="btn btn-outline-accent d-flex align-items-center gap-2">
-                    <i class="far fa-envelope fs-5"></i> Send an Email
-                </a>
-            </div>
+    <section
+      id="contact"
+      class="border-top border-secondary border-opacity-25 position-relative"
+    >
+      <div class="container text-center py-5">
+        <p class="section-title justify-content-center gsap-reveal">
+          Next Steps
+        </p>
+        <h2 class="display-3 fw-bold mb-4 gsap-reveal">
+          Let's build something.
+        </h2>
+        <p class="text-readable mb-5 w-100 w-md-50 mx-auto gsap-reveal">
+          I prioritize focused, asynchronous communication to ensure project
+          details are perfectly documented. Reach out via text or email to
+          discuss your next brief.
+        </p>
+
+        <div class="d-flex justify-content-center gap-4 gsap-reveal flex-wrap">
+          <a
+            href="https://wa.me/YOURNUMBER"
+            target="_blank"
+            class="btn btn-outline-accent d-flex align-items-center gap-2"
+          >
+            <i class="fab fa-whatsapp fs-5"></i> Message on WhatsApp
+          </a>
+          <a
+            href="mailto:your@email.com"
+            class="btn btn-outline-accent d-flex align-items-center gap-2"
+          >
+            <i class="far fa-envelope fs-5"></i> Send an Email
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 text-center border-top border-secondary border-opacity-25" style="background: var(--bg-dark);">
-        <p class="text-readable small mb-0">© 2026 Biwash Gurung. All rights reserved.</p>
+    <footer
+      class="py-4 text-center border-top border-secondary border-opacity-25"
+      style="background: var(--bg-dark)"
+    >
+      <p class="text-readable small mb-0">
+        © 2026 Biwash Gurung. All rights reserved.
+      </p>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- GSAP (GreenSock) Core & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
-        // --- 1. Canvas Wave Animation ---
-        const canvas = document.getElementById('waveCanvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, time = 0;
+      // --- 1. Canvas Wave Animation ---
+      const canvas = document.getElementById("waveCanvas");
+      const ctx = canvas.getContext("2d");
+      let width,
+        height,
+        time = 0;
 
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      function drawWave() {
+        ctx.clearRect(0, 0, width, height);
+        time += 0.005; // Speed of the wave
+
+        // Draw 3 overlapping waves for depth
+        for (let j = 0; j < 3; j++) {
+          ctx.beginPath();
+          ctx.moveTo(0, height / 2);
+          for (let i = 0; i < width; i++) {
+            // Complex sine wave math for smooth, irregular movement
+            let y =
+              Math.sin(i * 0.002 + time + j) * 80 +
+              Math.cos(i * 0.001 + time * 0.5) * 40 +
+              height * 0.6; // Base vertical position
+            ctx.lineTo(i, y);
+          }
+          // Gradient for the lines
+          let strokeColor = `rgba(56, 189, 248, ${0.03 + j * 0.02})`;
+          ctx.strokeStyle = strokeColor;
+          ctx.lineWidth = 2;
+          ctx.stroke();
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        requestAnimationFrame(drawWave);
+      }
+      drawWave();
 
-        function drawWave() {
-            ctx.clearRect(0, 0, width, height);
-            time += 0.005; // Speed of the wave
-            
-            // Draw 3 overlapping waves for depth
-            for(let j = 0; j < 3; j++) {
-                ctx.beginPath();
-                ctx.moveTo(0, height / 2);
-                for(let i = 0; i < width; i++) {
-                    // Complex sine wave math for smooth, irregular movement
-                    let y = Math.sin(i * 0.002 + time + j) * 80 
-                          + Math.cos(i * 0.001 + time * 0.5) * 40 
-                          + (height * 0.6); // Base vertical position
-                    ctx.lineTo(i, y);
-                }
-                // Gradient for the lines
-                let strokeColor = `rgba(56, 189, 248, ${0.03 + (j * 0.02)})`; 
-                ctx.strokeStyle = strokeColor;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            }
-            requestAnimationFrame(drawWave);
-        }
-        drawWave();
+      // --- 2. Custom Cursor Logic ---
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
 
-        // --- 2. Custom Cursor Logic ---
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        window.addEventListener('mousemove', (e) => {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            gsap.to(cursorOutline, { x: posX, y: posY, duration: 0.15, ease: "power2.out" });
+      window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        gsap.to(cursorOutline, {
+          x: posX,
+          y: posY,
+          duration: 0.15,
+          ease: "power2.out",
         });
+      });
 
-        // Expand cursor on interactive elements
-        const interactables = document.querySelectorAll('a, button, .project-panel, .hero-img-wrapper');
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.width = '60px'; cursorOutline.style.height = '60px';
-                cursorOutline.style.backgroundColor = 'rgba(56, 189, 248, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.width = '40px'; cursorOutline.style.height = '40px';
-                cursorOutline.style.backgroundColor = 'transparent';
-            });
+      // Expand cursor on interactive elements
+      const interactables = document.querySelectorAll(
+        "a, button, .project-panel, .hero-img-wrapper",
+      );
+      interactables.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursorOutline.style.width = "60px";
+          cursorOutline.style.height = "60px";
+          cursorOutline.style.backgroundColor = "rgba(56, 189, 248, 0.1)";
         });
-
-        // --- 3. GSAP Scroll Animations ---
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Titles
-        gsap.from(".gsap-title", {
-            y: 50, opacity: 0, duration: 1.2, stagger: 0.2, ease: "power3.out", delay: 0.2
+        el.addEventListener("mouseleave", () => {
+          cursorOutline.style.width = "40px";
+          cursorOutline.style.height = "40px";
+          cursorOutline.style.backgroundColor = "transparent";
         });
+      });
 
-        // Standard Scroll Reveal
-        const revealElements = document.querySelectorAll(".gsap-reveal");
-        revealElements.forEach((el) => {
-            gsap.to(el, {
-                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none reverse" },
-                y: 0, opacity: 1, duration: 0.8, ease: "power2.out"
-            });
-        });
+      // --- 3. GSAP Scroll Animations ---
+      gsap.registerPlugin(ScrollTrigger);
 
-        // --- 4. Horizontal Scroll Logic for Projects ---
-        // Only apply horizontal scroll on Desktop screens
-        let mm = gsap.matchMedia();
-        
-        mm.add("(min-width: 992px)", () => {
-            let panels = gsap.utils.toArray(".project-panel");
-            let container = document.querySelector(".horizontal-container");
-            
-            gsap.to(panels, {
-                xPercent: -100 * (panels.length - 1),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: ".horizontal-scroll-section",
-                    pin: true,
-                    scrub: 1, // Smooth scrubbing
-                    // Calculate total scrolling distance based on container width
-                    end: () => "+=" + (container.scrollWidth - window.innerWidth)
-                }
-            });
+      // Hero Titles
+      gsap.from(".gsap-title", {
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out",
+        delay: 0.2,
+      });
+
+      // Standard Scroll Reveal
+      const revealElements = document.querySelectorAll(".gsap-reveal");
+      revealElements.forEach((el) => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
         });
+      });
+
+      // --- 4. Horizontal Scroll Logic for Projects ---
+      // Only apply horizontal scroll on Desktop screens
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 992px)", () => {
+        let panels = gsap.utils.toArray(".project-panel");
+        let container = document.querySelector(".horizontal-container");
+
+        gsap.to(panels, {
+          xPercent: -100 * (panels.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".horizontal-scroll-section",
+            pin: true,
+            scrub: 1, // Smooth scrubbing
+            // Calculate total scrolling distance based on container width
+            end: () => "+=" + (container.scrollWidth - window.innerWidth),
+          },
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
