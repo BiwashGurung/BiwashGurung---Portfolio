@@ -20,7 +20,7 @@
             --bg-dark: #02040a; 
             --surface-dark: #0a0e17;
             --text-main: #f8fafc;
-            --text-readable: #94a3b8;
+            --text-readable: #e2e8f0; /* Lightened for better visibility */
             --accent: #38bdf8;
         }
 
@@ -124,10 +124,10 @@
 
         /* --- Modern Horizontal Scroll Projects --- */
         .horizontal-scroll-section {
-            overflow: hidden; /* Hide horizontal scrollbar */
+            overflow: hidden; 
             background: var(--bg-dark);
-            padding: 0; /* Managed by GSAP */
-            height: 100vh; /* Will be pinned */
+            padding: 0; 
+            height: 100vh; 
             display: flex; flex-direction: column; justify-content: center;
         }
         
@@ -137,7 +137,7 @@
         }
 
         .project-panel {
-            width: 70vw; /* Massive cards */
+            width: 70vw; 
             height: 70vh;
             display: flex;
             align-items: center;
@@ -153,17 +153,48 @@
         .project-info {
             padding: 4rem; width: 40%; z-index: 2;
         }
-        .project-info h2 { font-size: 3rem; font-weight: 900; margin-bottom: 1rem; line-height: 1.1; }
-        .project-info p { color: var(--text-readable); font-size: 1.1rem; }
+        .project-info h2 { font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem; line-height: 1.1; }
         
+        /* New custom classes for better text visibility */
+        .project-category { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 1.5rem; }
+        .project-desc { color: var(--text-readable); font-size: 1.05rem; line-height: 1.7; }
+        
+        /* --- Video Containers (Mixed Layout) --- */
         .project-video {
-            width: 60%; height: 100%; position: relative;
+            width: 60%; 
+            height: 100%; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-dark); 
         }
-        .project-video iframe {
-            width: 100%; height: 100%; object-fit: cover; border: none;
-            filter: grayscale(20%); transition: filter 0.4s ease;
+        
+        /* Horizontal Layout */
+        .project-video.horizontal iframe {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            border: none;
+            filter: grayscale(20%); 
+            transition: filter 0.4s ease;
         }
+
+        /* Vertical (Shorts/Reels) Layout */
+        .project-video.vertical iframe {
+            height: 85%; 
+            aspect-ratio: 9/16;
+            width: auto;
+            max-width: 100%;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            filter: grayscale(15%); 
+            transition: filter 0.4s ease, transform 0.4s ease;
+        }
+
         .project-panel:hover .project-video iframe { filter: grayscale(0%); }
+        .project-panel:hover .project-video.vertical iframe { transform: scale(1.02); }
 
         /* Vertical Override for Mobile */
         @media (max-width: 991px) {
@@ -172,7 +203,12 @@
             .project-panel { width: 100%; height: auto; flex-direction: column-reverse; }
             .project-info { width: 100%; padding: 2rem; }
             .project-info h2 { font-size: 2rem; }
-            .project-video { width: 100%; aspect-ratio: 16/9; }
+            
+            /* Mobile Video Adjustments */
+            .project-video { width: 100%; }
+            .project-video.horizontal iframe { aspect-ratio: 16/9; height: auto; }
+            .project-video.vertical { padding: 2rem 0; }
+            .project-video.vertical iframe { height: auto; width: 65%; aspect-ratio: 9/16; }
         }
 
         @media (max-width: 768px) {
@@ -180,6 +216,7 @@
             .cursor-dot, .cursor-outline { display: none; }
             .display-1 { font-size: 3rem; }
             .ticker-item { font-size: 1rem; }
+            .project-video.vertical iframe { width: 85%; }
         }
 
         /* --- Buttons --- */
@@ -320,40 +357,55 @@
         
         <div class="horizontal-container">
             
-            <!-- Project 1 -->
+            <!-- Project 1: Swastha Nepal (Vertical) -->
             <div class="project-panel">
                 <div class="project-info">
-                    <h2>100+ Dog Grooming Cuts</h2>
-                    <p>Instagram Reels • Engagement & Retention Optimization</p>
-                    <p class="small text-muted mt-3">Generated over 166K+ organic views through high-paced short-form editing and dynamic transitions.</p>
+                    <h2>Swastha Nepal App</h2>
+                    <p class="project-category">YouTube Shorts • Ad Campaign</p>
+                    <p class="project-desc">High-converting vertical advertisement designed for mobile viewers. Focused on rapid hook delivery, clear typography, and strong value proposition.</p>
                 </div>
-                <div class="project-video">
-                    <!-- Replace with actual embed -->
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0&mute=1" allowfullscreen></iframe>
+                <div class="project-video vertical">
+                    <!-- YouTube Short Embed -->
+                    <iframe src="https://www.youtube.com/embed/QxeMaMVpHvk?rel=0&modestbranding=1" title="Swastha Nepal App Ads" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 2: IG Reel (Vertical) -->
             <div class="project-panel">
                 <div class="project-info">
-                    <h2>Tech Brand Anthem</h2>
-                    <p>YouTube • Cinematic Grade & Cut</p>
-                    <p class="small text-muted mt-3">A stylized corporate narrative focusing on seamless B-roll integration and heavy sound design.</p>
+                    <h2>Viral Dog Grooming</h2>
+                    <p class="project-category">Instagram Reel • Engagement Optimization</p>
+                    <p class="project-desc">Generated over 166K+ organic views through high-paced short-form editing, tight visual pacing, and dynamic transitions tailored for Instagram's algorithm.</p>
                 </div>
-                <div class="project-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0&mute=1" allowfullscreen></iframe>
+                <div class="project-video vertical">
+                    <!-- Instagram Embed -->
+                    <iframe src="https://www.instagram.com/reel/DO3Lib6kwvD/embed/" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 3: New Video Addition (Horizontal) -->
             <div class="project-panel">
                 <div class="project-info">
-                    <h2>Vlog Cinematic Intro</h2>
-                    <p>YouTube • Motion Graphics</p>
-                    <p class="small text-muted mt-3">Built with After Effects. Advanced masking, kinetic typography, and pacing driven by the audio track.</p>
+                    <h2>Cinematic Storytelling</h2>
+                    <p class="project-category">YouTube • Rhythm & Pacing</p>
+                    <p class="project-desc">A stylized narrative focusing on seamless B-roll integration, heavy sound design, and widescreen cinematic color grading to maintain high audience retention.</p>
                 </div>
-                <div class="project-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&rel=0&mute=1" allowfullscreen></iframe>
+                <div class="project-video horizontal">
+                    <!-- New YouTube Embed -->
+                    <iframe src="https://www.youtube.com/embed/dmyWQE0ZiSg?rel=0&modestbranding=1" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Project 4: YT Short (Vertical) -->
+            <div class="project-panel">
+                <div class="project-info">
+                    <h2>Premium Grooming Cut</h2>
+                    <p class="project-category">YouTube Shorts • Visual Rhythm</p>
+                    <p class="project-desc">Garnered 24K+ views. Precision editing with tight pacing, audio-driven cuts, and a premium visual flow that retains viewers to the end of the short.</p>
+                </div>
+                <div class="project-video vertical">
+                    <!-- YouTube Short Embed -->
+                    <iframe src="https://www.youtube.com/embed/cZwj9T71W58?rel=0&modestbranding=1" title="Dog Grooming YT Short" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
