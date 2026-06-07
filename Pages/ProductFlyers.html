@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Flyers | Biwash Gurung</title>
+    <link rel="shortcut icon" href="../Images/profile.jpg" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0a0a0a;
+            --surface-light: #141414;
+            --accent: #9061ff;
+            --text: #ffffff;
+            --text-dim: #888888;
+            --border: rgba(255,255,255,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
+        
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; width: 100%; }
+        
+        /* --- HERO SECTION --- */
+        .hero { 
+            padding: 160px 0 100px; 
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-bg-grid {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            z-index: -2;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+        
+        .tag-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .tag { padding: 6px 18px; border-radius: 30px; font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid var(--border); background: var(--surface); color: var(--text-dim); }
+        
+        .hero h1 { font-family: 'Space Grotesk'; font-size: clamp(2.2rem, 6vw, 5rem); line-height: 1.05; margin-bottom: 25px; letter-spacing: -1.5px; }
+        .hero h1 span { color: var(--accent); }
+        .hero .desc { color: var(--text-dim); max-width: 650px; margin: 0 auto; font-size: clamp(1rem, 2vw, 1.15rem); font-weight: 300; line-height: 1.8; }
+
+        /* --- ZIG-ZAG CASE STUDIES LAYOUT --- */
+        .case-studies-wrapper { padding: 120px 0; }
+        
+        .project-block { 
+            display: flex;
+            align-items: center;
+            gap: 80px; 
+            margin-bottom: 160px; 
+        }
+
+        .project-block:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .project-info {
+            flex: 1;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .metric-pill { display: inline-block; background: rgba(144, 97, 255, 0.1); color: var(--accent); padding: 4px 14px; border-radius: 4px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .project-info h2 { font-family: 'Space Grotesk'; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 25px; line-height: 1.1; letter-spacing: -0.5px; }
+        
+        .insight-box { margin-bottom: 25px; }
+        .insight-box:last-child { margin-bottom: 0; }
+        .insight-box h4 { font-size: 0.8rem; color: var(--text); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; opacity: 0.8;}
+        .insight-box p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; }
+        
+        .project-visual {
+            flex: 1.3;
+            background: var(--surface-light);
+            padding: 20px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+        .project-visual img { 
+            width: 100%; 
+            height: auto;
+            display: block; 
+            border-radius: 12px;
+            transition: transform 0.4s ease;
+        }
+        .project-visual:hover img { transform: scale(1.01); }
+
+        /* --- REDESIGNED FINAL SECTION --- */
+        .summary-wrap { 
+            padding: 120px 0; 
+            position: relative;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--surface) 100%);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .summary-wrap::before {
+            content: "CONVERT";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Space Grotesk';
+            font-size: 18vw;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.015);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .summary-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        
+        .summary-content h3 { font-family: 'Space Grotesk'; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 20px; letter-spacing: -1px; }
+        .summary-content .final-desc { color: #ccc; font-size: clamp(1rem, 2vw, 1.1rem); margin-bottom: 40px; line-height: 1.7; }
+
+        .achievement-badges { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 12px; 
+            margin-bottom: 50px; 
+        }
+        .badge { 
+            display: flex; align-items: center; gap: 8px; 
+            background: rgba(255,255,255,0.02); 
+            border: 1px solid var(--border); 
+            padding: 10px 18px; 
+            border-radius: 30px; 
+            font-size: 0.88rem; 
+            color: #ddd; 
+        }
+        .badge i { color: var(--accent); }
+
+        .cta-group { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; }
+        
+        .btn { 
+            padding: 16px 32px; border-radius: 8px; font-weight: 700; 
+            text-decoration: none; letter-spacing: 1px; transition: 0.3s; 
+            font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            width: auto;
+        }
+        .btn-primary { background: var(--text); color: var(--bg); }
+        .btn-primary:hover { background: #ddd; transform: translateY(-2px); }
+        
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: #555; transform: translateY(-2px); }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        @media (max-width: 1100px) {
+            .project-block { gap: 40px; }
+        }
+
+        @media (max-width: 992px) {
+            .container { padding: 0 30px; }
+            .hero { padding: 120px 0 80px; }
+            .case-studies-wrapper { padding: 80px 0; }
+            
+            .project-block, .project-block:nth-child(even) { 
+                flex-direction: column; 
+                gap: 30px; 
+                margin-bottom: 100px; 
+            }
+            .project-info { padding: 30px; width: 100%; }
+            .project-visual { padding: 15px; border-radius: 20px; width: 100%; }
+            .summary-wrap { padding: 100px 0; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
+            .hero { padding: 100px 0 60px; }
+            .tag-row { gap: 8px; margin-bottom: 20px; }
+            .tag { padding: 5px 14px; font-size: 0.68rem; }
+            .project-info { padding: 20px; border-radius: 16px; }
+            .project-visual { padding: 10px; border-radius: 14px; }
+            .badge { width: 100%; justify-content: center; font-size: 0.85rem; }
+            .cta-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="container">
+        <div class="tag-row">
+            <span class="tag" style="color: var(--accent); border-color: var(--accent);">Product Marketing</span>
+            <span class="tag">Advertising</span>
+        </div>
+        <h1>Selling With<br><span>Visual Impact.</span></h1>
+        <p class="desc">Designing highly converting product flyers that instantly communicate value, quality, and functionality. Merging striking visuals with clear, persuasive typography.</p>
+    </div>
+</header>
+
+<section class="case-studies-wrapper container">
+
+    <!-- PROJECT 1: Left Text / Right Image -->
+    <div class="project-block">
+        <div class="project-info">
+            <span class="metric-pill">FMCG Product</span>
+            <h2>Hello Charcoal Toothpaste</h2>
+            <div class="insight-box">
+                <h4>The Insight</h4>
+                <p>Everyday oral care products need to break out of the sterile, clinical aesthetic to appeal to modern consumers looking for natural, bold alternatives.</p>
+            </div>
+            <div class="insight-box">
+                <h4>The Execution</h4>
+                <p>A dark, textured charcoal background immediately communicates the active ingredient. The stark white graphic stripes provide a dynamic backdrop, making the matte black tube and vibrant green mint leaves pop to emphasize freshness and purity.</p>
+            </div>
+        </div>
+        <div class="project-visual">
+            <img src="../Images/Hello_Charcoal_Toothpaste.jpg" alt="Hello Charcoal Toothpaste Flyer">
+        </div>
+    </div>
+
+    <!-- PROJECT 2: Right Text / Left Image -->
+    <div class="project-block">
+        <div class="project-info">
+            <span class="metric-pill">Consumer Electronics</span>
+            <h2>Apple AirPods Max</h2>
+            <div class="insight-box">
+                <h4>The Insight</h4>
+                <p>High-end audio equipment is a lifestyle statement. The marketing must convey not just technical specifications, but the immersive, emotional experience of the music itself.</p>
+            </div>
+            <div class="insight-box">
+                <h4>The Execution</h4>
+                <p>A soft, premium monochromatic blue palette creates a calming, luxurious atmosphere. Integrating a realistic UI overlay of a currently playing track bridges the gap between hardware and the user experience, supported by minimalist, clean spec icons below.</p>
+            </div>
+        </div>
+        <div class="project-visual">
+            <img src="../Images/AirpodsMax.jpg" alt="AirPods Max Flyer">
+        </div>
+    </div>
+
+    <!-- PROJECT 3: Left Text / Right Image -->
+    <div class="project-block">
+        <div class="project-info">
+            <span class="metric-pill">Gaming Hardware</span>
+            <h2>PS5 DualSense Edge</h2>
+            <div class="insight-box">
+                <h4>The Insight</h4>
+                <p>Premium gaming accessories are sold on the promise of elevated performance and breaking boundaries. The visual needs to feel expansive, limitless, and powerful.</p>
+            </div>
+            <div class="insight-box">
+                <h4>The Execution</h4>
+                <p>Utilizing a bright sky background contrasts heavily with the bold, heavy typography anchored in the lower navy block. Allowing the controller to literally break out of the frame adds depth, tangibility, and a sense of unleashed potential.</p>
+            </div>
+        </div>
+        <div class="project-visual">
+            <img src="../Images/Ps5_Controller.jpg" alt="PS5 Controller Flyer">
+        </div>
+    </div>
+
+</section>
+
+<!-- CINEMATIC CENTERED FINAL SECTION -->
+<section class="summary-wrap">
+    <div class="summary-content container">
+        <h3>Turn Views Into Value.</h3>
+        <p class="final-desc">
+            A great product flyer doesn't just show an item; it tells a story about why the customer needs it. By combining high-end retouching, psychological color theory, and precise layout structures, these assets are engineered to drive action.
+        </p>
+        
+        <div class="achievement-badges">
+            <div class="badge"><i class="fa-solid fa-eye"></i> High-Contrast Layouts</div>
+            <div class="badge"><i class="fa-solid fa-bullseye"></i> Targeted Messaging</div>
+            <div class="badge"><i class="fa-solid fa-cart-shopping"></i> Conversion Focused</div>
+        </div>
+        
+        <div class="cta-group">
+            <a href="mailto:hello@example.com" class="btn btn-primary">
+                <i class="fa-solid fa-envelope"></i> Reach Out via Email
+            </a>
+            <a href="https://wa.me/YOUR_NUMBER" class="btn btn-secondary">
+                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </div>
+        
+        <div style="opacity: 0.6; margin-top: 60px;">
+            <a href="../index.html" style="color: var(--text); text-decoration: none; font-weight: 700; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">← Back to Portfolio</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
