@@ -784,6 +784,160 @@ margin-top: 16px;
 
 
 
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-section {
+    padding: 120px 0;
+    background: var(--bg);
+    overflow: hidden; /* Crucial to hide the overflowing marquee content */
+    border-top: 1px solid var(--border);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-heading .title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+}
+
+.section-heading .title span {
+    color: var(--accent); /* Uses your purple accent color */
+}
+
+.section-heading .subtitle {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+}
+
+/* --- MARQUEE CONTAINERS --- */
+.marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+/* Gradient fade on edges for a cinematic look */
+.marquee-container::before,
+.marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15vw;
+    z-index: 2;
+    pointer-events: none;
+}
+.marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+}
+.marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+}
+
+/* --- ANIMATIONS --- */
+.track-left-to-right {
+    /* Starts shifted left, moves right to 0 */
+    transform: translateX(-50%);
+    animation: scrollLtoR 40s linear infinite;
+}
+
+.track-right-to-left {
+    /* Starts at 0, moves left */
+    animation: scrollRtoL 40s linear infinite;
+}
+
+/* Hover to pause */
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollLtoR {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+}
+
+@keyframes scrollRtoL {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- TESTIMONIAL CARDS --- */
+.testimonial-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    width: 450px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.testimonial-card p {
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+}
+
+.client-info h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.client-info span {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .testimonial-card {
+        width: 320px;
+        padding: 30px;
+    }
+    
+    .testimonial-card p {
+        font-size: 0.95rem;
+    }
+}
+
 
 /*Whatsapp  for mobile */
 @media screen and (max-width: 767px) {
@@ -1234,6 +1388,128 @@ font-size: 22px;
           </div>
         </div>
       </section>
+
+
+<!-- TESTIMONIALS SECTION -->
+<section id="testimonials" class="testimonials-section">
+  <div class="container">
+    <div class="section-heading">
+      <h2 class="title">Design <span>Feedback</span></h2>
+      <p class="subtitle">What clients say about the brand identity and graphic design work.</p>
+    </div>
+  </div>
+
+  <div class="marquee-container">
+    <!-- ROW 1: Moves Left to Right -->
+    <div class="marquee-track track-left-to-right">
+      <!-- Original Set -->
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The brand identity and packaging mockups completely transformed our product lines. Outstanding attention to detail on the custom illustrations!"</p>
+        <div class="client-info">
+          <h4>Manager</h4>
+          <span>Angee's Snacks</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"An exceptional eye for corporate identity and structural design. The branding strategy for our co-living spaces exceeded all expectations."</p>
+        <div class="client-info">
+          <h4>Director</h4>
+          <span>Urban Nest</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The high-conversion advertising assets were delivered perfectly. Fast turnaround and incredibly efficient communication throughout the project."</p>
+        <div class="client-info">
+          <h4>Marketing Head</h4>
+          <span>Ramesh Poudel</span>
+        </div>
+      </div>
+      <!-- Duplicated Set -->
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The brand identity and packaging mockups completely transformed our product lines. Outstanding attention to detail on the custom illustrations!"</p>
+        <div class="client-info">
+          <h4>Manager</h4>
+          <span>Angee's Snacks</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"An exceptional eye for corporate identity and structural design. The branding strategy for our co-living spaces exceeded all expectations."</p>
+        <div class="client-info">
+          <h4>Director</h4>
+          <span>Urban Nest</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The high-conversion advertising assets were delivered perfectly. Fast turnaround and incredibly efficient communication throughout the project."</p>
+        <div class="client-info">
+          <h4>Marketing Head</h4>
+          <span>Ramesh Poudel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 2: Moves Right to Left -->
+    <div class="marquee-track track-right-to-left">
+      <!-- Original Set -->
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"Our festive social media marketing assets looked incredible. The layout structures and product highlights drove a lot of engagement on our feeds!"</p>
+        <div class="client-info">
+          <h4>Retail Manager</h4>
+          <span>Little Heart Pet Shop</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The logo construction and visual guidelines provided a cohesive look that has elevated our brand presence across all digital channels."</p>
+        <div class="client-info">
+          <h4>CEO</h4>
+          <span>Bluesky Industries</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"Incredible ability to translate our abstract brand values into clean, impactful graphic design assets. Truly a professional process."</p>
+        <div class="client-info">
+          <h4>Founder</h4>
+          <span>Angle's babies</span>
+        </div>
+      </div>
+      <!-- Duplicated Set -->
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"Our festive social media marketing assets looked incredible. The layout structures and product highlights drove a lot of engagement on our feeds!"</p>
+        <div class="client-info">
+          <h4>Retail Manager</h4>
+          <span>Little Heart Pet Shop</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"The logo construction and visual guidelines provided a cohesive look that has elevated our brand presence across all digital channels."</p>
+        <div class="client-info">
+          <h4>CEO</h4>
+          <span>Blue Sky Industries</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fa-solid fa-quote-left quote-icon"></i>
+        <p>"Incredible ability to translate our abstract brand values into clean, impactful graphic design assets. Truly a professional process."</p>
+        <div class="client-info">
+          <h4>Founder</h4>
+          <span>Angle's Babies</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <footer id="contact" class="contact-footer">
         <div class="contact-flex">
